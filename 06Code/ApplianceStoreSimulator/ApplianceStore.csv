@@ -1,11 +1,2 @@
-<<<<<<< HEAD
-Serialnumber,Price,Size,Color,Definition,Model
-12345,500.0,55.0,gray,high definition,samsung
-=======
 Serialnumber,Price,Velocity,Ability
-<<<<<<< HEAD
-1,2.0,3,4
-=======
-1234,12.0,1,2
->>>>>>> 9957414bde89f7073d641d02369f9abd4330e9c7
->>>>>>> 6e1160c60dcec8377b9bc201680a404aca8d1b2b
+251,10.0,1,2
