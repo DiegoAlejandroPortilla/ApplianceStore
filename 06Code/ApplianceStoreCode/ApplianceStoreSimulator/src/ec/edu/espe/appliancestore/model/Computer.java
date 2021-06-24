@@ -11,12 +11,12 @@ package ec.edu.espe.appliancestore.model;
  */
 public class Computer {
     private int power;
-    private String material;
+    private String brand;
     private float price;
-    private String storage;
-    private int serialnumber;
-        
-public Computer(){
+    private int storage;
+    private int serialNumber;
+    
+    public Computer(){
         this.power = 0;
         this.brand = "";
         this.price = 0.0F;
@@ -45,6 +45,7 @@ public Computer(){
         String[] date = {"Power -> " + String.valueOf(power)+" GB "+" Brand ->" +String.valueOf(brand)+ " Price -> "+String.valueOf(price)+" Storage -> "+String.valueOf(storage)+" GB "+" SerialNumber -> "+String.valueOf(serialNumber)};
         return date;
     }
+        
         
     public void buy(){
         
