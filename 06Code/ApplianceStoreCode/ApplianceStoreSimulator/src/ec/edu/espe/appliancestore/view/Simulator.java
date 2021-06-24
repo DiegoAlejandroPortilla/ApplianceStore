@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import ec.edu.espe.appliancestore.model.Blender;
+import ec.edu.espe.appliancestore.model.Computer;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -599,6 +600,34 @@ public class Simulator {
 			
 		}
          
+    }
+    
+    public static void writeCSVcomputer() throws IOException{
+      int power;
+      String brand;
+      float price;
+      int storage;
+      int serialNumber;  
+      ArrayList<Computer>computers=new ArrayList<Computer>();
+      Computer computersArray[] = new Computer[3];
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter data to csv");
+      
+        System.out.println("Enter the amount of RAM: ");
+        power=sc.nextInt();
+        System.out.println("Enter brand: ");
+        brand=sc.nextLine();
+        System.out.println("Enter the price: ");
+        price=sc.nextInt();
+        System.out.println("Enter storage capacity: ");
+        storage=sc.nextInt();
+        System.out.println("Enter the serialNumber: ");
+        serialNumber=sc.nextInt();
+        
+        Computer computer = new Computer();
+        System.out.println("Computer object -> " + computer);
+        
+        
     }
 
    

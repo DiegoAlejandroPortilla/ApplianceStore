@@ -11,38 +11,38 @@ package ec.edu.espe.appliancestore.model;
  */
 public class Computer {
     private int power;
-    private String material;
+    private String brand;
     private float price;
-    private String storage;
+    private int storage;
     private int serialNumber;
     
     public Computer(){
         this.power = 0;
-        this.material = "";
+        this.brand = "";
         this.price = 0.0F;
-        this.storage = "";
+        this.storage = 0;
         this.serialNumber = 0;
     }
     
-    public Computer(int power,String material,float price,String storange,int serialNumber){
+    public Computer(int power,String brand,float price,int storange,int serialNumber){
         this.power = power;
-        this.material = material;
+        this.brand = brand;
         this.price = price;
         this.storage = storange;
         this.serialNumber = serialNumber;
     }
     
-    public Computer(String power, String material, String price, String storange, String serialNumber){
+    public Computer(String power, String brand, String price, String storange, String serialNumber){
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public String toString() {
-        return "Computer{" + "Power -> " + power + " Material -> " + material + " Price -> " + price + " Storage ->" + storage + ", SerialNumber -> " + serialNumber + '}';
+        return "Computer{" + "Power -> " + power + " GB " + " Brand -> " + brand + " Price -> " + price + " Storage ->" + storage + " GB " + " SerialNumber -> " + serialNumber + '}';
     }
     
     public String [] getArray(){
-        String[] date = {"Power -> " + String.valueOf(power)+ " Material ->" +String.valueOf(material)+ " Price -> "+String.valueOf(price)+" Storage -> "+String.valueOf(storage)+ " SerialNumber -> "+String.valueOf(serialNumber)};
+        String[] date = {"Power -> " + String.valueOf(power)+" GB "+" Brand ->" +String.valueOf(brand)+ " Price -> "+String.valueOf(price)+" Storage -> "+String.valueOf(storage)+" GB "+" SerialNumber -> "+String.valueOf(serialNumber)};
         return date;
     }
         
@@ -77,15 +77,15 @@ public class Computer {
     /**
      * @return the material
      */
-    public String getMaterial() {
-        return material;
+    public String getBrand() {
+        return brand;
     }
 
     /**
-     * @param material the material to set
+     * @param brand the brand to set
      */
-    public void setMaterial(String material) {
-        this.material = material;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
     /**
@@ -105,14 +105,14 @@ public class Computer {
     /**
      * @return the storage
      */
-    public String getStorage() {
+    public int getStorage() {
         return storage;
     }
 
     /**
      * @param storage the storage to set
      */
-    public void setStorage(String storage) {
+    public void setStorage(int storage) {
         this.storage = storage;
     }
 
