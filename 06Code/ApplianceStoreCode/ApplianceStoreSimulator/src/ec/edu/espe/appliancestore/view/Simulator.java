@@ -12,6 +12,7 @@ import com.google.gson.GsonBuilder;
 import ec.edu.espe.appliancestore.model.Blender;
 import ec.edu.espe.appliancestore.model.CoffeeMaker;
 import ec.edu.espe.appliancestore.model.Computer;
+import ec.edu.espe.appliancestore.model.TV;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -585,7 +586,7 @@ public class Simulator {
          
     }
     
-<<<<<<< HEAD
+
 
     public static void readCSVtv() throws FileNotFoundException, IOException{
         try{
@@ -786,9 +787,43 @@ public class Simulator {
         }
 		
     }
+    
+    public static void readCSVcomputer() throws FileNotFoundException, IOException{
+        try{
+        ArrayList<Computer>computers=new ArrayList<Computer>();
+        System.out.println("read data from CSV"); 
+        CsvReader readComputer = new CsvReader("ApplianceStore.csv");
+        readComputer.readHeaders();
+        while(readComputer.readRecord()){
+            String power = readComputer.get(0);
+            String brand = readComputer.get(1);
+            String price = readComputer.get(2);
+            String storage = readComputer.get(3);
+            String serialNumber = readComputer.get(4);
+            
+            
+            
+        computers.add(new Computer(Integer.parseInt(power), Float.parseFloat(price), 
+                        Integer.parseInt(storage),Integer.parseInt(serialNumber)));   
+        }
+        readComputer.close();
+        
+        for(Computer ComputerArray : computers){
+            System.out.println(ComputerArray.getPower()+"," +
+            ComputerArray.getBrand() + "," + ComputerArray.getPrice() + "," +
+                    ComputerArray.getStorage() + "," +
+                    ComputerArray.getSerialNumber());   
+        }
+     
+            
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
 
-=======
->>>>>>> 729283a99ad527ee1924bb0f52795d2cb34b9e76
+
     public static void writeCSVcomputer() throws IOException{
       int power;
       String brand;
@@ -926,7 +961,7 @@ public class Simulator {
         }
     }
 
-<<<<<<< HEAD
+
     public static void writeJSONcomputer() throws IOException, Exception{
         int power;
         String brand;
@@ -969,12 +1004,41 @@ public class Simulator {
              }
     }
     
-=======
+    public static void readJSONcomputer() throws Exception , ParseException {
+        ArrayList<Computer>computers=new ArrayList<Computer>();
+        JSONParser parser = new JSONParser();
+        try {
+           
+        FileReader reader = new FileReader("ApplianceStore.json");
+        Object obj = parser.parse(reader);
+        JSONObject jsonObj = (JSONObject)obj;
+             
+            int power =(int) jsonObj.get("power");
+            String brand =(String) jsonObj.get("brand");
+            float price =(float) jsonObj.get("price");
+            String storage =(String) jsonObj.get("storage");
+            int serialNumber = (int) jsonObj.get("serialNumber");
+            
+            System.out.println( "Power: " + power);
+            System.out.println(" Brand: " + brand);
+            System.out.println( "Price: " + price);
+            System.out.println( "Storage: " + storage);
+            System.out.println("SerialNumber" + serialNumber);
+            Iterator iterator = computers.iterator();
+            while (iterator.hasNext()) {
+               System.out.println(iterator.next());
+               }
+        }catch (FileNotFoundException e) {
+        e.printStackTrace();
+        }
+    }
+    
+
     }
 
 
 
->>>>>>> 729283a99ad527ee1924bb0f52795d2cb34b9e76
+
         
         
                 
