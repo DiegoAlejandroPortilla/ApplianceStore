@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import ec.edu.espe.appliancestore.model.Blender;
+import ec.edu.espe.appliancestore.model.DVD;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -599,6 +600,176 @@ public class Simulator {
 			
 		}
          
+    }
+    
+        public static void DVD() throws FileNotFoundException, IOException{
+        try{
+        ArrayList<DVD>dvds=new ArrayList<DVD>();
+        System.out.println("read data from CSV"); 
+        CsvReader readDVD = new CsvReader("ApplianceStore.csv");
+        readDVD.readHeaders();
+        while(readDVD.readRecord()){
+            String serialnumber = readDVD.get(0);
+            String price = readDVD.get(1);
+            String size = readDVD.get(2);
+            String model = readDVD.get(3);
+            
+        dvds.add(new DVD(Integer.parseInt(serialnumber), Float.parseFloat(price),Float.parseFloat(size),(model)));   
+        }
+        readDVD.close();
+        
+        for(DVD DVDArray : dvds){
+            System.out.println( DVDArray.getSerialnumber()+"," + DVDArray.getPrice() + "," + DVDArray.getSize() + "," + DVDArray.getModel());   
+        
+        }
+     
+            
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        
+        
+    }
+
+    public static void writeCSVDVD() throws IOException{
+        float size;
+        float price;
+        String model;
+        int serialnumber;
+        
+        ArrayList<DVD>dvds=new ArrayList<DVD>();
+        DVD dvdsArray[] = new DVD[3];
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter data to Json");
+        
+        System.out.println("Ingrese el model :");
+        model=sc.nextLine();                    
+        System.out.println("Ingrese el SerialNumber:");
+        serialnumber=sc.nextInt();
+        System.out.println("Ingrese el price:");
+        price=sc.nextFloat();
+        System.out.println("Ingrese la size:");
+        size=sc.nextFloat();
+        
+               
+        DVD dvd = new DVD();
+        System.out.println("DVD object -> " + dvd);
+        
+        dvd = new DVD(serialnumber,price,size,model);
+        System.out.println("DVD object -> " + dvd);
+                   
+        dvds.add(dvd);
+               
+        System.out.println("DVD -> " + dvds + "\n");
+        dvdsArray[0] = dvd;
+        String fileOutput = "ApplianceStore.csv"; 
+        boolean exists = new File(fileOutput).exists(); 
+        
+        
+        if(exists) {
+            File dvdFile = new File(fileOutput);
+            dvdFile.delete();
+        }
+        
+        try {
+            
+            CsvWriter outputCSV = new CsvWriter(new FileWriter(fileOutput, true), ',');
+            
+     
+            outputCSV.write("Serialnumber");            
+            outputCSV.write("Price");
+            outputCSV.write("Size");
+            outputCSV.write("Model");
+            outputCSV.endRecord(); 
+            
+            
+            for(DVD DVDArray : dvds) {
+                outputCSV.write(String.valueOf(DVDArray.getSerialnumber()));
+                outputCSV.write(String.valueOf(DVDArray.getPrice()));
+                outputCSV.write(String.valueOf(DVDArray.getSize()));
+                outputCSV.write(String.valueOf(DVDArray.getModel()));
+                              
+                outputCSV.endRecord(); 
+            }
+            
+            outputCSV.close(); 
+            
+        } catch(IOException e) {
+            e.printStackTrace();
+        }    
+    }
+    
+    public static void writeJSONdvd() throws IOException, Exception{
+        
+        float size;
+        float price;
+        String model;
+        int serialnumber;
+        
+        ArrayList<DVD>dvds=new ArrayList<DVD>();
+        DVD dvdsArray[] = new DVD[3];
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter data to Json");
+              
+                            
+        System.out.println("Enter the SerialNumber:");
+        serialnumber=sc.nextInt();
+        System.out.println("Enter the precio:");
+        price=sc.nextFloat();
+        System.out.println("Enter the size:");
+        size=sc.nextFloat();
+        System.out.println("Enter the model :");
+        model=sc.nextLine();
+        
+        
+        DVD dvd = new DVD();
+        System.out.println("DVD object -> " + dvd);
+        
+        dvd = new DVD(serialnumber,price,size,model);
+        System.out.println("DVD object -> " + dvd);
+                   
+        dvds.add(dvd);
+               
+        System.out.println("TV -> " + dvds + "\n");
+        dvdsArray[0] = dvd;
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        Gson gson = gsonBuilder.create();
+        String jsonDVD;
+        jsonDVD = gson.toJson(dvd);
+        
+        gson = new GsonBuilder().setPrettyPrinting().create();
+            try (Writer writer = new FileWriter("ApplianceStore.json")) {
+                 writer.write(gson.toJson(dvds));
+             }
+    }
+    public static void readJSONtv() throws Exception , ParseException {
+        ArrayList<DVD>dvds=new ArrayList<DVD>();
+        JSONParser parser = new JSONParser();
+        try {
+           
+        FileReader reader = new FileReader("ApplianceStore.json");
+        Object obj = parser.parse(reader);
+        JSONObject jsonObj = (JSONObject)obj;
+             
+            float size =(float) jsonObj.get("size");
+            String model =(String) jsonObj.get("model");
+            float price =(float) jsonObj.get("price");
+            int serialnumber = (int) jsonObj.get("serialnumber");
+            
+            System.out.println( "Size: " + size);
+            System.out.println( "Model: " + model);
+            System.out.println( "Price: " + price);
+            System.out.println("SerialNumber" + serialnumber);
+            Iterator iterator = dvds.iterator();
+            while (iterator.hasNext()) {
+               System.out.println(iterator.next());
+               }
+        }catch (FileNotFoundException e) {
+        e.printStackTrace();
+        }
+		
     }
 
    

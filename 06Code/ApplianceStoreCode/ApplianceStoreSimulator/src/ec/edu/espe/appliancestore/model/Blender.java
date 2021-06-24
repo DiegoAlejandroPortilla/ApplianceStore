@@ -39,6 +39,7 @@ public class Blender {
         return "Blender(" + "serialnumber -> " + serialnumber + " price ->" + 
                 price + " velocity -> " + velocity + " revolutions" + " ability->" + ability + " liters" ;
                 }
+    
     public String [] getArray(){
         String[] date = {"serialnumber -> " + String.valueOf(serialnumber)+ " price ->" +String.valueOf(price)+ " velocity -> "+String.valueOf(velocity)+" revolutions "+" ability-> "+String.valueOf(ability)+ " liters"};
      return date;
@@ -46,17 +47,16 @@ public class Blender {
     
         
     public void buy(){
-        
     }
-    public void sell(){
-        
+    
+    public void sell(){    
     }
-    public void tostock(){
-        
+    
+    public void tostock(){    
     }
+    
     public Gain generateprofit(){
     return new Gain();
-    
     }
 
     
