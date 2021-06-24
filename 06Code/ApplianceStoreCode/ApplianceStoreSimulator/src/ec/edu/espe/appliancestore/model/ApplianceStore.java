@@ -16,7 +16,7 @@ public class ApplianceStore {
    ArrayList < Microwave> microwaves =  new  ArrayList <> ();
    ArrayList < Toaster> toasters =  new  ArrayList <> ();
    ArrayList < Blender> blenders =  new  ArrayList <> ();
-   ArrayList < CoffeeMarker> coffemarkers =  new  ArrayList <> ();
+   ArrayList < CoffeeMaker> coffemakers =  new  ArrayList <> ();
    ArrayList < TV> tvs =  new  ArrayList <> ();
    ArrayList < DVD> dvds =  new  ArrayList <> ();
    ArrayList < Computer> computers =  new  ArrayList <> ();
@@ -30,8 +30,8 @@ public class ApplianceStore {
    public Blender add(Blender blenders){
        return new Blender();
     }
-   public CoffeeMarker add(CoffeeMarker coffeeMarker){
-       return new CoffeeMarker();
+   public CoffeeMaker add(CoffeeMaker coffeeMaker){
+       return new CoffeeMaker();
     }
    public TV add(TV tvs){
        return new TV();
