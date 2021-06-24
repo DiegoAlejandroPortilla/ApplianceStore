@@ -9,37 +9,18 @@ import com.csvreader.CsvReader;
 import com.csvreader.CsvWriter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import ec.edu.espe.appliancestore.model.Blender;
 import ec.edu.espe.appliancestore.model.TV;
 import ec.edu.espe.appliancestore.model.Computer;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.io.Writer;
-import java.lang.ProcessBuilder.Redirect.Type;
-import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Properties;
-import static java.util.Spliterators.iterator;
-import static java.util.Spliterators.iterator;
-import static java.util.Spliterators.iterator;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-import java.util.zip.ZipOutputStream;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -49,6 +30,7 @@ import org.json.simple.parser.ParseException;
 /**
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
+ * @author Salazar Matthew NullPointers ESPE-DCCO
  */
 public class Simulator {
     /**
@@ -763,8 +745,8 @@ public class Simulator {
         tvsArray[0] = tv;
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.create();
-        String jsonBlender;
-        jsonBlender = gson.toJson(tv);
+        String jsonTV;
+        jsonTV = gson.toJson(tv);
         
         
         gson = new GsonBuilder().setPrettyPrinting().create();
@@ -900,10 +882,48 @@ public class Simulator {
         }
     }
 
-		
-	
-   
-
+    public static void writeJSONcomputer() throws IOException, Exception{
+        int power;
+        String brand;
+        float price;
+        int storage;
+        int serialNumber;
+        ArrayList<Computer>computers=new ArrayList<Computer>();
+        Computer computersArray[] = new Computer[3];
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter data to Json");
+        
+        System.out.println("Enter the amount of RAM: ");
+        power=sc.nextInt();
+        System.out.println("Enter brand: ");
+        brand=sc.nextLine();
+        System.out.println("Enter the price: ");
+        price=sc.nextInt();
+        System.out.println("Enter storage capacity: ");
+        storage=sc.nextInt();
+        System.out.println("Enter the serialNumber: ");
+        serialNumber=sc.nextInt();
+        
+        Computer computer = new Computer();
+        System.out.println("Computer Object -> " + computer);
+        
+        computer = new Computer(power, brand, price, storage, serialNumber);
+        System.out.println("Computer object -> " + computer);
+        computers.add(computer);
+        
+        System.out.println("Computer -> " + computers + "\n");
+        computersArray[0] = computer;
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        Gson gson = gsonBuilder.create();
+        String jsonComputer;
+        jsonComputer = gson.toJson(computer);
+        
+        gson = new GsonBuilder().setPrettyPrinting().create();
+             try (Writer writer = new FileWriter("ApplianceStore.json")) {
+                 writer.write(gson.toJson(computers));
+             }
+    }
+    
         
     }
         
