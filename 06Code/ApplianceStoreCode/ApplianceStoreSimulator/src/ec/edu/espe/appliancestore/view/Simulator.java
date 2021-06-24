@@ -72,7 +72,7 @@ public class Simulator {
         System.out.println("|Select the product |");
         System.out.println("---------------------");
         System.out.println("|1-> Blender        |");
-        System.out.println("|2-> CoffeeMarker   |");
+        System.out.println("|2-> CoffeeMaker   |");
         System.out.println("|3-> Computer       |");
         System.out.println("|4 -> DVD           |");
         System.out.println("|5 -> Microwave     |");
@@ -739,8 +739,12 @@ public class Simulator {
             e.printStackTrace();
         }
     }
-        
+
     }
+
+
+
+        
         
                 
 
@@ -756,7 +760,3 @@ public class Simulator {
         
 						
 		    
-        
-    
-    
-    
