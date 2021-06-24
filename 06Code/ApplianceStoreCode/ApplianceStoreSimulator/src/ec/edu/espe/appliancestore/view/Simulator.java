@@ -668,7 +668,35 @@ public class Simulator {
         }
     }
 
-   
+    public static void readCSVcomputer() throws FileNotFoundException, IOException{
+        try{
+            ArrayList<Computer>computers=new ArrayList<Computer>();
+            System.out.println("Read data from CSV");
+            CsvReader readComputer = new CsvReader("ApplianceStore.csv");
+            readComputer.readHeaders();
+            while(readComputer.readRecord()){
+              String power = readComputer.get(0);
+              String brand = readComputer.get(1);
+              String price = readComputer.get(2);
+              String storage = readComputer.get(3);
+              String serialNumber = readComputer.get(4);
+              
+            computers.add(new Computer(Integer.parseInt(power),Float.parseFloat(price), Integer.parseInt(storage), Integer.parseInt(serialNumber))); 
+            }
+            readComputer.close();
+            
+            for(Computer ComputerArray : computers){
+                System.out.println(ComputerArray.getPower()+"," +
+                ComputerArray.getBrand() + "," + ComputerArray.getPrice() + "," +
+                    ComputerArray.getStorage()+ "," +
+                    ComputerArray.getSerialNumber()); 
+            }
+        }catch(FileNotFoundException e){
+           e.printStackTrace(); 
+        }catch(IOException e){
+           e.printStackTrace(); 
+        }
+    }
         
     }
         
