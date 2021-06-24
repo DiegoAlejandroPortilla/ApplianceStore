@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import ec.edu.espe.appliancestore.model.Blender;
+import ec.edu.espe.appliancestore.model.CoffeeMaker;
 import ec.edu.espe.appliancestore.model.Computer;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -132,7 +133,7 @@ public class Simulator {
         case 2:
             
                 System.out.println("---------------------");
-                System.out.println("|   CoffeeMarker    |");
+                System.out.println("|   CoffeeMaker    |");
                 System.out.println("---------------------");
                 System.out.println("|1-> data CSV       |");
                 System.out.println("|2-> data JSON      |");
@@ -668,7 +669,76 @@ public class Simulator {
         }
     }
 
-   
+    public static void writeCSVcoffeemaker() throws IOException{
+      int ability;
+      String model;
+      String material;
+      float price;
+      float size;
+      int serialnumber;  
+      ArrayList<CoffeeMaker>coffeemakers=new ArrayList<CoffeeMaker>();
+      CoffeeMaker coffeemakersArray[] = new CoffeeMaker[2];
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Enter data to csv");
+      
+        System.out.println("Enter the liters: ");
+        ability=sc.nextInt();
+        System.out.println("Enter brand: ");
+        model=sc.nextLine();
+        System.out.println("Enter the material: ");
+        material=sc.nextLine();
+        System.out.println("Enter the price: ");
+        price=sc.nextInt();
+        System.out.println("Enter storage size: ");
+        size=sc.nextInt();
+        System.out.println("Enter the serialNumber: ");
+        serialnumber=sc.nextInt();
+        
+        CoffeeMaker coffeemaker = new CoffeeMaker();
+        System.out.println("CooffeeMaker object -> " + coffeemaker);
+        
+        coffeemaker = new CoffeeMaker(ability, model, material, price, size, serialnumber);
+        System.out.println("CoffeeMaker object -> " + coffeemaker);
+        
+        coffeemakers.add(coffeemaker);
+        System.out.println("CoffeeMakers -> " + coffeemakers + "\n");
+        
+        coffeemakersArray[0] = coffeemaker;
+        String fileOutput = "ApplianceStore.csv";
+        boolean exists = new File(fileOutput).exists();
+        
+        if(exists){
+            File coffeemakerFile = new File(fileOutput);
+            coffeemakerFile.delete();
+        }
+        
+        try{
+          CsvWriter outputCSV = new CsvWriter(new FileWriter(fileOutput, true), ',');
+          
+            outputCSV.write("Ability");            
+            outputCSV.write("Model");
+            outputCSV.write("Material");
+            outputCSV.write("Price");
+            outputCSV.write("Size");
+            outputCSV.write("SerialNumber");
+            
+            outputCSV.endRecord();
+            
+            for(CoffeeMaker CoffeeMakerArray : coffeemakers){
+                outputCSV.write(String.valueOf(CoffeeMakerArray.getAbility()));
+                outputCSV.write(String.valueOf(CoffeeMakerArray.getModel()));
+                outputCSV.write(String.valueOf(CoffeeMakerArray.getMaterial()));
+                outputCSV.write(String.valueOf(CoffeeMakerArray.getPrice()));
+                outputCSV.write(String.valueOf(CoffeeMakerArray.getSize()));
+                outputCSV.write(String.valueOf(CoffeeMakerArray.getSerialnumber()));
+                
+                outputCSV.endRecord();  
+            }
+            outputCSV.close(); 
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
         
     }
         
