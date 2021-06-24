@@ -36,6 +36,10 @@ public class Computer {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    public Computer(int parseInt, float parseFloat, int parseInt0, int parseInt1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @Override
     public String toString() {
         return "Computer{" + "Power -> " + power + " GB " + " Brand -> " + brand + " Price -> " + price + " Storage ->" + storage + " GB " + " SerialNumber -> " + serialNumber + '}';
