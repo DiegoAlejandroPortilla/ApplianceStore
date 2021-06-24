@@ -3,20 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/C:/Users/Diego%20Portilla/OneDrive/Escritorio/ApplianceStore-Repositorio/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/Blender.java</file>
             <file>file:/C:/Users/Diego%20Portilla/OneDrive/Escritorio/ApplianceStore-Repositorio/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/ApplianceStore.java</file>
+            <file>file:/C:/Users/Diego%20Portilla/OneDrive/Escritorio/ApplianceStore-Repositorio/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/CoffeeMaker.java</file>
+            <file>file:/C:/Users/Diego%20Portilla/OneDrive/Escritorio/ApplianceStore-Repositorio/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/DVD.java</file>
             <file>file:/C:/Users/Diego%20Portilla/OneDrive/Escritorio/ApplianceStore-Repositorio/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/TV.java</file>
             <file>file:/C:/Users/Diego%20Portilla/OneDrive/Escritorio/ApplianceStore-Repositorio/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/view/Simulator.java</file>
-=======
-            <file>file:/C:/Users/Darwin/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/ApplianceStore.java</file>
-            <file>file:/C:/Users/Darwin/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/Gain.java</file>
-            <file>file:/C:/Users/Darwin/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/Blender.java</file>
-            <file>file:/C:/Users/Darwin/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/DVD.java</file>
-            <file>file:/C:/Users/Darwin/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/Computer.java</file>
-            <file>file:/C:/Users/Darwin/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/view/Simulator.java</file>
-            <file>file:/C:/Users/Darwin/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/CoffeeMaker.java</file>
->>>>>>> 9957414bde89f7073d641d02369f9abd4330e9c7
         </group>
     </open-files>
 </project-private>

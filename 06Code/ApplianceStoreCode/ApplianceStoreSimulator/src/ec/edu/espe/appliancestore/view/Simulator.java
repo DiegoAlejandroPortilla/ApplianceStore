@@ -11,11 +11,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import ec.edu.espe.appliancestore.model.Blender;
-<<<<<<< HEAD
 import ec.edu.espe.appliancestore.model.TV;
-=======
 import ec.edu.espe.appliancestore.model.Computer;
->>>>>>> 9957414bde89f7073d641d02369f9abd4330e9c7
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -606,7 +603,7 @@ public class Simulator {
          
     }
     
-<<<<<<< HEAD
+
     public static void readCSVtv() throws FileNotFoundException, IOException{
         try{
         ArrayList<TV>tvs=new ArrayList<TV>();
@@ -801,8 +798,15 @@ public class Simulator {
             while (iterator.hasNext()) {
                System.out.println(iterator.next());
                }
-=======
-    public static void writeCSVcomputer() throws IOException{
+        } catch (FileNotFoundException e) {
+		e.printStackTrace();
+		
+			
+	}  
+    }
+
+    
+     public static void writeCSVcomputer() throws IOException{
       int power;
       String brand;
       float price;
@@ -867,14 +871,8 @@ public class Simulator {
             e.printStackTrace();
         }
     }
->>>>>>> 9957414bde89f7073d641d02369f9abd4330e9c7
-
-		} catch (FileNotFoundException e) {
-		e.printStackTrace();
-		
-			
-		}    
-        }
+		  
+        
    
         
     }
