@@ -36,9 +36,12 @@ public class CoffeeMaker {
         
     }
     
-     public CoffeeMaker(String serialnumber, String model, String price , String material, String size) {
+   
+    public CoffeeMaker(int ability, String model, String material, float price, float size, int serialnumber) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+   
     
      @Override
     public String toString() {
