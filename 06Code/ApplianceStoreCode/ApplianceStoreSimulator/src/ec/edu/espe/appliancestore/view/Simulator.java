@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import ec.edu.espe.appliancestore.model.Blender;
+import ec.edu.espe.appliancestore.model.TV;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -338,10 +339,10 @@ public class Simulator {
                 selection=sc.nextInt();
             
                 if (selection==1){
-                    
+                    writeCSVtv();
                 }else{
                         if (selection==2){
-                        
+                         readCSVtv();
                         }else{
                             System.out.println("Incorrect Number");
                          }
@@ -357,10 +358,10 @@ public class Simulator {
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                        
+                        writeJSONtv();
                     }else{
                         if (selection==2){
-                            
+                            readJSONtv();
                         }else{
                            System.out.println("Incorrect Number");
                         }
@@ -600,7 +601,208 @@ public class Simulator {
 		}
          
     }
+    
+    public static void readCSVtv() throws FileNotFoundException, IOException{
+        try{
+        ArrayList<TV>tvs=new ArrayList<TV>();
+        System.out.println("read data from CSV"); 
+        CsvReader readTV = new CsvReader("ApplianceStore.csv");
+        readTV.readHeaders();
+        while(readTV.readRecord()){
+            String serialnumber = readTV.get(0);
+            String price = readTV.get(1);
+            String size = readTV.get(2);
+            String color = readTV.get(3);
+            String definition = readTV.get(4);
+            String model = readTV.get(5);
+            
+            
+            
+            
+        tvs.add(new TV(Integer.parseInt(serialnumber), Float.parseFloat(price), 
+                        Float.parseFloat(size),(color),(definition),(model)));   
+        }
+        readTV.close();
+        
+        for(TV TVArray : tvs){
+            System.out.println(TVArray.getSerialnumber()+"," +
+            TVArray.getPrice() + "," + TVArray.getSize() + "," + TVArray.getColor() + ","+ 
+                    TVArray.getDefinition() + "," + TVArray.getModel());   
+        
+        }
+     
+            
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        
+        
+    }
+    public static void writeCSVtv() throws IOException{
+        int serialnumber;
+        float price;
+        float size;
+        String color;
+        String definition;
+        String model;
+        ArrayList<TV>tvs=new ArrayList<TV>();
+        TV tvsArray[] = new TV[3];
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter data to Json");
+              
+        System.out.println("Ingrese el color:");
+        color=sc.nextLine();
+        System.out.println("Ingrese la definition:");
+        definition=sc.nextLine();
+        System.out.println("Ingrese el model :");
+        model=sc.nextLine();                    
+        System.out.println("Ingrese el SerialNumber:");
+        serialnumber=sc.nextInt();
+        System.out.println("Ingrese el precio:");
+        price=sc.nextFloat();
+        System.out.println("Ingrese la size:");
+        size=sc.nextFloat();
+        
+        
+        
+        TV tv = new TV();
+        System.out.println("TV object -> " + tv);
+        
+        tv = new TV(serialnumber,price,size,color,definition,model);
+        System.out.println("TV object -> " + tv);
+                   
+        tvs.add(tv);
+               
+        System.out.println("TV -> " + tvs + "\n");
+        tvsArray[0] = tv;
+        String fileOutput = "ApplianceStore.csv"; 
+        boolean exists = new File(fileOutput).exists(); 
+        
+        
+        if(exists) {
+            File tvFile = new File(fileOutput);
+            tvFile.delete();
+        }
+        
+        try {
+            
+            CsvWriter outputCSV = new CsvWriter(new FileWriter(fileOutput, true), ',');
+            
+     
+            outputCSV.write("Serialnumber");            
+            outputCSV.write("Price");
+            outputCSV.write("Size");
+            outputCSV.write("Color");
+            outputCSV.write("Definition");
+            outputCSV.write("Model");
+            
+            
+            outputCSV.endRecord(); 
+            
+            
+            for(TV TVArray : tvs) {
+                outputCSV.write(String.valueOf(TVArray.getSerialnumber()));
+                outputCSV.write(String.valueOf(TVArray.getPrice()));
+                outputCSV.write(String.valueOf(TVArray.getSize()));
+                outputCSV.write(String.valueOf(TVArray.getColor()));
+                outputCSV.write(String.valueOf(TVArray.getDefinition()));
+                outputCSV.write(String.valueOf(TVArray.getModel()));
+                              
+                outputCSV.endRecord(); 
+            }
+            
+            outputCSV.close(); 
+            
+        } catch(IOException e) {
+            e.printStackTrace();
+        }    
+    
+        
+    }
+    public static void writeJSONtv() throws IOException, Exception{
+        
+        int serialnumber;
+        float price;
+        float size;
+        String color;
+        String definition;
+        String model;
+        ArrayList<TV>tvs=new ArrayList<TV>();
+        TV tvsArray[] = new TV[3];
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter data to Json");
+              
+                            
+        System.out.println("Ingrese el SerialNumber:");
+        serialnumber=sc.nextInt();
+        System.out.println("Ingrese el precio:");
+        price=sc.nextFloat();
+        System.out.println("Ingrese la size:");
+        size=sc.nextFloat();
+        System.out.println("Ingrese el color:");
+        color=sc.nextLine();
+        System.out.println("Ingrese la definition:");
+        definition=sc.nextLine();
+        System.out.println("Ingrese el model :");
+        model=sc.nextLine();
+        
+        
+        TV tv = new TV();
+        System.out.println("TV object -> " + tv);
+        
+        tv = new TV(serialnumber,price,size,color,definition,model);
+        System.out.println("TV object -> " + tv);
+                   
+        tvs.add(tv);
+               
+        System.out.println("TV -> " + tvs + "\n");
+        tvsArray[0] = tv;
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        Gson gson = gsonBuilder.create();
+        String jsonBlender;
+        jsonBlender = gson.toJson(tv);
+        
+        
+        gson = new GsonBuilder().setPrettyPrinting().create();
+             try (Writer writer = new FileWriter("ApplianceStore.json")) {
+                 writer.write(gson.toJson(tvs));
+             }
+    }
+    public static void readJSONtv() throws Exception , ParseException {
+        ArrayList<TV>tvs=new ArrayList<TV>();
+        JSONParser parser = new JSONParser();
+        try {
+           
+        FileReader reader = new FileReader("ApplianceStore.json");
+        Object obj = parser.parse(reader);
+        JSONObject jsonObj = (JSONObject)obj;
+             
+            float size =(float) jsonObj.get("size");
+            String color =(String) jsonObj.get("color");
+            String definition =(String) jsonObj.get("definition");
+            String model =(String) jsonObj.get("model");
+            float price =(float) jsonObj.get("price");
+            int serialnumber = (int) jsonObj.get("serialnumber");
+            
+            System.out.println( "Size: " + size);
+            System.out.println(" Color: " + color);
+            System.out.println( "Definition: " + definition);
+            System.out.println( "Model: " + model);
+            System.out.println( "Price: " + price);
+            System.out.println("SerialNumber" + serialnumber);
+            Iterator iterator = tvs.iterator();
+            while (iterator.hasNext()) {
+               System.out.println(iterator.next());
+               }
 
+		} catch (FileNotFoundException e) {
+		e.printStackTrace();
+		
+			
+		}    
+        }
    
         
     }

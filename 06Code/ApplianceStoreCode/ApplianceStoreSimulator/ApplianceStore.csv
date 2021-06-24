@@ -1,2 +1,2 @@
-Serialnumber,Price,Velocity,Ability
-12345,12.4,3,2
+Serialnumber,Price,Size,Color,Definition,Model
+12345,500.0,55.0,gray,high definition,samsung
