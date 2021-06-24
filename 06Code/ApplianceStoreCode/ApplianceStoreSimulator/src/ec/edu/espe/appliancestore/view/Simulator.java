@@ -627,7 +627,45 @@ public class Simulator {
         Computer computer = new Computer();
         System.out.println("Computer object -> " + computer);
         
+        computer = new Computer(power, brand, price, storage, serialNumber);
+        System.out.println("Computer object -> " + computer);
         
+        computers.add(computer);
+        System.out.println("Computers -> " + computers + "\n");
+        
+        computersArray[0] = computer;
+        String fileOutput = "ApplianceStore.csv";
+        boolean exists = new File(fileOutput).exists();
+        
+        if(exists){
+            File computerFile = new File(fileOutput);
+            computerFile.delete();
+        }
+        
+        try{
+          CsvWriter outputCSV = new CsvWriter(new FileWriter(fileOutput, true), ',');
+          
+            outputCSV.write("Power");            
+            outputCSV.write("Brand");
+            outputCSV.write("Price");
+            outputCSV.write("Storage");
+            outputCSV.write("SerialNumber");
+            
+            outputCSV.endRecord();
+            
+            for(Computer ComputerArray : computers){
+                outputCSV.write(String.valueOf(ComputerArray.getPower()));
+                outputCSV.write(String.valueOf(ComputerArray.getBrand()));
+                outputCSV.write(String.valueOf(ComputerArray.getPrice()));
+                outputCSV.write(String.valueOf(ComputerArray.getStorage()));
+                outputCSV.write(String.valueOf(ComputerArray.getSerialNumber()));
+                
+                outputCSV.endRecord();  
+            }
+            outputCSV.close(); 
+        } catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
    
