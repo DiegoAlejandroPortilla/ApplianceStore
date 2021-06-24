@@ -7,6 +7,17 @@
 =======
         <group>
 <<<<<<< HEAD
+            <file>file:/C:/Matthew%202021/PROGRAMACION%20ORIENTADA/Proyect/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/Blender.java</file>
+            <file>file:/C:/Matthew%202021/PROGRAMACION%20ORIENTADA/Proyect/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/ApplianceStore.java</file>
+            <file>file:/C:/Matthew%202021/PROGRAMACION%20ORIENTADA/Proyect/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/Microwave.java</file>
+            <file>file:/C:/Matthew%202021/PROGRAMACION%20ORIENTADA/Proyect/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/view/Simulator.java</file>
+            <file>file:/C:/Matthew%202021/PROGRAMACION%20ORIENTADA/Proyect/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/Computer.java</file>
+            <file>file:/C:/Matthew%202021/PROGRAMACION%20ORIENTADA/Proyect/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/TV.java</file>
+            <file>file:/C:/Matthew%202021/PROGRAMACION%20ORIENTADA/Proyect/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/DVD.java</file>
+            <file>file:/C:/Matthew%202021/PROGRAMACION%20ORIENTADA/Proyect/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/appliancestoresimulator/ApplianceStoreSimulator.java</file>
+            <file>file:/C:/Matthew%202021/PROGRAMACION%20ORIENTADA/Proyect/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/CoffeeMaker.java</file>
+=======
+<<<<<<< HEAD
             <file>file:/C:/Users/P%20C/Documents/ESPE/Segundo%20semestre/Programacion%20orientada%20a%20objetos/Git%20hub/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/view/Simulator.java</file>
 =======
             <file>file:/C:/Users/Darwin/ApplianceStore/06Code/ApplianceStoreCode/ApplianceStoreSimulator/src/ec/edu/espe/appliancestore/model/DVD.java</file>
@@ -24,6 +35,7 @@
 =======
 >>>>>>> 4ff8e5a91ef04626cf14f29faa4bb823768d9976
 >>>>>>> b93768261956ca0aa0665faf4520ba472614dade
+>>>>>>> 56dff9e13b7e6a1a31ad394d4f04038913b3936e
         </group>
 >>>>>>> 6e1160c60dcec8377b9bc201680a404aca8d1b2b
     </open-files>
