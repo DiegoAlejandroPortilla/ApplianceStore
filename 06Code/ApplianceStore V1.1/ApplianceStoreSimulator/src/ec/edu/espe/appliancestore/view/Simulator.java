@@ -15,6 +15,8 @@ import java.util.Scanner;
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
  * @author Salazar Matthew NullPointers ESPE-DCCO
+ * @author Nicolas Suquillo NullPointers ESPE-DCCO
+ * 
  */
 public class Simulator {
     /**
@@ -62,7 +64,7 @@ public class Simulator {
                     writeDateblender();
                 }else{
                         if (selection==2){
-                         
+                        
                         }else{
                             System.out.println("Incorrect Number");
                          }
@@ -75,7 +77,7 @@ public class Simulator {
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                        
+                        writeDateblender();
                     }else{
                         if (selection==2){
                             
@@ -105,7 +107,7 @@ public class Simulator {
                 selection=sc.nextInt();
             
                 if (selection==1){
-                    
+                    writeDatecoffeemaker();
                 }else{
                         if (selection==2){
                             
@@ -122,7 +124,7 @@ public class Simulator {
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                        
+                        writeDatecoffeemaker();
                     }else{
                         if (selection==2){
                             
@@ -152,7 +154,7 @@ public class Simulator {
                 selection=sc.nextInt();
             
                 if (selection==1){
-                   
+                   writeDatacomputer();
                 }else{
                         if (selection==2){
                             
@@ -169,7 +171,7 @@ public class Simulator {
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                       
+                       writeDatacomputer();
                     }else{
                         if (selection==2){
                             
@@ -198,7 +200,7 @@ public class Simulator {
                 selection=sc.nextInt();
             
                 if (selection==1){
-                    
+                    writeDatedvd();
                 }else{
                         if (selection==2){
                         
@@ -215,7 +217,7 @@ public class Simulator {
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                        
+                        writeDatedvd();
                     }else{
                         if (selection==2){
                             
@@ -244,7 +246,7 @@ public class Simulator {
                 selection=sc.nextInt();
             
                 if (selection==1){
-                    
+                    writeDatamicrowave();
                 }else{
                         if (selection==2){
                             
@@ -261,7 +263,7 @@ public class Simulator {
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                       
+                       writeDatamicrowave();
                     }else{
                         if (selection==2){
                             
@@ -290,7 +292,7 @@ public class Simulator {
                 selection=sc.nextInt();
             
                 if (selection==1){
-                    
+                    writeDatetv();
                 }else{
                         if (selection==2){
                         
@@ -307,7 +309,7 @@ public class Simulator {
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                        
+                        writeDatetv();
                     }else{
                         if (selection==2){
                            
@@ -379,8 +381,7 @@ public class Simulator {
         ArrayList<Blender> blenders= new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         
-        sc.skip("\n");
-        System.out.println("Enter data to csv");                           
+        System.out.println("Enter data to csv");  
         System.out.println("Ingrese el numero de serie :");
         serialnumber=sc.nextInt();
         System.out.println("Ingrese el precio :");
@@ -409,7 +410,6 @@ public class Simulator {
         ArrayList<DVD>dvds=new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         
-        sc.skip("\n");
         System.out.println("Enter data to Json"); 
         System.out.println("Ingrese el model :");
         model=sc.nextLine();                    
@@ -441,7 +441,6 @@ public class Simulator {
         ArrayList<TV> tvs=new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         
-        sc.skip("\n");
         System.out.println("Enter data to Json");      
         System.out.println("Ingrese el color:");
         color=sc.nextLine();
@@ -478,7 +477,6 @@ public class Simulator {
         ArrayList<Computer>computers =new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         
-        sc.skip("\n");
         System.out.println("Enter data to csv");
         System.out.println("Enter the amount of RAM: ");
         power=sc.nextInt();
@@ -513,7 +511,6 @@ public class Simulator {
         ArrayList<Microwave> microwaves=new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         
-        sc.skip("\n");
         System.out.println("Enter data to csv");                           
         System.out.println("Enter the serial number :");
         serialnumber=sc.nextInt();
@@ -550,8 +547,8 @@ public class Simulator {
         
         ArrayList<CoffeeMaker> coffeemakers=new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter data to csv");
-                                   
+        
+        System.out.println("Enter data to csv");                           
         System.out.println("Enter the serial number :");
         serialnumber=sc.nextInt();
         System.out.println("Enter the model :");
