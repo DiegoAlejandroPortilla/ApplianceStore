@@ -10,13 +10,37 @@ package ec.edu.espe.appliancestore.model;
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
 public class TV {
+    private int serialnumber;
+    private float price;
     private float size;
     private String color;
     private String definition;
-    private String kind;
     private String model;
-    private float price;
-    private int serialnumber;
+
+    public TV() {
+        this.serialnumber = 0;
+        this.price = 0.0F;
+        this.size = 0.0F;
+        this.color = "";
+        this.definition = "";
+        this.model = "";
+    }
+
+    public TV(int serialnumber, float price, float size, String color, String definition, String model) {
+        this.serialnumber = serialnumber;
+        this.price = price;
+        this.size = size;
+        this.color = color;
+        this.definition = definition;
+        this.model = model;
+    }
+
+    @Override
+    public String toString() {
+        return "TV{" + "serialnumber=" + serialnumber + ", price=" + price + ", size=" + size + ", color=" + color + ", definition=" + definition + ", model=" + model + '}';
+    }
+    
+    
     
     public void buy(){
         
@@ -31,6 +55,12 @@ public class TV {
     return new Gain();
     
     }
+
+    /**
+     * @return the size
+     */
+    public float getSize() {
+        return size;
     }
 
     /**
@@ -67,6 +97,8 @@ public class TV {
     public void setDefinition(String definition) {
         this.definition = definition;
     }
+
+
 
     /**
      * @return the model
@@ -109,4 +141,4 @@ public class TV {
     public void setSerialnumber(int serialnumber) {
         this.serialnumber = serialnumber;
     }
-}
+    }

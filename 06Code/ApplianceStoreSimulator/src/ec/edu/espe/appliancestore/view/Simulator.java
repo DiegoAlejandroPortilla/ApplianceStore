@@ -10,19 +10,13 @@ import com.csvreader.CsvWriter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import ec.edu.espe.appliancestore.model.Blender;
-<<<<<<< HEAD
 import ec.edu.espe.appliancestore.model.DVD;
-=======
 import ec.edu.espe.appliancestore.model.CoffeeMaker;
 import ec.edu.espe.appliancestore.model.Computer;
-<<<<<<< HEAD
 import ec.edu.espe.appliancestore.model.Microwave;
->>>>>>> 6e1160c60dcec8377b9bc201680a404aca8d1b2b
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-=======
 import ec.edu.espe.appliancestore.model.TV;
->>>>>>> 4ff8e5a91ef04626cf14f29faa4bb823768d9976
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -189,10 +183,10 @@ public class Simulator {
                 selection=sc.nextInt();
             
                 if (selection==1){
-                    
+                    writeCSVcomputer();
                 }else{
                         if (selection==2){
-                        
+                            readCSVcomputer();
                         }else{
                             System.out.println("Incorrect Number");
                          }
@@ -208,10 +202,10 @@ public class Simulator {
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                        
+                       writeJSONcomputer(); 
                     }else{
                         if (selection==2){
-                            
+                            readJSONcomputer();
                         }else{
                            System.out.println("Incorrect Number");
                         }
@@ -237,10 +231,10 @@ public class Simulator {
                 selection=sc.nextInt();
             
                 if (selection==1){
-                    
+                    writeCSVDVD();
                 }else{
                         if (selection==2){
-                        
+                        DVD();
                         }else{
                             System.out.println("Incorrect Number");
                          }
@@ -256,7 +250,7 @@ public class Simulator {
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                        
+                        writeJSONdvd();
                     }else{
                         if (selection==2){
                             
@@ -333,10 +327,10 @@ public class Simulator {
                 selection=sc.nextInt();
             
                 if (selection==1){
-                    
+                    writeCSVtv();
                 }else{
                         if (selection==2){
-                        
+                        readCSVtv();
                         }else{
                             System.out.println("Incorrect Number");
                          }
@@ -352,10 +346,10 @@ public class Simulator {
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                        
+                        writeJSONtv();
                     }else{
                         if (selection==2){
-                            
+                           readJSONtv();
                         }else{
                            System.out.println("Incorrect Number");
                         }
@@ -595,9 +589,7 @@ public class Simulator {
 		}
          
     }
-    
-<<<<<<< HEAD
-        public static void DVD() throws FileNotFoundException, IOException{
+    public static void DVD() throws FileNotFoundException, IOException{
         try{
         ArrayList<DVD>dvds=new ArrayList<DVD>();
         System.out.println("read data from CSV"); 
@@ -627,7 +619,6 @@ public class Simulator {
         
         
     }
-
     public static void writeCSVDVD() throws IOException{
         float size;
         float price;
@@ -695,7 +686,6 @@ public class Simulator {
             e.printStackTrace();
         }    
     }
-    
     public static void writeJSONdvd() throws IOException, Exception{
         
         float size;
@@ -766,10 +756,6 @@ public class Simulator {
         }
 		
     }
-=======
-
->>>>>>> 6e1160c60dcec8377b9bc201680a404aca8d1b2b
-
     public static void readCSVtv() throws FileNotFoundException, IOException{
         try{
         ArrayList<TV>tvs=new ArrayList<TV>();
@@ -938,74 +924,6 @@ public class Simulator {
                  writer.write(gson.toJson(tvs));
              }
     }
-    public static void readJSONtv() throws Exception , ParseException {
-        ArrayList<TV>tvs=new ArrayList<TV>();
-        JSONParser parser = new JSONParser();
-        try {
-           
-        FileReader reader = new FileReader("ApplianceStore.json");
-        Object obj = parser.parse(reader);
-        JSONObject jsonObj = (JSONObject)obj;
-             
-            float size =(float) jsonObj.get("size");
-            String color =(String) jsonObj.get("color");
-            String definition =(String) jsonObj.get("definition");
-            String model =(String) jsonObj.get("model");
-            float price =(float) jsonObj.get("price");
-            int serialnumber = (int) jsonObj.get("serialnumber");
-            
-            System.out.println( "Size: " + size);
-            System.out.println(" Color: " + color);
-            System.out.println( "Definition: " + definition);
-            System.out.println( "Model: " + model);
-            System.out.println( "Price: " + price);
-            System.out.println("SerialNumber" + serialnumber);
-            Iterator iterator = tvs.iterator();
-            while (iterator.hasNext()) {
-               System.out.println(iterator.next());
-               }
-        }catch (FileNotFoundException e) {
-        e.printStackTrace();
-        }
-		
-    }
-    
-    public static void readCSVcomputer() throws FileNotFoundException, IOException{
-        try{
-        ArrayList<Computer>computers=new ArrayList<Computer>();
-        System.out.println("read data from CSV"); 
-        CsvReader readComputer = new CsvReader("ApplianceStore.csv");
-        readComputer.readHeaders();
-        while(readComputer.readRecord()){
-            String power = readComputer.get(0);
-            String brand = readComputer.get(1);
-            String price = readComputer.get(2);
-            String storage = readComputer.get(3);
-            String serialNumber = readComputer.get(4);
-            
-            
-            
-        computers.add(new Computer(Integer.parseInt(power), Float.parseFloat(price), 
-                        Integer.parseInt(storage),Integer.parseInt(serialNumber)));   
-        }
-        readComputer.close();
-        
-        for(Computer ComputerArray : computers){
-            System.out.println(ComputerArray.getPower()+"," +
-            ComputerArray.getBrand() + "," + ComputerArray.getPrice() + "," +
-                    ComputerArray.getStorage() + "," +
-                    ComputerArray.getSerialNumber());   
-        }
-     
-            
-        }catch(FileNotFoundException e){
-            e.printStackTrace();
-        }catch(IOException e){
-            e.printStackTrace();
-        }
-    }
-
-
     public static void writeCSVcomputer() throws IOException{
       int power;
       String brand;
@@ -1071,125 +989,31 @@ public class Simulator {
             e.printStackTrace();
         }
     }
-<<<<<<< HEAD
-    
     public static void readCSVcomputer() throws FileNotFoundException, IOException{
-=======
-
-    
-
-public static void writeCSVcoffeemaker() throws IOException{
-        float size;
-        int abilityt;
-        String material;
-        float price;
-        String model;
-        int serialnumber;
-        
-        ArrayList<CoffeeMaker>coffeemakers=new ArrayList<CoffeeMaker>();
-        CoffeeMaker CoffeeMakersArray[] = new CoffeeMaker[3];
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter data to csv");
-                                   
-        System.out.println("Enter the serial number :");
-        serialnumber=sc.nextInt();
-        System.out.println("Enter the model :");
-        model=sc.nextLine();
-        System.out.println("Enter the price :");
-        price=sc.nextFloat();
-        System.out.println("Enter the material :");
-        material=sc.nextLine();
-        System.out.println("Enter the size :");
-        size = sc.nextFloat();
-        System.out.println("Enter the ability :");
-        ability = sc.nextFloat();
-        
-        CoffeeMaker coffeemaker = new CoffeeMaker();
-        System.out.println("CoffeeMaker object -> " + coffeemaker);
-        
-        coffeemaker = new CoffeeMaker(size, ability, material, price, model, serialnumber);
-        System.out.println("CoffeeMaker object -> " + coffeemaker);
-                   
-        coffeemakers.add(coffeemaker);
-               
-        System.out.println("CoffeeMaker -> " + coffeemakers + "\n");
-        
-        CoffeeMakersArray[0] = coffeemaker;
-        String fileOutput = "ApplianceStore.csv"; 
-        boolean exists = new File(fileOutput).exists(); 
-        
-        
-        if(exists) {
-            File coffeemakerFile = new File(fileOutput);
-            coffeemakerFile.delete();
-        }
-        
-<<<<<<< HEAD
-        try {
-            
-            CsvWriter outputCSV = new CsvWriter(new FileWriter(fileOutput, true), ',');
-            
-     
-            outputCSV.write("Serialnumber"); 
-=======
->>>>>>> 4ff8e5a91ef04626cf14f29faa4bb823768d9976
         try{
-          CsvWriter outputCSV = new CsvWriter(new FileWriter(fileOutput, true), ',');
-          
-            outputCSV.write("Ability");            
->>>>>>> b93768261956ca0aa0665faf4520ba472614dade
-            outputCSV.write("Model");
-            outputCSV.write("Price");
-            outputCSV.write("Material");
-            outputCSV.write("Size");
-            outputCSV.write("ability");
-            
-            
-            outputCSV.endRecord(); 
-            
-            
-            for(Microwave MicrowaveArray : Microwaves) {
-                outputCSV.write(String.valueOf(CoffeeMakerArray.getSerialnumber()));
-                outputCSV.write(String.valueOf(CoffeeMakerArray.getModel()));
-                outputCSV.write(String.valueOf(CoffeeMakerArray.getPrice()));
-                outputCSV.write(String.valueOf(CoffeeMakerArray.getMaterial()));
-                outputCSV.write(String.valueOf(CoffeeMakerArray.getSize()));
-                outputCSV.write(String.valueOf(CoffeeMakerArray.getAbility()));
-                
-                              
-                outputCSV.endRecord(); 
-            }
-            
-            outputCSV.close(); 
-            
-        } catch(IOException e) {
-            e.printStackTrace();
-        }    
-    }
-    public static void readCSVcoffeemaker() throws FileNotFoundException, IOException{
-        try{
-        ArrayList<CoffeeMaker>coffeemakers=new ArrayList<CoffeeMaker>();
+        ArrayList<Computer>computers=new ArrayList<Computer>();
         System.out.println("read data from CSV"); 
-        CsvReader readCoffeeMaker = new CsvReader("ApplianceStore.csv");
-        readCoffeeMaker.readHeaders();
-        while(readCoffeeMaker.readRecord()){
-            String serialnumber = readCoffeeMaker.get(0);
-            String model = readCoffeeMaker.get(1);
-            String price = readCoffeeMaker.get(2);
-            String material = readCoffeeMaker.get(3);
-            String size = readCoffeeMaker.get(4);
-            String ability = readCoffeeMaker.get(5);
+        CsvReader readComputer = new CsvReader("ApplianceStore.csv");
+        readComputer.readHeaders();
+        while(readComputer.readRecord()){
+            String power = readComputer.get(0);
+            String brand = readComputer.get(1);
+            String price = readComputer.get(2);
+            String storage = readComputer.get(3);
+            String serialNumber = readComputer.get(4);
             
             
-        coffeemakers.add(new CoffeeMaker(Integer.parseInt(serialnumber), (model), 
-                Float.parseFloat(price),(material),Float.parseFloat(size),Integer.parseInt(ability)));   
+            
+        computers.add(new Computer(Integer.parseInt(power), Float.parseFloat(price), 
+                        Integer.parseInt(storage),Integer.parseInt(serialNumber)));   
         }
-        readCoffeeMaker.close();
+        readComputer.close();
         
-        for(CoffeeMaker CoffeeMakerArray : coffeemakers){
-            System.out.println(CoffeeMakerArray.getSerialnumber()+"," +
-            CoffeeMakerArray.getModel()+ "," + CoffeeMakerArray.getPrice()+ "," +
-                    CoffeeMakerArray.getMaterial() + "," + CoffeeMakerArray.getSize() + "," + CoffeeMakerArray.getAbility());   
+        for(Computer ComputerArray : computers){
+            System.out.println(ComputerArray.getPower()+"," +
+            ComputerArray.getBrand() + "," + ComputerArray.getPrice() + "," +
+                    ComputerArray.getStorage() + "," +
+                    ComputerArray.getSerialNumber());   
         }
      
             
@@ -1198,91 +1022,7 @@ public static void writeCSVcoffeemaker() throws IOException{
         }catch(IOException e){
             e.printStackTrace();
         }
-        
-        
     }
-    public static void writeJSONcoffeemaker() throws IOException, Exception{
-        
-        float size;
-        int ability;
-        String material;
-        float price;
-        String model;
-        int serialnumber;
-        ArrayList<CoffeeMaker>coffeemakers=new ArrayList<CoffeeMaker>();
-        CoffeeMaker CoffeeMakersArray[] = new CoffeeMaker[3];
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter data to Json");
-              
-                            
-        System.out.println("Enter the serial number :");
-        serialnumber=sc.nextInt();
-        System.out.println("Enter the model :");
-        model=sc.nextLine();
-        System.out.println("Enter the price :");
-        price=sc.nextFloat();
-        System.out.println("Enter the material :");
-        material=sc.nextLine();
-        System.out.println("Enter the size :");
-        size = sc.nextFloat();
-        System.out.println("Enter the ability :");
-        ability = sc.nextInt();
-        
-        
-        CoffeeMaker coffeemaker = new CoffeeMaker();
-        System.out.println("CoffeeMaker object -> " + coffeemaker);
-        
-        coffeemaker = new CoffeeMaker(size, ability, material, price, model, serialnumber);
-        System.out.println("CoffeeMaker object -> " + coffeemaker);
-                   
-        coffeemakers.add(coffeemaker);
-               
-        System.out.println("CoffeeMakers -> " + coffeemakers + "\n");
-        CoffeeMakersArray[0] = coffeemaker;
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        Gson gson = gsonBuilder.create();
-        String jsonCoffeeMaker;
-        jsonCoffeeMaker = gson.toJson(coffeemaker);
-        
-        
-        gson = new GsonBuilder().setPrettyPrinting().create();
-             try (Writer writer = new FileWriter("ApplianceStore.json")) {
-                 writer.write(gson.toJson(coffeemakers));
-             }
-    }
-    public static void readJSONcoffeemaker() throws Exception , ParseException {
-        ArrayList<CoffeeMaker>coffemakers=new ArrayList<CoffeeMaker>();
-        JSONParser parser = new JSONParser();
-        try {
-           
-        FileReader reader = new FileReader("ApplianceStore.json");
-        Object obj = parser.parse(reader);
-        JSONObject jsonObj = (JSONObject)obj;
-             
-            int serialnumber = (int) jsonObj.get("serialnumber");
-            String model =(String) jsonObj.get("model");
-            float price =(float) jsonObj.get("price");
-            String material =(String) jsonObj.get("material");
-            float size =(float) jsonObj.get("size");
-            float ability =(int) jsonObj.get("ability");
-            
-            System.out.println("SerialNumber" + serialnumber);
-             System.out.println( "Model: " + model);
-            System.out.println( "Price: " + price);
-            System.out.println( "Material: " + material);
-            System.out.println( "Size: " + size);
-            System.out.println( "Ability: " + ability);
-            
-            Iterator iterator = coffeemakers.iterator();
-            while (iterator.hasNext()) {
-               System.out.println(iterator.next());
-               }
-        }catch (FileNotFoundException e) {
-        e.printStackTrace();
-        }	
-    }
-<<<<<<< HEAD
-    
     public static void writeCSVmicrowave() throws IOException{
         float size;
         float weight;
@@ -1345,7 +1085,7 @@ public static void writeCSVcoffeemaker() throws IOException{
             outputCSV.endRecord(); 
             
             
-            for(Microwave MicrowaveArray : Microwaves) {
+            for(Microwave MicrowaveArray : microwaves) {
                 outputCSV.write(String.valueOf(MicrowaveArray.getSerialnumber()));
                 outputCSV.write(String.valueOf(MicrowaveArray.getModel()));
                 outputCSV.write(String.valueOf(MicrowaveArray.getPrice()));
@@ -1377,9 +1117,8 @@ public static void writeCSVcoffeemaker() throws IOException{
             String size = readMicrowave.get(4);
             String weight = readMicrowave.get(5);
             
-            
-        microwaves.add(new Microwave(Integer.parseInt(serialnumber), (model), 
-                        Float.parseFloat(price),(material),Float.parseFloat(size),Float.parseFloat(weight)));   
+            microwaves.add(new Microwave(Float.parseFloat(size),Float.parseFloat(weight),
+                    (material), Float.parseFloat(price),(model),Integer.parseInt(serialnumber)));
         }
         readMicrowave.close();
         
@@ -1479,7 +1218,7 @@ public static void writeCSVcoffeemaker() throws IOException{
         }	
     }
     
-=======
+
 
 
     public static void writeJSONcomputer() throws IOException, Exception{
@@ -1522,11 +1261,10 @@ public static void writeCSVcoffeemaker() throws IOException{
              try (Writer writer = new FileWriter("ApplianceStore.json")) {
                  writer.write(gson.toJson(computers));
              }
->>>>>>> 4ff8e5a91ef04626cf14f29faa4bb823768d9976
     }
-<<<<<<< HEAD
 
-=======
+
+
     
     public static void readJSONcomputer() throws Exception , ParseException {
         ArrayList<Computer>computers=new ArrayList<Computer>();
@@ -1560,15 +1298,7 @@ public static void writeCSVcoffeemaker() throws IOException{
 
     }
 
-
-
-
-        
-        
-                
->>>>>>> b93768261956ca0aa0665faf4520ba472614dade
-
-    }
+    
         
  
 
