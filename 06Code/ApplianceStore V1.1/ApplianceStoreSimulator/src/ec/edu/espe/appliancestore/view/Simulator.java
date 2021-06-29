@@ -5,13 +5,7 @@
  */
 package ec.edu.espe.appliancestore.view;
 
-import ec.edu.espe.appliancestore.model.Blender;
-import ec.edu.espe.appliancestore.model.DVD;
-import ec.edu.espe.appliancestore.model.CoffeeMaker;
-import ec.edu.espe.appliancestore.model.Computer;
-import ec.edu.espe.appliancestore.model.Microwave;
-import ec.edu.espe.appliancestore.model.TV;
-import java.io.File;
+import ec.edu.espe.appliancestore.model.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -21,20 +15,16 @@ import java.util.Scanner;
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
  * @author Salazar Matthew NullPointers ESPE-DCCO
+ * @author Nicolas Suquillo NullPointers ESPE-DCCO
+ * 
  */
 public class Simulator {
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
-        
-        int velocity;
-        int ability;
-        float price;
-        int serialnumber;
-        ArrayList<Blender>blenders=new ArrayList<>();
-        Blender blendersArray[] = new Blender[3];
         int selection;
         int select;
         
@@ -71,16 +61,14 @@ public class Simulator {
                 selection=sc.nextInt();
             
                 if (selection==1){
-                    
+                    writeDateblender();
                 }else{
                         if (selection==2){
-                         
+                        
                         }else{
                             System.out.println("Incorrect Number");
                          }
                      }
-        
-                  
             }else{
                 if (selection ==2){
                     System.out.println("------------------------|");
@@ -89,7 +77,7 @@ public class Simulator {
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                        
+                        writeDateblender();
                     }else{
                         if (selection==2){
                             
@@ -119,16 +107,14 @@ public class Simulator {
                 selection=sc.nextInt();
             
                 if (selection==1){
-                    
+                    writeDatecoffeemaker();
                 }else{
                         if (selection==2){
                             
                         }else{
                             System.out.println("Incorrect Number");
                          }
-                     }
-        
-                  
+                     }  
             }else{
                 if (selection ==2){
                     
@@ -138,7 +124,7 @@ public class Simulator {
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                        
+                        writeDatecoffeemaker();
                     }else{
                         if (selection==2){
                             
@@ -168,16 +154,14 @@ public class Simulator {
                 selection=sc.nextInt();
             
                 if (selection==1){
-                   
+                   writeDatacomputer();
                 }else{
                         if (selection==2){
                             
                         }else{
                             System.out.println("Incorrect Number");
                          }
-                     }
-        
-                  
+                     }     
             }else{
                 if (selection ==2){
                     
@@ -187,7 +171,7 @@ public class Simulator {
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                       
+                       writeDatacomputer();
                     }else{
                         if (selection==2){
                             
@@ -216,16 +200,14 @@ public class Simulator {
                 selection=sc.nextInt();
             
                 if (selection==1){
-                    
+                    writeDatedvd();
                 }else{
                         if (selection==2){
                         
                         }else{
                             System.out.println("Incorrect Number");
                          }
-                     }
-        
-                  
+                     }    
             }else{
                 if (selection ==2){
                     
@@ -235,7 +217,7 @@ public class Simulator {
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                        
+                        writeDatedvd();
                     }else{
                         if (selection==2){
                             
@@ -264,16 +246,14 @@ public class Simulator {
                 selection=sc.nextInt();
             
                 if (selection==1){
-                    
+                    writeDatamicrowave();
                 }else{
                         if (selection==2){
                             
                         }else{
                             System.out.println("Incorrect Number");
                          }
-                     }
-        
-                  
+                     }          
             }else{
                 if (selection ==2){
                     
@@ -283,7 +263,7 @@ public class Simulator {
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                       
+                       writeDatamicrowave();
                     }else{
                         if (selection==2){
                             
@@ -312,16 +292,14 @@ public class Simulator {
                 selection=sc.nextInt();
             
                 if (selection==1){
-                    
+                    writeDatetv();
                 }else{
                         if (selection==2){
                         
                         }else{
                             System.out.println("Incorrect Number");
                          }
-                     }
-        
-                  
+                     }   
             }else{
                 if (selection ==2){
                     
@@ -331,7 +309,7 @@ public class Simulator {
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                        
+                        writeDatetv();
                     }else{
                         if (selection==2){
                            
@@ -367,9 +345,7 @@ public class Simulator {
                         }else{
                             System.out.println("Incorrect Number");
                          }
-                     }
-        
-                  
+                     }   
             }else{
                 if (selection ==2){
                     
@@ -393,22 +369,19 @@ public class Simulator {
             }
         break;
         }
-    
-
-} 
-    
-        
+}
     
     public static void writeDateblender() throws IOException{
+        
         int velocity;
         int ability;
         float price;
         int serialnumber;
-        ArrayList<Blender>blenders=new ArrayList<Blender>();
-        Blender blendersArray[] = new Blender[3];
+        
+        ArrayList<Blender> blenders= new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter data to csv");
-                                   
+        
+        System.out.println("Enter data to csv");  
         System.out.println("Ingrese el numero de serie :");
         serialnumber=sc.nextInt();
         System.out.println("Ingrese el precio :");
@@ -419,32 +392,25 @@ public class Simulator {
         ability=sc.nextInt();
         
         Blender blender = new Blender();
-        System.out.println("Blender object -> " + blender);
-        
-        blender = new Blender(serialnumber,price,velocity,ability);
-        System.out.println("Blender object -> " + blender);
-                   
+        blender.setSerialnumber(serialnumber);
+        blender.setPrice(price);
+        blender.setVelocity(velocity);
+        blender.setAbility(ability);
         blenders.add(blender);
                
-        System.out.println("Blenders -> " + blenders + "\n");
-        
-        blendersArray[0] = blender;
-            
-             
-             
-        
+        System.out.println("Blenders -> " + blenders + "\n");        
     }
     public static void writeDatedvd() throws IOException{
+        
         float size;
         float price;
         String model;
         int serialnumber;
         
-        ArrayList<DVD>dvds=new ArrayList<DVD>();
-        DVD dvdsArray[] = new DVD[3];
+        ArrayList<DVD>dvds=new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter data to Json");
         
+        System.out.println("Enter data to Json"); 
         System.out.println("Ingrese el model :");
         model=sc.nextLine();                    
         System.out.println("Ingrese el SerialNumber:");
@@ -454,30 +420,28 @@ public class Simulator {
         System.out.println("Ingrese la size:");
         size=sc.nextFloat();
         
-               
         DVD dvd = new DVD();
-        System.out.println("DVD object -> " + dvd);
-        
-        dvd = new DVD(serialnumber,price,size,model);
-        System.out.println("DVD object -> " + dvd);
-                   
+        dvd.setModel(model);
+        dvd.setSerialnumber(serialnumber);
+        dvd.setPrice(price);
+        dvd.setSize(size);
         dvds.add(dvd);
                
         System.out.println("DVD -> " + dvds + "\n");
-        dvdsArray[0] = dvd;
     }
     public static void writeDatetv() throws IOException{
+        
         int serialnumber;
         float price;
         float size;
         String color;
         String definition;
         String model;
-        ArrayList<TV>tvs=new ArrayList<TV>();
-        TV tvsArray[] = new TV[3];
+        
+        ArrayList<TV> tvs=new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter data to Json");
-              
+        
+        System.out.println("Enter data to Json");      
         System.out.println("Ingrese el color:");
         color=sc.nextLine();
         System.out.println("Ingrese la definition:");
@@ -491,32 +455,29 @@ public class Simulator {
         System.out.println("Ingrese la size:");
         size=sc.nextFloat();
         
-        
-        
         TV tv = new TV();
-        System.out.println("TV object -> " + tv);
-        
-        tv = new TV(serialnumber,price,size,color,definition,model);
-        System.out.println("TV object -> " + tv);
-                   
+        tv.setModel(model);
+        tv.setDefinition(definition);
+        tv.setColor(color);
+        tv.setPrice(price);
+        tv.setSerialnumber(serialnumber);
+        tv.setSize(size);
         tvs.add(tv);
                
-        System.out.println("TV -> " + tvs + "\n");
-        tvsArray[0] = tv;
-  
-        
+        System.out.println("TV -> " + tvs + "\n");  
     }
     public static void writeDatacomputer() throws IOException{
-      int power;
-      String brand;
-      float price;
-      int storage;
-      int serialNumber;  
-      ArrayList<Computer>computers=new ArrayList<Computer>();
-      Computer computersArray[] = new Computer[3];
-      Scanner sc = new Scanner(System.in);
-      System.out.println("Enter data to csv");
+        
+        int power;
+        String brand;
+        float price;
+        int storage;
+        int serialNumber;  
       
+        ArrayList<Computer>computers =new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter data to csv");
         System.out.println("Enter the amount of RAM: ");
         power=sc.nextInt();
         System.out.println("Enter brand: ");
@@ -529,19 +490,17 @@ public class Simulator {
         serialNumber=sc.nextInt();
         
         Computer computer = new Computer();
-        System.out.println("Computer object -> " + computer);
-        
-        computer = new Computer(power, brand, price, storage, serialNumber);
-        System.out.println("Computer object -> " + computer);
-        
+        computer.setBrand(brand);
+        computer.setPower(power);
+        computer.setPrice(price);
+        computer.setSerialNumber(serialNumber);
+        computer.setStorage(storage);
         computers.add(computer);
-        System.out.println("Computers -> " + computers + "\n");
         
-        computersArray[0] = computer;
-        
-            
+        System.out.println("Computers -> " + computers + "\n");     
     }
     public static void writeDatamicrowave() throws IOException{
+        
         float size;
         float weight;
         String material;
@@ -549,11 +508,10 @@ public class Simulator {
         String model;
         int serialnumber;
         
-        ArrayList<Microwave>microwaves=new ArrayList<Microwave>();
-        Microwave MicrowavesArray[] = new Microwave[3];
+        ArrayList<Microwave> microwaves=new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter data to csv");
-                                   
+        
+        System.out.println("Enter data to csv");                           
         System.out.println("Enter the serial number :");
         serialnumber=sc.nextInt();
         System.out.println("Enter the model :");
@@ -568,18 +526,18 @@ public class Simulator {
         weight = sc.nextFloat();
         
         Microwave microwave = new Microwave();
-        System.out.println("Microwave object -> " + microwave);
-        
-        microwave = new Microwave(size, weight, material, price, model, serialnumber);
-        System.out.println("Microwave object -> " + microwave);
-                   
+        microwave.setSerialnumber(serialnumber);
+        microwave.setModel(model);
+        microwave.setPrice(price);
+        microwave.setMaterial(material);
+        microwave.setSize(size);
+        microwave.setWeight(weight);
         microwaves.add(microwave);
                
         System.out.println("Microwave -> " + microwaves + "\n");
-        
-        MicrowavesArray[0] = microwave;
     }
     public static void writeDatecoffeemaker() throws IOException{
+        
         float size;
         int ability;
         String material;
@@ -587,11 +545,10 @@ public class Simulator {
         String model;
         int serialnumber;
         
-        ArrayList<CoffeeMaker>coffeemakers=new ArrayList<CoffeeMaker>();
-        CoffeeMaker CoffeeMakersArray[] = new CoffeeMaker[3];
+        ArrayList<CoffeeMaker> coffeemakers=new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter data to csv");
-                                   
+        
+        System.out.println("Enter data to csv");                           
         System.out.println("Enter the serial number :");
         serialnumber=sc.nextInt();
         System.out.println("Enter the model :");
@@ -606,18 +563,14 @@ public class Simulator {
         ability = sc.nextInt();
         
         CoffeeMaker coffeemaker = new CoffeeMaker();
-        System.out.println("CoffeeMaker object -> " + coffeemaker);
-        
-        coffeemaker = new CoffeeMaker(size, ability, material, price, model, serialnumber);
-        System.out.println("CoffeeMaker object -> " + coffeemaker);
-                   
+        coffeemaker.setAbility(ability);
+        coffeemaker.setMaterial(material);
+        coffeemaker.setModel(model);
+        coffeemaker.setModel(size);
+        coffeemaker.setPrice(price);
+        coffeemaker.setSerialnumber(serialnumber);
         coffeemakers.add(coffeemaker);
                
         System.out.println("CoffeeMaker -> " + coffeemakers + "\n");
-        
-        CoffeeMakersArray[0] = coffeemaker;
-        
-
-    
     }
 }

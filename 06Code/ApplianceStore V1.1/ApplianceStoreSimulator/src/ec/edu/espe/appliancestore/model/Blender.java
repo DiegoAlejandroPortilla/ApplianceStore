@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package ec.edu.espe.appliancestore.model;
-
 /**
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
@@ -59,7 +58,6 @@ public class Blender {
     return new Gain();
     }
 
-    
     /**
      * @return the velocity
      */
