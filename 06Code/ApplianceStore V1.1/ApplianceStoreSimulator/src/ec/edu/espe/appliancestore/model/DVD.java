@@ -39,7 +39,7 @@ public DVD(float size, float price, String model, int serialnumber){
         return "DVD{" + "size=" + size + ", price=" + price + ", model=" + model + ", serialnumber=" + serialnumber + '}';
     }
 
-public String [] getArray(){
+    public String [] getArray(){
         String[] date = {"serialnumber -> " + String.valueOf(serialnumber)+ "model ->" + String.valueOf(model)+ " price ->" +String.valueOf(price)+ " qualsize->"+String.valueOf(size)};
      return date;
     }
