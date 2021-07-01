@@ -9,6 +9,8 @@ import ec.edu.espe.appliancestore.model.Blender;
 import ec.edu.espe.appliancestore.model.DVD;
 import ec.edu.espe.appliancestore.model.CoffeeMaker;
 import ec.edu.espe.appliancestore.model.Computer;
+import ec.edu.espe.appliancestore.model.DateCSV;
+import ec.edu.espe.appliancestore.model.DateJSON;
 import ec.edu.espe.appliancestore.model.Microwave;
 import ec.edu.espe.appliancestore.model.TV;
 import java.io.File;
@@ -26,7 +28,7 @@ public class Simulator {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
         
         int velocity;
@@ -187,7 +189,7 @@ public class Simulator {
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                       
+                        DateJSON.writeDatacomputer();
                     }else{
                         if (selection==2){
                             
@@ -507,38 +509,7 @@ public class Simulator {
         
     }
     public static void writeDatacomputer() throws IOException{
-      int power;
-      String brand;
-      float price;
-      int storage;
-      int serialNumber;  
-      ArrayList<Computer>computers=new ArrayList<Computer>();
-      Computer computersArray[] = new Computer[3];
-      Scanner sc = new Scanner(System.in);
-      System.out.println("Enter data to csv");
-      
-        System.out.println("Enter the amount of RAM: ");
-        power=sc.nextInt();
-        System.out.println("Enter brand: ");
-        brand=sc.nextLine();
-        System.out.println("Enter the price: ");
-        price=sc.nextInt();
-        System.out.println("Enter storage capacity: ");
-        storage=sc.nextInt();
-        System.out.println("Enter the serialNumber: ");
-        serialNumber=sc.nextInt();
-        
-        Computer computer = new Computer();
-        System.out.println("Computer object -> " + computer);
-        
-        computer = new Computer(power, brand, price, storage, serialNumber);
-        System.out.println("Computer object -> " + computer);
-        
-        computers.add(computer);
-        System.out.println("Computers -> " + computers + "\n");
-        
-        computersArray[0] = computer;
-        
+        DateJSON.writeDatacomputer();
             
     }
     public static void writeDatamicrowave() throws IOException{
@@ -620,4 +591,6 @@ public class Simulator {
 
     
     }
+
+    
 }

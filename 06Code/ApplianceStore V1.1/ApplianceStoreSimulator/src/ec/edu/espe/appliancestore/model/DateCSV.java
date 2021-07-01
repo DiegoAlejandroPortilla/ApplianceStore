@@ -5,11 +5,19 @@
  */
 package ec.edu.espe.appliancestore.model;
 
+import com.csvreader.CsvWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
 public class DateCSV {
     
+   
 }
    

@@ -10,6 +10,7 @@ package ec.edu.espe.appliancestore.model;
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
 public class TV {
+     
     private int serialnumber;
     private float price;
     private float size;
