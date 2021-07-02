@@ -165,7 +165,7 @@ public class Simulator {
                     DateCSV.writeCSVcomputer();
                 }else{
                         if (selection==2){
-                            
+                            DateCSV.readCSVcomputer();
                         }else{
                             System.out.println("Incorrect Number");
                          }

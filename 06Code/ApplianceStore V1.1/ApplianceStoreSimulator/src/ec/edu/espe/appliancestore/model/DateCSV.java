@@ -5,8 +5,10 @@
  */
 package ec.edu.espe.appliancestore.model;
 
+import com.csvreader.CsvReader;
 import com.csvreader.CsvWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -80,6 +82,41 @@ public class DateCSV {
             }
             outputCSV.close(); 
         } catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+   
+   public static void readCSVcomputer() throws FileNotFoundException, IOException{
+        try{
+        ArrayList<Computer>computers=new ArrayList<Computer>();
+        System.out.println("read data from CSV"); 
+        CsvReader readComputer = new CsvReader("ApplianceStore.csv");
+        readComputer.readHeaders();
+        while(readComputer.readRecord()){
+            String power = readComputer.get(0);
+            String brand = readComputer.get(1);
+            String price = readComputer.get(2);
+            String storage = readComputer.get(3);
+            String serialNumber = readComputer.get(4);
+            
+            
+            
+        computers.add(new Computer(Integer.parseInt(power), Float.parseFloat(price), 
+                        Integer.parseInt(storage),Integer.parseInt(serialNumber)));   
+        }
+        readComputer.close();
+        
+        for(Computer ComputerArray : computers){
+            System.out.println(ComputerArray.getPower()+"," +
+            ComputerArray.getBrand() + "," + ComputerArray.getPrice() + "," +
+                    ComputerArray.getStorage() + "," +
+                    ComputerArray.getSerialNumber());   
+        }
+     
+            
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }catch(IOException e){
             e.printStackTrace();
         }
     }
