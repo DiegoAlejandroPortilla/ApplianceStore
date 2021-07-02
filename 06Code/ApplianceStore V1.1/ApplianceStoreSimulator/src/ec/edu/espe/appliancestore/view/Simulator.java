@@ -162,7 +162,7 @@ public class Simulator {
                 selection=sc.nextInt();
             
                 if (selection==1){
-                 
+                    DateCSV.writeCSVcomputer();
                 }else{
                         if (selection==2){
                             
