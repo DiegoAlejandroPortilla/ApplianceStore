@@ -12,7 +12,8 @@ import java.util.ArrayList;
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
 public class ApplianceStore {
-   private int serialnumber;
+   private int serialNumber;
+   private float price;
    private ArrayList < Microwave> microwaves =  new  ArrayList <> ();
    private ArrayList < Toaster> toasters =  new  ArrayList <> ();
    private ArrayList < Blender> blenders =  new  ArrayList <> ();
@@ -20,6 +21,19 @@ public class ApplianceStore {
    private ArrayList < TV> tvs =  new  ArrayList <> ();
    private ArrayList < DVD> dvds =  new  ArrayList <> ();
    private ArrayList < Computer> computers =  new  ArrayList <> ();
+   
+    public ApplianceStore(int serialNumber, float price) {
+        this.serialNumber = serialNumber;
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "ApplianceStore{" + "serialNumber=" + serialNumber + ", price=" + price +'}';
+    }
+   
+   
+   
    
    public void addMicroave(Object microwave){
        microwaves.add((Microwave) microwave);
@@ -49,14 +63,14 @@ public class ApplianceStore {
      * @return the serialnumber
      */
     public int getSerialnumber() {
-        return serialnumber;
+        return serialNumber;
     }
 
     /**
      * @param serialnumber the serialnumber to set
      */
     public void setSerialnumber(int serialnumber) {
-        this.serialnumber = serialnumber;
+        this.serialNumber = serialnumber;
     }
 
     /**
@@ -156,6 +170,19 @@ public class ApplianceStore {
     public void setComputers(ArrayList < Computer> computers) {
         this.computers = computers;
     }
-     
+     /**
+     * @return the price
+     */
+    public float getPrice() {
+        return price;
+    }
+
+    /**
+     * @param price the price to set
+     */
+    public void setPrice(float price) {
+        this.price = price;
+    }
+      
     
 }

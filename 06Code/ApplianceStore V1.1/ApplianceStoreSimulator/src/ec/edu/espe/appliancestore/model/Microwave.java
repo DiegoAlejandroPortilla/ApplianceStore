@@ -9,45 +9,29 @@ package ec.edu.espe.appliancestore.model;
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
-public class Microwave {
+public class Microwave extends ApplianceStore {
+   
     private float size;
     private float weight;
     private String material;
-    private float price;
     private String model;
-    private int serialnumber;
 
-    @Override
-    public String toString() {
-        return "Microwave(" + "serialnumber -> " + serialnumber + " model ->" + 
-                model + " price->" + price + " material->" + material + " size->" + size + " weight->" + weight + "kg" + ")";
-                }
-    
-    public String [] getArray(){
-        String[] date = {"serialnumber -> " + String.valueOf(serialnumber)+ " model ->" + model + " price ->" +String.valueOf(price) + " material-> " + material + " size->" + String.valueOf(size) + " weight->" + String.valueOf(weight)};
-     return date;
-    }
-
-    public Microwave(float size, float weight, String material, float price, String model, int serialnumber) {
+    public Microwave( int serialNumber, float price,float size, float weight, String material, String model) {
+        super(serialNumber, price);
         this.size = size;
         this.weight = weight;
         this.material = material;
-        this.price = price;
         this.model = model;
-        this.serialnumber = serialnumber;
+    }
+
+      
+
+    @Override
+    public String toString() {
+        return "Microwave{" + super.toString() + ", size=" + size + " Cm" + ", weight=" + weight + "Kg" + ", material=" + material + ", model=" + model + '}';
     }
         
-    public Microwave(){
-        
-        size = 0.0F;
-        weight = 0.0F;
-        material = "";
-        price = 0.0F;
-        model = "";
-        serialnumber = 0;
-        
-    }
-            
+             
     public void buy(){
         
     }
@@ -104,20 +88,7 @@ public class Microwave {
         this.material = material;
     }
 
-    /**
-     * @return the price
-     */
-    public float getPrice() {
-        return price;
-    }
-
-    /**
-     * @param price the price to set
-     */
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
+    
     /**
      * @return the model
      */
@@ -132,17 +103,4 @@ public class Microwave {
         this.model = model;
     }
 
-    /**
-     * @return the serialnumber
-     */
-    public int getSerialnumber() {
-        return serialnumber;
-    }
-
-    /**
-     * @param serialnumber the serialnumber to set
-     */
-    public void setSerialnumber(int serialnumber) {
-        this.serialnumber = serialnumber;
-    }
 }

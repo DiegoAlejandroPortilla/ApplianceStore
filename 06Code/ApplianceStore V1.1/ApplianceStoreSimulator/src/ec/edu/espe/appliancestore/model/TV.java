@@ -9,36 +9,26 @@ package ec.edu.espe.appliancestore.model;
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
-public class TV {
-     
-    private int serialnumber;
-    private float price;
+public class TV extends ApplianceStore {
+ 
     private float size;
     private String color;
     private String definition;
     private String model;
 
-    public TV() {
-        this.serialnumber = 0;
-        this.price = 0.0F;
-        this.size = 0.0F;
-        this.color = "";
-        this.definition = "";
-        this.model = "";
-    }
-
-    public TV(int serialnumber, float price, float size, String color, String definition, String model) {
-        this.serialnumber = serialnumber;
-        this.price = price;
+    public TV(int serialNumber, float price,float size, String color, String definition, String model) {
+        super(serialNumber, price);
         this.size = size;
         this.color = color;
         this.definition = definition;
         this.model = model;
     }
 
+    
+    
     @Override
     public String toString() {
-        return "TV{" + "serialnumber=" + serialnumber + ", price=" + price + ", size=" + size + ", color=" + color + ", definition=" + definition + ", model=" + model + '}';
+        return "TV{" +super.toString() + ", size=" + size + " inches "+ ", color=" + color + ", definition=" + definition + ", model=" + model + '}';
     }
     
     
@@ -99,8 +89,6 @@ public class TV {
         this.definition = definition;
     }
 
-
-
     /**
      * @return the model
      */
@@ -115,31 +103,4 @@ public class TV {
         this.model = model;
     }
 
-    /**
-     * @return the price
-     */
-    public float getPrice() {
-        return price;
-    }
-
-    /**
-     * @param price the price to set
-     */
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    /**
-     * @return the serialnumber
-     */
-    public int getSerialnumber() {
-        return serialnumber;
-    }
-
-    /**
-     * @param serialnumber the serialnumber to set
-     */
-    public void setSerialnumber(int serialnumber) {
-        this.serialnumber = serialnumber;
-    }
-    }
+}
