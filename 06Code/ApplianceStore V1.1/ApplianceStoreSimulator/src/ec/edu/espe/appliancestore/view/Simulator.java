@@ -4,15 +4,6 @@
  * and open the template in the editor.
  */
 package ec.edu.espe.appliancestore.view;
-import ec.edu.espe.appliancestore.model.Blender;
-import ec.edu.espe.appliancestore.model.DVD;
-import ec.edu.espe.appliancestore.model.CoffeeMaker;
-import ec.edu.espe.appliancestore.model.Computer;
-import ec.edu.espe.appliancestore.model.DateCSV;
-import ec.edu.espe.appliancestore.model.DateJSON;
-import ec.edu.espe.appliancestore.model.Microwave;
-import ec.edu.espe.appliancestore.model.TV;
-import java.io.File;
 import ec.edu.espe.appliancestore.model.*;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -31,362 +22,273 @@ public class Simulator {
      * @param args the command line arguments
      * @throws java.io.IOException
      */
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException{
         
-        int selection;
-        int select;
+        int selectedProduct;
+        int selectedOption;
+        int selectedFormat;
+        Object blender;
+        Object coffeeMaker;
+        Object computer;
+        Object dvd;
+        Object microwave;
+        Object tv;
+        Object toaster;
         
         Scanner sc = new Scanner(System.in);
-        System.out.println("welcome to the system Appliance Store \n");
+        ApplianceStore applianceStore = new ApplianceStore();
+        
+        
+        do{
+        System.out.println("Welcome to the system Appliance Store \n");
         System.out.println("---------------------");
         System.out.println("|Select the product |");
         System.out.println("---------------------");
+        System.out.println("|                   |");
         System.out.println("|1-> Blender        |");
-        System.out.println("|2-> CoffeeMaker   |");
+        System.out.println("|2-> CoffeeMaker    |");
         System.out.println("|3-> Computer       |");
         System.out.println("|4 -> DVD           |");
         System.out.println("|5 -> Microwave     |");
         System.out.println("|6 -> TV            |");
         System.out.println("|7 -> Toaster       |");
+        System.out.println("|                   |");
+        System.out.println("|8. Exit            |");
         System.out.println("---------------------");
-        select=sc.nextInt();
-        
-        switch(select){
-            case 1:    
-                System.out.println("---------------------");
-                System.out.println("|    Blender        |");
-                System.out.println("---------------------");
-                System.out.println("|1-> data CSV       |");
-                System.out.println("|2-> data JSON      |");
-                System.out.println("---------------------");
-                selection=sc.nextInt();
-            if(selection==1){
-    
-                System.out.println("-----------------------");
-                System.out.println("|1-> Enter data to CSV |");
-                System.out.println("|2-> read data from CSV|"); 
-                System.out.println("-----------------------");
-                selection=sc.nextInt();
-            
-                if (selection==1){
-                    writeDateblender();
-                }else{
-                        if (selection==2){
-                        
-                        }else{
-                            System.out.println("Incorrect Number");
-                         }
-                     }
-            }else{
-                if (selection ==2){
-                    System.out.println("------------------------|");
-                    System.out.println("|1-> Enter data to Json |");
-                    System.out.println("|2-> read data from Json|");
-                    System.out.println("-------------------------");
-                    selection=sc.nextInt();
-                    if (selection==1){
-                        writeDateblender();
-                    }else{
-                        if (selection==2){
-                            
-                        }else{
-                           System.out.println("Incorrect Number");
-                        }
-                    }
-            }else{
-                System.out.println("Incorrect Number");
+        selectedOption=sc.nextInt();
+            while(selectedOption<1 || selectedOption>=9){
+                System.out.println("Error, Choose a correct option : ");
+                selectedOption = sc.nextInt();
             }
-        }
-        break;    
-        case 2:
-            
-                System.out.println("---------------------");
-                System.out.println("|   CoffeeMaker    |");
-                System.out.println("---------------------");
-                System.out.println("|1-> data CSV       |");
-                System.out.println("|2-> data JSON      |");
-                System.out.println("---------------------");
-                selection=sc.nextInt();
-            if(selection==1){   
-                System.out.println("-----------------------");
-                System.out.println("|1-> Enter data to CSV |");
-                System.out.println("|2-> read data from CSV|"); 
-                System.out.println("-----------------------");
-                selection=sc.nextInt();
-            
-                if (selection==1){
-                    writeDatecoffeemaker();
-                }else{
-                        if (selection==2){
-                            
-                        }else{
-                            System.out.println("Incorrect Number");
-                         }
-                     }  
-            }else{
-                if (selection ==2){
-                    
-                    System.out.println("-------------------------");
-                    System.out.println("|1-> Enter data to Json |");
-                    System.out.println("|2-> read data from Json|");
-                    System.out.println("-------------------------");
-                    selection=sc.nextInt();
-                    if (selection==1){
-                        writeDatecoffeemaker();
-                    }else{
-                        if (selection==2){
-                            
-                        }else{
-                           System.out.println("Incorrect Number");
-                        }
-                    }
-            }else{
-                System.out.println("Incorrect Number");
-            }  
-    }
-        break; 
-        case(3):
-              
-                System.out.println("---------------------");
-                System.out.println("|     Computer      |");
-                System.out.println("---------------------");
-                System.out.println("|1-> data CSV       |");
-                System.out.println("|2-> data JSON      |");
-                System.out.println("---------------------");
-                selection=sc.nextInt();
-            if(selection==1){    
-                System.out.println("-----------------------");
-                System.out.println("|1-> Enter data to CSV |");
-                System.out.println("|2-> read data from CSV|"); 
-                System.out.println("-----------------------");
-                selection=sc.nextInt();
-            
-                if (selection==1){
-                    DateCSV.writeCSVcomputer();
-                }else{
-                        if (selection==2){
-                            DateCSV.readCSVcomputer();
-                        }else{
-                            System.out.println("Incorrect Number");
-                         }
-                     }     
-            }else{
-                if (selection ==2){
-                    
-                    System.out.println("-------------------------");
-                    System.out.println("|1-> Enter data to Json |");
-                    System.out.println("|2-> read data from Json|");
-                    System.out.println("-------------------------");
-                    selection=sc.nextInt();
-                    if (selection==1){
-                        DateJSON.writeDatacomputer();
-                    }else{
-                        if (selection==2){
-                            
-                        }else{
-                           System.out.println("Incorrect Number");
-                        }
-                    }
-            }else{
-                System.out.println("Incorrect Number");
-            }  
-    }
-        break; 
-        case(4) :  
-                System.out.println("---------------------");
-                System.out.println("|       DVD         |");
-                System.out.println("---------------------");
-                System.out.println("|1-> data CSV       |");
-                System.out.println("|2-> data JSON      |");
-                System.out.println("---------------------");
-                selection=sc.nextInt();
-            if(selection==1){    
-                System.out.println("-----------------------");
-                System.out.println("|1-> Enter data to CSV |");
-                System.out.println("|2-> read data from CSV|"); 
-                System.out.println("-----------------------");
-                selection=sc.nextInt();
-            
-                if (selection==1){
-                    writeDatedvd();
-                }else{
-                        if (selection==2){
+         switch(selectedOption){
+            case 1:
+                System.out.println("-----------------------------------");
+                System.out.println("|    Blender                      |");
+                System.out.println("-----------------------------------");
+                System.out.println("|1->Enter the data of the product |");
+                System.out.println("|2->Read the data of the product  |");
+                System.out.println("-----------------------------------");
+                selectedProduct=sc.nextInt();
+                selectedProduct = optionValidation(selectedProduct);
+                if (selectedProduct == 1){
+                    blender = writeDatablender();
+                    applianceStore.addBlender(blender);
+                    System.out.println("");
+                    System.out.println("-----------------------------------");
+                    System.out.println("|       Save the data in          |");
+                    System.out.println("-----------------------------------");
+                    System.out.println("|1->Json                          |");
+                    System.out.println("|2->Csv                           |");
+                    System.out.println("-----------------------------------");
+                    selectedFormat=sc.nextInt();
+                    selectedFormat = optionValidation(selectedFormat);
+                    if (selectedFormat == 1){
                         
-                        }else{
-                            System.out.println("Incorrect Number");
-                         }
-                     }    
-            }else{
-                if (selection ==2){
-                    
-                    System.out.println("-------------------------");
-                    System.out.println("|1-> Enter data to Json |");
-                    System.out.println("|2-> read data from Json|");
-                    System.out.println("-------------------------");
-                    selection=sc.nextInt();
-                    if (selection==1){
-                        writeDatedvd();
-                    }else{
-                        if (selection==2){
-                            
-                        }else{
-                           System.out.println("Incorrect Number");
-                        }
+                    }else if(selectedFormat == 2){
+                        
                     }
-            }else{
-                System.out.println("Incorrect Number");
+                }else if (selectedProduct == 2){
+                    
                 }
-            }
-        break; 
-        case (5):
-                System.out.println("---------------------");
-                System.out.println("|     Microwave     |");
-                System.out.println("---------------------");
-                System.out.println("|1-> data CSV       |");
-                System.out.println("|2-> data JSON      |");
-                System.out.println("---------------------");
-                selection=sc.nextInt();
-            if(selection==1){    
-                System.out.println("-----------------------");
-                System.out.println("|1-> Enter data to CSV |");
-                System.out.println("|2-> read data from CSV|"); 
-                System.out.println("-----------------------");
-                selection=sc.nextInt();
-            
-                if (selection==1){
-                    writeDatamicrowave();
-                }else{
-                        if (selection==2){
-                            
-                        }else{
-                            System.out.println("Incorrect Number");
-                         }
-                     }          
-            }else{
-                if (selection ==2){
-                    
-                    System.out.println("-------------------------");
-                    System.out.println("|1-> Enter data to Json |");
-                    System.out.println("|2-> read data from Json|");
-                    System.out.println("-------------------------");
-                    selection=sc.nextInt();
-                    if (selection==1){
-                       writeDatamicrowave();
-                    }else{
-                        if (selection==2){
-                            
-                        }else{
-                           System.out.println("Incorrect Number");
-                        }
-                    }
-            }else{
-                System.out.println("Incorrect Number");
-                }
-            }
-        break; 
-        case (6):
-                System.out.println("---------------------");
-                System.out.println("|       TV          |");
-                System.out.println("---------------------");
-                System.out.println("|1-> data CSV       |");
-                System.out.println("|2-> data JSON      |");
-                System.out.println("---------------------");
-                selection=sc.nextInt();
-            if(selection==1){    
-                System.out.println("-----------------------");
-                System.out.println("|1-> Enter data to CSV |");
-                System.out.println("|2-> read data from CSV|"); 
-                System.out.println("-----------------------");
-                selection=sc.nextInt();
-            
-                if (selection==1){
-                    writeDatetv();
-                }else{
-                        if (selection==2){
+                break;
+            case 2:
+                System.out.println("-----------------------------------");
+                System.out.println("|    CoffeeMaker                  |");
+                System.out.println("-----------------------------------");
+                System.out.println("|1->Enter the data of the product |");
+                System.out.println("|2->Read the data of the product  |");
+                System.out.println("-----------------------------------");
+                selectedProduct=sc.nextInt();
+                selectedProduct = optionValidation(selectedProduct);
+                if (selectedProduct == 1){
+                    coffeeMaker = writeDatacoffeemaker();
+                    applianceStore.addCoffeeMarker(coffeeMaker);
+                    System.out.println("-----------------------------------");
+                    System.out.println("|       Save the data in          |");
+                    System.out.println("-----------------------------------");
+                    System.out.println("|1->Json                          |");
+                    System.out.println("|2->Csv                           |");
+                    System.out.println("-----------------------------------");
+                    selectedFormat=sc.nextInt();
+                    selectedFormat = optionValidation(selectedFormat);
+                    if (selectedFormat == 1){
                         
-                        }else{
-                            System.out.println("Incorrect Number");
-                         }
-                     }   
-            }else{
-                if (selection ==2){
-                    
-                    System.out.println("-------------------------");
-                    System.out.println("|1-> Enter data to Json |");
-                    System.out.println("|2-> read data from Json|");
-                    System.out.println("-------------------------");
-                    selection=sc.nextInt();
-                    if (selection==1){
-                        writeDatetv();
-                    }else{
-                        if (selection==2){
-                           
-                        }else{
-                           System.out.println("Incorrect Number");
-                        }
-                    }
-            }else{
-                System.out.println("Incorrect Number");
-                }
-            }
-        break; 
-        case(7):
-                System.out.println("---------------------");
-                System.out.println("|       Toaster     |");
-                System.out.println("---------------------");
-                System.out.println("|1-> data CSV       |");
-                System.out.println("|2-> data JSON      |");
-                System.out.println("---------------------");
-                selection=sc.nextInt();
-            if(selection==1){    
-                System.out.println("-----------------------");
-                System.out.println("|1-> Enter data to CSV |");
-                System.out.println("|2-> read data from CSV|"); 
-                System.out.println("-----------------------");
-                selection=sc.nextInt();
-            
-                if (selection==1){
-                    
-                }else{
-                        if (selection==2){
+                    }else if(selectedFormat == 2){
                         
-                        }else{
-                            System.out.println("Incorrect Number");
-                         }
-                     }   
-            }else{
-                if (selection ==2){
-                    
-                    System.out.println("-------------------------");
-                    System.out.println("|1-> Enter data to Json |");
-                    System.out.println("|2-> read data from Json|");
-                    System.out.println("-------------------------");
-                    selection=sc.nextInt();
-                    if (selection==1){
-                        
-                    }else{
-                        if (selection==2){
-                            
-                        }else{
-                           System.out.println("Incorrect Number");
-                        }
                     }
-            }else{
-                System.out.println("Incorrect Number");
+                }else if (selectedProduct ==2){
+                    
                 }
-            }
-        break;
-        }
+                break;
+            case 3:
+                System.out.println("-----------------------------------");
+                System.out.println("|    Computer                     |");
+                System.out.println("-----------------------------------");
+                System.out.println("|1->Enter the data of the product |");
+                System.out.println("|2->Read the data of the product  |");
+                System.out.println("-----------------------------------");
+                selectedProduct=sc.nextInt();
+                selectedProduct = optionValidation(selectedProduct);
+                if (selectedProduct == 1){
+                    computer=writeDatacomputer();
+                    applianceStore.addComputer(computer);
+                    System.out.println("-----------------------------------");
+                    System.out.println("|       Save the data in          |");
+                    System.out.println("-----------------------------------");
+                    System.out.println("|1->Json                          |");
+                    System.out.println("|2->Csv                           |");
+                    System.out.println("-----------------------------------");
+                    selectedFormat=sc.nextInt();
+                    selectedFormat = optionValidation(selectedFormat);
+                    if (selectedFormat == 1){
+                        
+                    }else if(selectedFormat == 2){
+                        
+                    }
+                }else if (selectedProduct ==2){
+                    
+                }
+                break; 
+            case 4:
+                System.out.println("-----------------------------------");
+                System.out.println("|    DVD                          |");
+                System.out.println("-----------------------------------");
+                System.out.println("|1->Enter the data of the product |");
+                System.out.println("|2->Read the data of the product  |");
+                System.out.println("-----------------------------------");
+                selectedProduct=sc.nextInt();
+                selectedProduct = optionValidation(selectedProduct);
+                if (selectedProduct == 1){
+                    dvd =writeDatadvd();
+                    applianceStore.addDvd(dvd);
+                    System.out.println("-----------------------------------");
+                    System.out.println("|       Save the data in          |");
+                    System.out.println("-----------------------------------");
+                    System.out.println("|1->Json                          |");
+                    System.out.println("|2->Csv                           |");
+                    System.out.println("-----------------------------------");
+                    selectedFormat=sc.nextInt();
+                    selectedFormat = optionValidation(selectedFormat);
+                    if (selectedFormat == 1){
+                        
+                    }else if(selectedFormat == 2){
+                        
+                    }
+                }else if (selectedProduct ==2){
+                    
+                }
+                break;
+            case 5:
+                System.out.println("-----------------------------------");
+                System.out.println("|    Microwave                    |");
+                System.out.println("-----------------------------------");
+                System.out.println("|1->Enter the data of the product |");
+                System.out.println("|2->Read the data of the product  |");
+                System.out.println("-----------------------------------");
+                selectedProduct=sc.nextInt();
+                selectedProduct = optionValidation(selectedProduct);
+                if (selectedProduct == 1){
+                    microwave=writeDatamicrowave();
+                    applianceStore.addMicroave(microwave);
+                    System.out.println("-----------------------------------");
+                    System.out.println("|       Save the data in          |");
+                    System.out.println("-----------------------------------");
+                    System.out.println("|1->Json                          |");
+                    System.out.println("|2->Csv                           |");
+                    System.out.println("-----------------------------------");
+                    selectedFormat=sc.nextInt();
+                    selectedFormat = optionValidation(selectedFormat);
+                    if (selectedFormat == 1){
+                        
+                    }else if(selectedFormat == 2){
+                        
+                    }
+                }else if (selectedProduct ==2){
+                    
+                }
+                break;
+            case 6:
+                System.out.println("-----------------------------------");
+                System.out.println("|    TV                           |");
+                System.out.println("-----------------------------------");
+                System.out.println("|1->Enter the data of the product |");
+                System.out.println("|2->Read the data of the product  |");
+                System.out.println("-----------------------------------");
+                selectedProduct=sc.nextInt();
+                selectedProduct = optionValidation(selectedProduct);
+                if (selectedProduct == 1){
+                    tv=writeDatatv();
+                    applianceStore.addTv(tv);
+                    System.out.println("-----------------------------------");
+                    System.out.println("|       Save the data in          |");
+                    System.out.println("-----------------------------------");
+                    System.out.println("|1->Json                          |");
+                    System.out.println("|2->Csv                           |");
+                    System.out.println("-----------------------------------");
+                    selectedFormat=sc.nextInt();
+                    selectedFormat = optionValidation(selectedFormat);
+                    if (selectedFormat == 1){
+                        
+                    }else if(selectedFormat == 2){
+                        
+                    }
+                }else if (selectedProduct ==2){
+                    
+                }
+                break;
+            case 7:
+                System.out.println("-----------------------------------");
+                System.out.println("|    Toaster                      |");
+                System.out.println("-----------------------------------");
+                System.out.println("|1->Enter the data of the product |");
+                System.out.println("|2->Read the data of the product  |");
+                System.out.println("-----------------------------------");
+                selectedProduct=sc.nextInt();
+                selectedProduct = optionValidation(selectedProduct);
+                if (selectedProduct == 1){
+                    toaster=writeDatatoaster();
+                    applianceStore.addToaster(toaster);
+                    System.out.println("-----------------------------------");
+                    System.out.println("|       Save the data in          |");
+                    System.out.println("-----------------------------------");
+                    System.out.println("|1->Json                          |");
+                    System.out.println("|2->Csv                           |");
+                    System.out.println("-----------------------------------");
+                    selectedFormat=sc.nextInt();
+                    selectedFormat = optionValidation(selectedFormat);
+                    if (selectedFormat == 1){
+                        
+                    }else if(selectedFormat == 2){
+                        
+                    }
+                }else if (selectedProduct ==2){
+                    
+                }
+                break;
+            case 8:
+                System.exit(0);
+                break;
+         }
+        }while(selectedOption!=8);
 }
     
-    public static void writeDateblender() throws IOException{
+    public static int optionValidation(int selectedOption){
+        
+        Scanner sc = new Scanner(System.in);
+        
+        while(selectedOption<1 || selectedOption>2){
+            System.out.println("Error, Choose a correct option : ");
+            selectedOption = sc.nextInt();
+        }  
+        return selectedOption;
+    } 
+    public static Object writeDatablender() throws IOException{
         
         int velocity;
         int ability;
         float price;
         int serialnumber;
         
-        ArrayList<Blender> blenders= new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         
         System.out.println("Enter data to csv");  
@@ -398,24 +300,57 @@ public class Simulator {
         velocity=sc.nextInt();
         System.out.println("Ingrese las capacidad :");
         ability=sc.nextInt();
-        
+       
         Blender blender = new Blender();
         blender.setSerialnumber(serialnumber);
         blender.setPrice(price);
         blender.setVelocity(velocity);
         blender.setAbility(ability);
-        blenders.add(blender);
-               
-        System.out.println("Blenders -> " + blenders + "\n");        
+    
+        System.out.println(blender);
+        
+       return blender;
     }
-    public static void writeDatedvd() throws IOException{
+    public static Object writeDatacomputer(){
+        
+        int power;
+        String brand; 
+        float price; 
+        int storage; 
+        int serialNumber; 
+        
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter data to csv");                           
+        System.out.println("Enter the serial number :");
+        serialNumber=sc.nextInt();
+        System.out.println("Enter the brand :");
+        brand=sc.nextLine();
+        System.out.println("Enter the price :");
+        price=sc.nextFloat();
+        System.out.println("Enter the storage :");
+        storage=sc.nextInt();
+        System.out.println("Enter the power :");
+        power = sc.nextInt();
+        
+        Computer computer = new Computer();
+        computer.setSerialNumber(serialNumber);
+        computer.setBrand(brand);
+        computer.setPrice(price);
+        computer.setStorage(storage);
+        computer.setPower(power);
+               
+        System.out.println(computer);
+        
+        return computer;
+    }
+    public static Object writeDatadvd() throws IOException{
         
         float size;
         float price;
         String model;
         int serialnumber;
         
-        ArrayList<DVD>dvds=new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         
         System.out.println("Enter data to Json"); 
@@ -433,11 +368,12 @@ public class Simulator {
         dvd.setSerialnumber(serialnumber);
         dvd.setPrice(price);
         dvd.setSize(size);
-        dvds.add(dvd);
                
-        System.out.println("DVD -> " + dvds + "\n");
+        System.out.println(dvd);
+        
+        return dvd;
     }
-    public static void writeDatetv() throws IOException{
+    public static Object writeDatatv() throws IOException{
         
         int serialnumber;
         float price;
@@ -446,7 +382,6 @@ public class Simulator {
         String definition;
         String model;
         
-        ArrayList<TV> tvs=new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         
         System.out.println("Enter data to Json");      
@@ -470,12 +405,11 @@ public class Simulator {
         tv.setPrice(price);
         tv.setSerialnumber(serialnumber);
         tv.setSize(size);
-        tvs.add(tv);
                
-        System.out.println("TV -> " + tvs + "\n");  
+        System.out.println(tv);
+        return tv;
     }
-    
-    public static void writeDatamicrowave() throws IOException{
+    public static Object writeDatamicrowave() throws IOException{
         
         float size;
         float weight;
@@ -484,7 +418,6 @@ public class Simulator {
         String model;
         int serialnumber;
         
-        ArrayList<Microwave> microwaves=new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         
         System.out.println("Enter data to csv");                           
@@ -508,11 +441,12 @@ public class Simulator {
         microwave.setMaterial(material);
         microwave.setSize(size);
         microwave.setWeight(weight);
-        microwaves.add(microwave);
                
-        System.out.println("Microwave -> " + microwaves + "\n");
+        System.out.println(microwave);
+        
+        return microwave;
     }
-    public static void writeDatecoffeemaker() throws IOException{
+    public static Object writeDatacoffeemaker() throws IOException{
         
         float size;
         int ability;
@@ -521,7 +455,6 @@ public class Simulator {
         String model;
         int serialnumber;
         
-        ArrayList<CoffeeMaker> coffeemakers=new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         
         System.out.println("Enter data to csv");                           
@@ -545,10 +478,49 @@ public class Simulator {
         coffeemaker.setModel(size);
         coffeemaker.setPrice(price);
         coffeemaker.setSerialnumber(serialnumber);
-        coffeemakers.add(coffeemaker);
                
-        System.out.println("CoffeeMaker -> " + coffeemakers + "\n");
+        System.out.println(coffeemaker);
+        
+        return coffeemaker;
     }
-
-    
+    public static Object writeDatatoaster(){
+        
+        float size;
+        float weight;
+        String material;
+        float price;
+        String model;
+        int power;
+        int serialNumber;
+        
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Enter data to csv");                           
+        System.out.println("Enter the serial number :");
+        serialNumber=sc.nextInt();
+        System.out.println("Enter the model :");
+        model=sc.nextLine();
+        System.out.println("Enter the price :");
+        price=sc.nextFloat();
+        System.out.println("Enter the material :");
+        material=sc.nextLine();
+        System.out.println("Enter the size :");
+        size = sc.nextFloat();
+        System.out.println("Enter the weight :");
+        weight = sc.nextFloat();
+        System.out.println("Enter the power");
+        power = sc.nextInt();
+        
+        Toaster toaster = new Toaster();
+        toaster.setSerialNumber(serialNumber);
+        toaster.setModel(model);
+        toaster.setPrice(price);
+        toaster.setMaterial(material);
+        toaster.setSize(size);
+        toaster.setWeight(weight);
+        toaster.setPower(power);
+               
+        System.out.println(toaster);
+        return  toaster;
+    }
 }

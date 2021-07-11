@@ -13,38 +13,149 @@ import java.util.ArrayList;
  */
 public class ApplianceStore {
    private int serialnumber;
-   ArrayList < Microwave> microwaves =  new  ArrayList <> ();
-   ArrayList < Toaster> toasters =  new  ArrayList <> ();
-   ArrayList < Blender> blenders =  new  ArrayList <> ();
-   ArrayList < CoffeeMaker> coffemakers =  new  ArrayList <> ();
-   ArrayList < TV> tvs =  new  ArrayList <> ();
-   ArrayList < DVD> dvds =  new  ArrayList <> ();
-   ArrayList < Computer> computers =  new  ArrayList <> ();
+   private ArrayList < Microwave> microwaves =  new  ArrayList <> ();
+   private ArrayList < Toaster> toasters =  new  ArrayList <> ();
+   private ArrayList < Blender> blenders =  new  ArrayList <> ();
+   private ArrayList < CoffeeMaker> coffemakers =  new  ArrayList <> ();
+   private ArrayList < TV> tvs =  new  ArrayList <> ();
+   private ArrayList < DVD> dvds =  new  ArrayList <> ();
+   private ArrayList < Computer> computers =  new  ArrayList <> ();
    
-   public Microwave add(Microwave microwaves){
-       return new Microwave();
+   public void addMicroave(Object microwave){
+       microwaves.add((Microwave) microwave);
     }
-   public Toaster add(Toaster toaster){
-       return new Toaster();
+   public void addToaster(Object toaster){
+       toasters.add((Toaster) toaster);
     }
-   public Blender add(Blender blenders){
-       return new Blender();
+   public void addBlender(Object blender){
+       blenders.add((Blender) blender);
     }
-   public CoffeeMaker add(CoffeeMaker coffeeMaker){
-       return new CoffeeMaker();
+   public void addCoffeeMarker(Object coffeeMaker){
+       coffemakers.add((CoffeeMaker) coffeeMaker);
     }
-   public TV add(TV tvs){
-       return new TV();
+   public void addTv(Object tv){
+       tvs.add((TV) tv);
     }
-   public DVD add(DVD dvds){
-      return new DVD();
+   public void addDvd(Object dvd){
+      dvds.add((DVD) dvd);
     }
-   public Computer add(Computer computers){
-      return new Computer();
+   public void addComputer(Object computer){
+      computers.add((Computer) computer);
     }
-   public int remove(int serialnumber){
-       return 0;
+   public void remove(Object object){
    }
+
+    /**
+     * @return the serialnumber
+     */
+    public int getSerialnumber() {
+        return serialnumber;
+    }
+
+    /**
+     * @param serialnumber the serialnumber to set
+     */
+    public void setSerialnumber(int serialnumber) {
+        this.serialnumber = serialnumber;
+    }
+
+    /**
+     * @return the microwaves
+     */
+    public ArrayList < Microwave> getMicrowaves() {
+        return microwaves;
+    }
+
+    /**
+     * @param microwaves the microwaves to set
+     */
+    public void setMicrowaves(ArrayList < Microwave> microwaves) {
+        this.microwaves = microwaves;
+    }
+
+    /**
+     * @return the toasters
+     */
+    public ArrayList < Toaster> getToasters() {
+        return toasters;
+    }
+
+    /**
+     * @param toasters the toasters to set
+     */
+    public void setToasters(ArrayList < Toaster> toasters) {
+        this.toasters = toasters;
+    }
+
+    /**
+     * @return the blenders
+     */
+    public ArrayList < Blender> getBlenders() {
+        return blenders;
+    }
+
+    /**
+     * @param blenders the blenders to set
+     */
+    public void setBlenders(ArrayList < Blender> blenders) {
+        this.blenders = blenders;
+    }
+
+    /**
+     * @return the coffemakers
+     */
+    public ArrayList < CoffeeMaker> getCoffemakers() {
+        return coffemakers;
+    }
+
+    /**
+     * @param coffemakers the coffemakers to set
+     */
+    public void setCoffemakers(ArrayList < CoffeeMaker> coffemakers) {
+        this.coffemakers = coffemakers;
+    }
+
+    /**
+     * @return the tvs
+     */
+    public ArrayList < TV> getTvs() {
+        return tvs;
+    }
+
+    /**
+     * @param tvs the tvs to set
+     */
+    public void setTvs(ArrayList < TV> tvs) {
+        this.tvs = tvs;
+    }
+
+    /**
+     * @return the dvds
+     */
+    public ArrayList < DVD> getDvds() {
+        return dvds;
+    }
+
+    /**
+     * @param dvds the dvds to set
+     */
+    public void setDvds(ArrayList < DVD> dvds) {
+        this.dvds = dvds;
+    }
+
+    /**
+     * @return the computers
+     */
+    public ArrayList < Computer> getComputers() {
+        return computers;
+    }
+
+    /**
+     * @param computers the computers to set
+     */
+    public void setComputers(ArrayList < Computer> computers) {
+        this.computers = computers;
+    }
      
     
 }

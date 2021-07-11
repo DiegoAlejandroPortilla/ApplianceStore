@@ -14,6 +14,11 @@ public class Blender {
     private float price;
     private int serialnumber;
 
+    @Override
+    public String toString() {
+        return "\nBlender ↓" + "\n velocity = " + velocity + "\n ability = " + ability + "\n price = " + price + "\n serialnumber = " + serialnumber;
+    }
+
     public Blender(){
         this.serialnumber = 0;
         this.price = 0.0F;
@@ -28,16 +33,6 @@ public class Blender {
         this.ability = ability;
         
     }
-
-    public Blender(String serialnumber, String price, String velocity, String ability) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    @Override
-    public String toString() {
-        return "Blender(" + "serialnumber -> " + serialnumber + " price ->" + 
-                price + " velocity -> " + velocity + " revolutions" + " ability->" + ability + " liters" ;
-                }
     
     public String [] getArray(){
         String[] date = {"serialnumber -> " + String.valueOf(serialnumber)+ " price ->" +String.valueOf(price)+ " velocity -> "+String.valueOf(velocity)+" revolutions "+" ability-> "+String.valueOf(ability)+ " liters"};
