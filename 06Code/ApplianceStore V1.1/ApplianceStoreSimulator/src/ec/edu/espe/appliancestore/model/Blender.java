@@ -5,7 +5,7 @@ package ec.edu.espe.appliancestore.model;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import ec.edu.espe.appliancestore.model.ApplianceStore;
+import ec.edu.espe.appliancestore.controller.ApplianceStore;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,6 +25,7 @@ public class Blender extends ApplianceStore {
         
     }
 
+   
        
     @Override
     public String toString() {

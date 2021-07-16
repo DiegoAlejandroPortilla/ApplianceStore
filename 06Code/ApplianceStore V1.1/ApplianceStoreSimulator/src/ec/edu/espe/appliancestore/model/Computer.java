@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.appliancestore.model;
 
+import ec.edu.espe.appliancestore.controller.ApplianceStore;
+
 /**
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
@@ -21,7 +23,7 @@ public class Computer extends ApplianceStore{
         this.brand = brand;
     }
 
-    
+   
     @Override
     public String toString() {
         return "Computer{" +super.toString()+ ", storage=" + storage + "GB" + ", power=" + power + "GHz" + ", brand=" + brand + '}';

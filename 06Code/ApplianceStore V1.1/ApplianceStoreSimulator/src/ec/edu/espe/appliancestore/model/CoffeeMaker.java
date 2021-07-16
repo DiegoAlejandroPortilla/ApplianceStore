@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.appliancestore.model;
 
+import ec.edu.espe.appliancestore.controller.ApplianceStore;
+
 /**
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
@@ -22,10 +24,8 @@ public class CoffeeMaker extends ApplianceStore {
         this.material = material;
         this.model = model;
     }
-    
-    
-     
 
+   
     @Override
     public String toString() {
         return "CoffeeMaker{" +super.toString() + ", size=" + size + "Cm" + ", ability=" + ability + " liters "+ ", material=" + material + ", model=" + model + '}';

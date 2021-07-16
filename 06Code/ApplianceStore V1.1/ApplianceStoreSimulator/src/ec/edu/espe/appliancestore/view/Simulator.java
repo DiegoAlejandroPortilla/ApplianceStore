@@ -6,7 +6,7 @@
 package ec.edu.espe.appliancestore.view;
 
 import ec.edu.espe.appliancestore.controller.WriteCSV;
-import ec.edu.espe.appliancestore.model.ApplianceStore;
+import ec.edu.espe.appliancestore.controller.ApplianceStore;
 import ec.edu.espe.appliancestore.model.Blender;
 import ec.edu.espe.appliancestore.model.CoffeeMaker;
 import ec.edu.espe.appliancestore.model.Computer;
