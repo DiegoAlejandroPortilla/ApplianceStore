@@ -13,25 +13,20 @@ import ec.edu.espe.appliancestore.controller.ApplianceStore;
  * and open the template in the editor.
  */
 public class Blender extends ApplianceStore {
+    
     private int velocity;
     private int ability;
-    
-    
     
     public Blender(int serialNumber,float price,int velocity , int ability ){
         super(serialNumber,price);
         this.velocity = velocity;
-        this.ability = ability;
-        
+        this.ability = ability;   
     }
-
-   
-       
+        
     @Override
     public String toString() {
         return "Blender(" + super.toString() + " velocity -> " + velocity + " revolutions" + " ability->" + ability + " liters" ;
-                }
-    
+                } 
        
         
     public void buy(){

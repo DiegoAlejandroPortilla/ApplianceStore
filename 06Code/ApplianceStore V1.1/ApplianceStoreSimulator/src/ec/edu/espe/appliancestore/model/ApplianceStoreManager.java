@@ -12,6 +12,8 @@ import ec.edu.espe.appliancestore.controller.ApplianceStore;
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
 public class ApplianceStoreManager {
+    
     private String name;
     ApplianceStore storestore;
+    
 }
