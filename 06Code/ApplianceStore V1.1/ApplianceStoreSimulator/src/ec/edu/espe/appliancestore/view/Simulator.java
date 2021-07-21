@@ -12,6 +12,7 @@ import ec.edu.espe.appliancestore.model.CoffeeMaker;
 import ec.edu.espe.appliancestore.model.Computer;
 import ec.edu.espe.appliancestore.model.DVD;
 import ec.edu.espe.appliancestore.model.Microwave;
+import ec.edu.espe.appliancestore.model.Profit;
 import ec.edu.espe.appliancestore.model.TV;
 import ec.edu.espe.appliancestore.model.Toaster;
 
@@ -46,6 +47,7 @@ public class Simulator {
         System.out.println("| 2 -> Remove the Porducts    |");
         System.out.println("| 3 -> Enter and View Product |");
         System.out.println("| 4 -> Generate Payment       |");
+        System.out.println("| 5 -> Calculate Gain         |");
         System.out.println("-------------------------------");
         selection=sc.nextInt();
         
@@ -59,7 +61,10 @@ public class Simulator {
                 selectObjects();
             break;
             case 4:
-            break;        
+            break; 
+            case 5:
+                Profit.calculateProfit();
+            break;
         }
         
     }

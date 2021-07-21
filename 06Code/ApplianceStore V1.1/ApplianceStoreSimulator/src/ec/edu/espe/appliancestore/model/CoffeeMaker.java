@@ -42,8 +42,8 @@ public class CoffeeMaker extends ApplianceStore {
     public void tostock(){
         
     }
-    public Gain generateprofit(){
-    return new Gain();
+    public Profit generateprofit(){
+    return new Profit();
     }
     
     /**
