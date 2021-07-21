@@ -9,41 +9,27 @@ package ec.edu.espe.appliancestore.model;
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
-public class DVD {
+public class DVD extends ApplianceStore {
+    
     private float size;
-    private float price;
     private String model;
-    private int serialnumber;
-   
- public DVD(){
-        this.size = 0.0F;
-        this.price = 0.0F;
-        this.model = "";
-        this.serialnumber = 0;
-    }
- 
-public DVD(float size, float price, String model, int serialnumber){
+
+    public DVD(int serialNumber, float price,float size, String model) {
+        super(serialNumber, price);
         this.size = size;
-        this.price = price;
         this.model = model;
-        this.serialnumber = serialnumber;
-} 
-
-
-    public DVD(int serialnumber, float price, float size, String model) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+   
 
     @Override
     public String toString() {
-        return "DVD{" + "size=" + size + ", price=" + price + ", model=" + model + ", serialnumber=" + serialnumber + '}';
+        return "DVD{" +super.toString() + ", size=" + size + "Cm" + ", model=" + model + '}';
     }
 
-    public String [] getArray(){
-        String[] date = {"serialnumber -> " + String.valueOf(serialnumber)+ "model ->" + String.valueOf(model)+ " price ->" +String.valueOf(price)+ " qualsize->"+String.valueOf(size)};
-     return date;
-    }
-        
+
+   
+      
     public void buy(){
         
     }
@@ -73,20 +59,6 @@ public DVD(float size, float price, String model, int serialnumber){
     }
 
     /**
-     * @return the price
-     */
-    public float getPrice() {
-        return price;
-    }
-
-    /**
-     * @param price the price to set
-     */
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    /**
      * @return the model
      */
     public String getModel() {
@@ -100,17 +72,5 @@ public DVD(float size, float price, String model, int serialnumber){
         this.model = model;
     }
 
-    /**
-     * @return the serialnumber
-     */
-    public int getSerialnumber() {
-        return serialnumber;
-    }
-
-    /**
-     * @param serialnumber the serialnumber to set
-     */
-    public void setSerialnumber(int serialnumber) {
-        this.serialnumber = serialnumber;
-    }
+    
 }

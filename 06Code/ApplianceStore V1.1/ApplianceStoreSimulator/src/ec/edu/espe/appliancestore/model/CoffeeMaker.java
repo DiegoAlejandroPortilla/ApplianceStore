@@ -9,49 +9,30 @@ package ec.edu.espe.appliancestore.model;
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
-public class CoffeeMaker {
+public class CoffeeMaker extends ApplianceStore {
     private float size;
     private int ability;
     private String material;
-    private float price;
     private String model;
-    private int serialnumber;
-    
-    public CoffeeMaker(){
-        this.serialnumber = 0;
-        this.model = "";
-        this.price = 0.0F;
-        this.material = "";
-        this.ability = 0;
-        this.size = 0;
-    }
-     
-     public CoffeeMaker(int serialnumber,String model,float price , String material,int ability, float size ){
-        this.serialnumber = serialnumber;
-        this.model = model;
-        this.price = price;
-        this.material = material;
-        this.ability = ability;
-        this.size = size;
-        
-    }
-    
- 
-    public CoffeeMaker(float size, int ability, String material, float price, String model, int serialnumber) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-     @Override
+    public CoffeeMaker(int serialNumber, float price,float size, int ability, String material, String model) {
+        super(serialNumber, price);
+        this.size = size;
+        this.ability = ability;
+        this.material = material;
+        this.model = model;
+    }
+    
+    
+     
+
+    @Override
     public String toString() {
-        return "CoffeeMaker(" + "serialnumber -> " + serialnumber + "brand->"+  model + " price ->" +
-                price + " material -> " + material + " quality" + " ability->" + ability + " liters" + "size" + size;
-                }
-    public String [] getArray(){
-        String[] date = {"serialnumber -> " + String.valueOf(serialnumber)+ "model ->" + String.valueOf(model)+ " price ->" +String.valueOf(price)+ " material -> "+String.valueOf(material)+" quality "+" ability-> "+String.valueOf(ability)+ " liters" + "size->"+String.valueOf(size)};
-     return date;
+        return "CoffeeMaker{" +super.toString() + ", size=" + size + "Cm" + ", ability=" + ability + " liters "+ ", material=" + material + ", model=" + model + '}';
     }
      
      
+      
     public void buy(){
         
     }
@@ -121,32 +102,4 @@ public class CoffeeMaker {
         this.ability = ability;
     }
 
-    /**
-     * @return the price
-     */
-    public float getPrice() {
-        return price;
-    }
-
-    /**
-     * @param price the price to set
-     */
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    
-    /**
-     * @return the serialnumber
-     */
-    public int getSerialnumber() {
-        return serialnumber;
-    }
-
-    /**
-     * @param serialnumber the serialnumber to set
-     */
-    public void setSerialnumber(int serialnumber) {
-        this.serialnumber = serialnumber;
-    }
 }
