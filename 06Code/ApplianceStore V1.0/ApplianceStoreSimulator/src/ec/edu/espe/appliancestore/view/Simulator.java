@@ -13,6 +13,7 @@ import ec.edu.espe.appliancestore.model.Blender;
 import ec.edu.espe.appliancestore.model.DVD;
 import ec.edu.espe.appliancestore.model.CoffeeMaker;
 import ec.edu.espe.appliancestore.model.Computer;
+import ec.edu.espe.appliancestore.model.Gain;
 import ec.edu.espe.appliancestore.model.Microwave;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -1497,4 +1498,197 @@ public class Simulator {
         public coffeemakers() {
         }
     }
+    
+    
+    public static void writeCSVGain() throws IOException{
+        float price;
+        float size;
+        float weight;
+        String material;
+        String model;
+        int power;
+        int serialnumber;
+        
+        ArrayList<Gain>gains=new ArrayList<Gain>();
+        Gain GainsArray[] = new Gain[3];
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter data to csv");
+                                   
+        System.out.println("Enter the serial number :");
+        serialnumber=sc.nextInt();
+        System.out.println("Enter the model :");
+        model=sc.nextLine();
+        System.out.println("Enter the price :");
+        price=sc.nextFloat();
+        System.out.println("Enter the material :");
+        material=sc.nextLine();
+        System.out.println("Enter the size :");
+        size = sc.nextFloat();
+         System.out.println("Enter the Weight :");
+        weight = sc.nextFloat();
+         System.out.println("Enter the power :");
+        power = (int) sc.nextFloat();
+        
+        Gain gain = new Gain(price, size, weight, material, model, power, serialnumber);
+        System.out.println("CoffeeMaker object -> " + gain);
+                   
+        gains.add(gain);
+               
+        System.out.println("CoffeeMaker -> " + gains + "\n");
+        
+        GainsArray[0] = gain;
+        String fileOutput = "ApplianceStore.csv"; 
+        boolean exists = new File(fileOutput).exists(); 
+        
+        
+        if(exists) {
+            File gainFile = new File(fileOutput);
+            gainFile.delete();
+        }
+        
+        try {
+            
+            CsvWriter outputCSV = new CsvWriter(new FileWriter(fileOutput, true), ',');
+            
+     
+            outputCSV.write("Serialnumber"); 
+            outputCSV.write("Model");
+            outputCSV.write("Price");
+            outputCSV.write("Material");
+            outputCSV.write("Size");
+            
+            
+            outputCSV.endRecord(); 
+            
+            
+            for(Gain GainsArray : gains ){
+                outputCSV.write(String.valueOf(GainsArray.getSerialnumber()));
+                outputCSV.write(String.valueOf(GainsArray.getModel()));
+                outputCSV.write(String.valueOf(GainsArray.getPrice()));
+                outputCSV.write(String.valueOf(GainsArray.getMaterial()));
+                outputCSV.write(String.valueOf(GainsArray.getSize()));                
+                              
+                outputCSV.endRecord(); 
+            }
+            
+            outputCSV.close(); 
+            
+        } catch(IOException e) {
+            e.printStackTrace();
+        }    
+    }
+    public static void readCSVgain() throws FileNotFoundException, IOException{
+        try{
+        ArrayList<CoffeeMaker>coffeemakers=new ArrayList<CoffeeMaker>();
+        System.out.println("read data from CSV"); 
+        CsvReader readCoffeeMaker = new CsvReader("ApplianceStore.csv");
+        readCoffeeMaker.readHeaders();
+        while(readCoffeeMaker.readRecord()){
+            String serialnumber = readCoffeeMaker.get(0);
+            String model = readCoffeeMaker.get(1);
+            String price = readCoffeeMaker.get(2);
+            String material = readCoffeeMaker.get(3);
+            String size = readCoffeeMaker.get(4);
+            String ability = readCoffeeMaker.get(5);
+            
+            
+            coffeemakers.add(new CoffeeMaker(Float.parseFloat(size),Integer.parseInt(serialnumber),(model),
+                    Float.parseFloat(price),(material),Integer.parseInt(ability)));   
+        }
+        readCoffeeMaker.close();
+        
+        for(CoffeeMaker CoffeeMakerArray : coffeemakers){
+            System.out.println(CoffeeMakerArray.getSerialnumber()+"," +
+            CoffeeMakerArray.getModel()+ "," + CoffeeMakerArray.getPrice()+ "," +
+                    CoffeeMakerArray.getMaterial() + "," + CoffeeMakerArray.getSize() + "," + CoffeeMakerArray.getAbility());   
+        }
+     
+            
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        
+        
+    }
+    public static void writeJSONgain() throws IOException, Exception{
+         float price;
+        float size;
+        float weight;
+        String material;
+        String model;
+        int power;
+        int serialnumber;
+        ArrayList<Gain>gains=new ArrayList<Gain>();
+        Gain GainArray[] = new Gain[3];
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter data to Json");
+              
+                            
+        System.out.println("Enter the serial number :");
+        serialnumber=sc.nextInt();
+        System.out.println("Enter the model :");
+        model=sc.nextLine();
+        System.out.println("Enter the price :");
+        price=sc.nextFloat();
+        System.out.println("Enter the material :");
+        material=sc.nextLine();
+        System.out.println("Enter the size :");
+        size = sc.nextFloat();
+         System.out.println("Enter the Weight :");
+        weight = sc.nextFloat();
+         System.out.println("Enter the power :");
+        power = (int) sc.nextFloat();
+        
+        
+        Gain gain = new Gain(price, size, price, material, model, serialnumber, serialnumber);
+        System.out.println("CoffeeMaker object -> " + gain);
+       
+                   
+        gains.add(gain);
+               
+        System.out.println("CoffeeMakers -> " + gains + "\n");
+        GainArray[0] = gain;
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        Gson gson = gsonBuilder.create();
+        String jsonCoffeeMaker;
+        jsonCoffeeMaker = gson.toJson(gain);
+        
+        
+        gson = new GsonBuilder().setPrettyPrinting().create();
+             try (Writer writer = new FileWriter("ApplianceStore.json")) {
+                 writer.write(gson.toJson(gain));
+             }
+    }
+    public static void readJSONgain() throws Exception , ParseException {
+        ArrayList<Gain>gains=new ArrayList<Gain>();
+        JSONParser parser = new JSONParser();
+        try {
+           
+        FileReader reader = new FileReader("ApplianceStore.json");
+        Object obj = parser.parse(reader);
+        JSONObject jsonObj = (JSONObject)obj;
+             
+            int serialnumber = (int) jsonObj.get("serialnumber");
+            String model =(String) jsonObj.get("model");
+            float price =(float) jsonObj.get("price");
+            String material =(String) jsonObj.get("material");
+            float size =(float) jsonObj.get("size");
+            
+            System.out.println("SerialNumber" + serialnumber);
+            System.out.println( "Model: " + model);
+            System.out.println( "Price: " + price);
+            System.out.println( "Material: " + material);
+            System.out.println( "Size: " + size);
+            Iterator iterator = gains.iterator();
+            while (iterator.hasNext()) {
+               System.out.println(iterator.next());
+               }
+        }catch (FileNotFoundException e) {
+        e.printStackTrace();
+        }	
+    }
+
+   
 }
