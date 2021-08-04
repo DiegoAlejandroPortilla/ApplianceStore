@@ -5,6 +5,8 @@
  */
 package ec.edu.espe.appliancestore.model;
 
+import ec.edu.espe.appliancestore.controller.ApplianceStore;
+
 /**
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
@@ -24,8 +26,7 @@ public class TV extends ApplianceStore {
         this.model = model;
     }
 
-    
-    
+   
     @Override
     public String toString() {
         return "TV{" +super.toString() + ", size=" + size + " inches "+ ", color=" + color + ", definition=" + definition + ", model=" + model + '}';
@@ -42,8 +43,8 @@ public class TV extends ApplianceStore {
     public void tostock(){
         
     }
-    public Gain generateprofit(){
-    return new Gain();
+    public Profit generateprofit(){
+    return new Profit();
     
     }
 

@@ -4,6 +4,7 @@
 /06Code/ApplianceStore V1.0/ApplianceStoreSimulator/build/
 /06Code/ApplianceStore V1.0/ApplianceStoreSimulator/dist/
 /06Code/ApplianceStore V1.0/ApplianceStoreSimulator/nbproject/private/
+<<<<<<< HEAD
 /Proyecto Diego/ApplianceStore/nbproject/private/
 /Proyecto Diego/ApplianceStore/build/
 /Proyecto Diego/ClassDiagram/nbproject/private/
@@ -15,3 +16,9 @@
 /Proyecto Diego/ApplianceStoreSimulator/dist/
 /Proyecto Diego/ApplianceStoreSimulator/nbproject/private/
 /Proyecto Diego/Menu/build/
+=======
+/06Code/ApplianceStore V1.1/ApplianceStoreSimulator/Utils/nbproject/private/
+/06Code/ApplianceStore V1.1/ApplianceStoreSimulator/GainLibrary/nbproject/private/
+/06Code/ApplianceStore V1.1/ApplianceStoreSimulator/GainLibrary/build/
+/06Code/ApplianceStore V1.1/ApplianceStoreSimulator/GainLibrary/dist/
+>>>>>>> 816a9d9f3944128d14568f14ef7a60ea021bd007

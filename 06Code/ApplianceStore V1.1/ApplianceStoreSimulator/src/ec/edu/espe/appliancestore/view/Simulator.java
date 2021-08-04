@@ -6,12 +6,13 @@
 package ec.edu.espe.appliancestore.view;
 
 import ec.edu.espe.appliancestore.controller.WriteCSV;
-import ec.edu.espe.appliancestore.model.ApplianceStore;
+import ec.edu.espe.appliancestore.controller.ApplianceStore;
 import ec.edu.espe.appliancestore.model.Blender;
 import ec.edu.espe.appliancestore.model.CoffeeMaker;
 import ec.edu.espe.appliancestore.model.Computer;
 import ec.edu.espe.appliancestore.model.DVD;
 import ec.edu.espe.appliancestore.model.Microwave;
+import ec.edu.espe.appliancestore.model.Profit;
 import ec.edu.espe.appliancestore.model.TV;
 import ec.edu.espe.appliancestore.model.Toaster;
 
@@ -34,7 +35,9 @@ public class Simulator {
     }
     
     public static void systemMenu(){
+        
         int selection;
+        
         Scanner sc = new Scanner(System.in);
         System.out.println("welcome to the system Appliance Store \n");
         System.out.println("-------------------------------");
@@ -44,28 +47,30 @@ public class Simulator {
         System.out.println("| 2 -> Remove the Porducts    |");
         System.out.println("| 3 -> Enter and View Product |");
         System.out.println("| 4 -> Generate Payment       |");
+        System.out.println("| 5 -> Calculate Gain         |");
         System.out.println("-------------------------------");
         selection=sc.nextInt();
-        if(selection==1){
-        viewProducts();
-            
-        }else{
-            if(selection==2){
-                
-            }else{
-                if(selection==3){
-                  selectObjects();
-                }else{
-                    if(selection==4){
-                        
-                    }
-                }
-            }
+        
+        switch (selection){
+            case 1:
+                viewProducts();
+            break;
+            case 2:
+            break;
+            case 3:
+                selectObjects();
+            break;
+            case 4:
+            break; 
+            case 5:
+                Profit.calculateProfit();
+            break;
         }
         
     }
     public static void selectObjects(){
-         int selection;
+        
+        int selection;
         int select;
         
         Scanner sc = new Scanner(System.in);
@@ -92,25 +97,21 @@ public class Simulator {
                 System.out.println("|2-> data JSON      |");
                 System.out.println("---------------------");
                 selection=sc.nextInt();
-            if(selection==1){
-    
-                System.out.println("-----------------------");
-                System.out.println("|1-> Enter data to CSV |");
-                System.out.println("|2-> read data from CSV|"); 
-                System.out.println("-----------------------");
-                selection=sc.nextInt();
-            
-                if (selection==1){
+                if(selection==1){
+                    System.out.println("-----------------------");
+                    System.out.println("|1-> Enter data to CSV |");
+                    System.out.println("|2-> read data from CSV|"); 
+                    System.out.println("-----------------------");
+                    selection=sc.nextInt();
+                    if(selection==1){
                     WriteCSV.writeBlenderCsv();
-                }else{
-                        if (selection==2){
+                    }else{
+                    if (selection==2){
                          
-                        }else{
-                            System.out.println("Incorrect Number");
+                    }else{
+                        System.out.println("Incorrect Number");
                          }
                      }
-        
-                  
             }else{
                 if (selection ==2){
                     System.out.println("------------------------|");
