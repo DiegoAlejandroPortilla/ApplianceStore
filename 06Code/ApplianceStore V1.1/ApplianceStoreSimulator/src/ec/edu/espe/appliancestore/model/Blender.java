@@ -5,7 +5,7 @@ package ec.edu.espe.appliancestore.model;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import ec.edu.espe.appliancestore.model.ApplianceStore;
+import ec.edu.espe.appliancestore.controller.ApplianceStore;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,24 +13,20 @@ import ec.edu.espe.appliancestore.model.ApplianceStore;
  * and open the template in the editor.
  */
 public class Blender extends ApplianceStore {
+    
     private int velocity;
     private int ability;
-    
-    
     
     public Blender(int serialNumber,float price,int velocity , int ability ){
         super(serialNumber,price);
         this.velocity = velocity;
-        this.ability = ability;
-        
+        this.ability = ability;   
     }
-
-       
+        
     @Override
     public String toString() {
         return "Blender(" + super.toString() + " velocity -> " + velocity + " revolutions" + " ability->" + ability + " liters" ;
-                }
-    
+                } 
        
         
     public void buy(){
@@ -42,8 +38,8 @@ public class Blender extends ApplianceStore {
     public void tostock(){    
     }
     
-    public Gain generateprofit(){
-    return new Gain();
+    public Profit generateprofit(){
+    return new Profit();
     }
 
     

@@ -6,7 +6,6 @@
 package ec.edu.espe.appliancestore.controller;
 
 import com.csvreader.CsvWriter;
-import ec.edu.espe.appliancestore.model.ApplianceStore;
 import ec.edu.espe.appliancestore.model.Blender;
 import ec.edu.espe.appliancestore.model.CoffeeMaker;
 import ec.edu.espe.appliancestore.model.Computer;
@@ -25,16 +24,18 @@ import java.util.Scanner;
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
 public class WriteCSV {
+    
     public static void writeBlenderCsv(){
+        
         int velocity;
         int ability;
         float price;
         int serialnumber;
-        ArrayList<Blender>blenders=new ArrayList();
-        Blender blendersArray[] = new Blender[3];
+        
+        ArrayList<Blender> blenders =new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter data to csv");
-                                   
+        
+        System.out.println("Enter data to csv");              
         System.out.println("Ingrese el numero de serie :");
         serialnumber=sc.nextInt();
         System.out.println("Ingrese el precio :");
@@ -45,17 +46,13 @@ public class WriteCSV {
         ability=sc.nextInt();
         
                 
-        Blender blender = new Blender(serialnumber,price,velocity,ability);
-        System.out.println("Blender object -> " + blender);
-                   
+        Blender blender = new Blender(serialnumber,price,velocity,ability);                  
         blenders.add(blender);
                
         System.out.println("Blenders -> " + blenders + "\n");
         
-        blendersArray[0] = blender;
         String fileOutput = "ApplianceStore.csv"; 
         boolean exists = new File(fileOutput).exists(); 
-        
         
         if(exists) {
             File blenderFile = new File(fileOutput);
@@ -65,13 +62,11 @@ public class WriteCSV {
         try {
             
             CsvWriter outputCSV = new CsvWriter(new FileWriter(fileOutput, true), ',');
-            
      
             outputCSV.write("Serialnumber");            
             outputCSV.write("Price");
             outputCSV.write("Velocity");
             outputCSV.write("Ability");
-            
             
             outputCSV.endRecord(); 
             
@@ -92,6 +87,7 @@ public class WriteCSV {
         }    
     }
     public static void writeCoffeeMarkerCsv(){
+        
         float size;
         int ability;
         String material;
@@ -99,11 +95,10 @@ public class WriteCSV {
         String model;
         int serialnumber;
         
-        ArrayList<CoffeeMaker>coffeemakers=new ArrayList<CoffeeMaker>();
-        CoffeeMaker CoffeeMakersArray[] = new CoffeeMaker[3];
+        ArrayList<CoffeeMaker> coffeemakers =new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter data to csv");
-                                   
+        
+        System.out.println("Enter data to csv");                       
         System.out.println("Enter the serial number :");
         serialnumber=sc.nextInt();
         System.out.println("Enter the price :");
@@ -119,17 +114,13 @@ public class WriteCSV {
         
         
               
-        CoffeeMaker coffeemaker = new CoffeeMaker(serialnumber,price,size, ability, material, model);
-        System.out.println("CoffeeMaker object -> " + coffeemaker);
-                   
+        CoffeeMaker coffeemaker = new CoffeeMaker(serialnumber,price,size, ability, material, model);             
         coffeemakers.add(coffeemaker);
                
         System.out.println("CoffeeMaker -> " + coffeemakers + "\n");
         
-        CoffeeMakersArray[0] = coffeemaker;
         String fileOutput = "ApplianceStore.csv"; 
         boolean exists = new File(fileOutput).exists(); 
-        
         
         if(exists) {
             File coffeemakerFile = new File(fileOutput);
@@ -174,15 +165,16 @@ public class WriteCSV {
         
     }
     public static void writeComputercsv(){
+        
       int power;
       String brand;
       float price;
       int storage;
       int serialNumber;  
-      ArrayList<Computer>computers=new ArrayList<Computer>();
-      Computer computersArray[] = new Computer[3];
+      ArrayList<Computer>computers=new ArrayList<>();
       Scanner sc = new Scanner(System.in);
-      System.out.println("Enter data to csv");
+      
+        System.out.println("Enter data to csv");
         System.out.println("Enter the serialNumber: ");
         serialNumber=sc.nextInt();
         System.out.println("Enter the price: ");
@@ -196,12 +188,10 @@ public class WriteCSV {
         
         
         Computer computer = new Computer(serialNumber,price,storage,power, brand);
-        System.out.println("Computer object -> " + computer);
-        
         computers.add(computer);
+        
         System.out.println("Computers -> " + computers + "\n");
         
-        computersArray[0] = computer;
         String fileOutput = "ApplianceStore.csv";
         boolean exists = new File(fileOutput).exists();
         
@@ -218,10 +208,7 @@ public class WriteCSV {
             outputCSV.write("Storage");
             outputCSV.write("Power");            
             outputCSV.write("Brand");
-            
-            
-            
-            
+
             outputCSV.endRecord();
             
             for(Computer ComputerArray : computers){
@@ -230,9 +217,7 @@ public class WriteCSV {
                 outputCSV.write(String.valueOf(ComputerArray.getStorage()));
                 outputCSV.write(String.valueOf(ComputerArray.getPower()));
                 outputCSV.write(String.valueOf(ComputerArray.getBrand()));
-                
-                
-                
+                  
                 outputCSV.endRecord();  
             }
             outputCSV.close(); 
@@ -241,16 +226,16 @@ public class WriteCSV {
         }
     }
     public static void writeDvdcsv(){
+        
         float size;
         float price;
         String model;
         int serialnumber;
         
-        ArrayList<DVD>dvds=new ArrayList<DVD>();
-        DVD dvdsArray[] = new DVD[3];
+        ArrayList<DVD>dvds=new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter data to Json");
         
+        System.out.println("Enter data to Json");
         System.out.println("Ingrese el SerialNumber:");
         serialnumber=sc.nextInt();
         System.out.println("Ingrese el price:");
@@ -260,17 +245,13 @@ public class WriteCSV {
         System.out.println("Ingrese el model :");
         model=sc.nextLine();                    
         
-       
-        DVD dvd = new DVD(serialnumber,price,size,model);
-        System.out.println("DVD object -> " + dvd);
-                   
+        DVD dvd = new DVD(serialnumber,price,size,model);         
         dvds.add(dvd);
                
         System.out.println("DVD -> " + dvds + "\n");
-        dvdsArray[0] = dvd;
+        
         String fileOutput = "ApplianceStore.csv"; 
         boolean exists = new File(fileOutput).exists(); 
-        
         
         if(exists) {
             File dvdFile = new File(fileOutput);
@@ -305,6 +286,7 @@ public class WriteCSV {
         }    
     }
     public static void writeMicrowaveCsv(){
+        
         int serialnumber;
         float price;
         float size;
@@ -313,11 +295,10 @@ public class WriteCSV {
         String model;
         
         
-        ArrayList<Microwave>microwaves=new ArrayList<Microwave>();
-        Microwave MicrowavesArray[] = new Microwave[3];
+        ArrayList<Microwave>microwaves=new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter data to csv");
-                                   
+        
+        System.out.println("Enter data to csv");                            
         System.out.println("Enter the serial number :");
         serialnumber=sc.nextInt();
          System.out.println("Enter the price :");
@@ -332,17 +313,13 @@ public class WriteCSV {
         model=sc.nextLine();
         
         
-        Microwave microwave = new Microwave(serialnumber,price,size, weight, material, model);
-        System.out.println("Microwave object -> " + microwave);
-                   
+        Microwave microwave = new Microwave(serialnumber,price,size, weight, material, model);      
         microwaves.add(microwave);
                
         System.out.println("Microwave -> " + microwaves + "\n");
         
-        MicrowavesArray[0] = microwave;
         String fileOutput = "ApplianceStore.csv"; 
-        boolean exists = new File(fileOutput).exists(); 
-        
+        boolean exists = new File(fileOutput).exists();     
         
         if(exists) {
             File microwaveFile = new File(fileOutput);
@@ -352,7 +329,6 @@ public class WriteCSV {
         try {
             
             CsvWriter outputCSV = new CsvWriter(new FileWriter(fileOutput, true), ',');
-            
      
             outputCSV.write("Serialnumber"); 
             outputCSV.write("Price");
@@ -360,10 +336,7 @@ public class WriteCSV {
             outputCSV.write("Weight");
             outputCSV.write("Material");
             outputCSV.write("Model");
-            
-            
-            
-            
+                      
             outputCSV.endRecord(); 
             
             
@@ -387,17 +360,18 @@ public class WriteCSV {
         }    
     }
     public static void writeTVCsv(){
+        
         int serialnumber;
         float price;
         float size;
         String color;
         String definition;
         String model;
-        ArrayList<TV>tvs=new ArrayList<TV>();
-        TV tvsArray[] = new TV[3];
+        
+        ArrayList<TV>tvs=new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter data to Csv");
-              
+        
+        System.out.println("Enter data to Csv");  
         System.out.println("Enter the SerialNumber:");
         serialnumber=sc.nextInt();
         System.out.println("Enter the precio:");
@@ -412,17 +386,14 @@ public class WriteCSV {
         model=sc.nextLine();                    
         
         
-        TV tv = new TV(serialnumber,price,size,color,definition,model);
-        System.out.println("TV object -> " + tv);
-                   
+        TV tv = new TV(serialnumber,price,size,color,definition,model); 
         tvs.add(tv);
                
         System.out.println("TV -> " + tvs + "\n");
-        tvsArray[0] = tv;
+
         String fileOutput = "ApplianceStore.csv"; 
         boolean exists = new File(fileOutput).exists(); 
-        
-        
+
         if(exists) {
             File tvFile = new File(fileOutput);
             tvFile.delete();
@@ -432,7 +403,6 @@ public class WriteCSV {
             
             CsvWriter outputCSV = new CsvWriter(new FileWriter(fileOutput, true), ',');
             
-     
             outputCSV.write("Serialnumber");            
             outputCSV.write("Price");
             outputCSV.write("Size");
@@ -462,6 +432,7 @@ public class WriteCSV {
         }    
     }
     public static void writeToasterCsv(){
+        
         int serialnumber;
         float price;
         int power;
@@ -469,11 +440,11 @@ public class WriteCSV {
         float weight;
         String material;
         String model;
-        ArrayList<Toaster>toaster=new ArrayList<Toaster>();
-        Toaster toasteresArray[] = new Toaster[3];
+        
+        ArrayList<Toaster>toaster=new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter data to Json");
-              
+        
+        System.out.println("Enter data to Json");    
         System.out.println("Enter the SerialNumber:");
         serialnumber=sc.nextInt();
         System.out.println("Enter the price:");
@@ -490,16 +461,13 @@ public class WriteCSV {
         model=sc.nextLine();                    
         
               
-        Toaster toasters = new Toaster(serialnumber, price, power, size, weight, material, model);
-        System.out.println("TV object -> " + toaster);
-                   
+        Toaster toasters = new Toaster(serialnumber, price, power, size, weight, material, model);           
         toaster.add(toasters);
                
         System.out.println("TV -> " + toasters + "\n");
-        toasteresArray[0] = toasters;
+        
         String fileOutput = "ApplianceStore.csv"; 
         boolean exists = new File(fileOutput).exists(); 
-        
         
         if(exists) {
             File tvFile = new File(fileOutput);
@@ -510,7 +478,6 @@ public class WriteCSV {
             
             CsvWriter outputCSV = new CsvWriter(new FileWriter(fileOutput, true), ',');
             
-     
             outputCSV.write("Serialnumber");            
             outputCSV.write("Price");
             outputCSV.write("Power");
@@ -540,7 +507,6 @@ public class WriteCSV {
         } catch(IOException e) {
             e.printStackTrace();
         }    
-    }
-    
+    }   
 }
    
