@@ -33,7 +33,7 @@ import org.json.simple.parser.ParseException;
 
 
 /**
- *
+ *@author Sebastian Solano NullPointers ESPE-DCCO
  * @author Diego Portilla NullPointers ESPE-DCCO
  * @author Salazar Matthew NullPointers ESPE-DCCO
  */
@@ -416,7 +416,7 @@ public class Simulator {
     public static void readCSVblender() throws FileNotFoundException, IOException{
         try{
         ArrayList<Blender>blenders=new ArrayList<Blender>();
-        System.out.println("read data from CSV"); 
+        System.out.println("Read data from CSV"); 
         CsvReader readBlender = new CsvReader("ApplianceStore.csv");
         readBlender.readHeaders();
         while(readBlender.readRecord()){
@@ -459,11 +459,11 @@ public class Simulator {
                                    
         System.out.println("Ingrese el numero de serie :");
         serialnumber=sc.nextInt();
-        System.out.println("Ingrese el precio :");
+        System.out.println("Enter the price :");
         price=sc.nextFloat();
-        System.out.println("Ingrese las velocidades :");
+        System.out.println("Enter the speeds :");
         velocity=sc.nextInt();
-        System.out.println("Ingrese las capacidad :");
+        System.out.println("Enter the capacity :");
         ability=sc.nextInt();
         
         Blender blender = new Blender();
