@@ -529,13 +529,13 @@ public class Simulator {
         System.out.println("Enter data to Json");
               
                             
-        System.out.println("Ingrese el numero de serie :");
+        System.out.println("Enter number serie :");
         serialnumber=sc.nextInt();
-        System.out.println("Ingrese el precio :");
+        System.out.println("Enter price :");
         price=sc.nextFloat();
-        System.out.println("Ingrese las velocidades :");
+        System.out.println("Enter the speeds :");
         velocity=sc.nextInt();
-        System.out.println("Ingrese las capacidad :");
+        System.out.println("Enter the capacity :");
         ability=sc.nextInt();
         
         Blender blender = new Blender();
@@ -630,13 +630,13 @@ public class Simulator {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter data to Json");
         
-        System.out.println("Ingrese el model :");
+        System.out.println("Enter the model model :");
         model=sc.nextLine();                    
-        System.out.println("Ingrese el SerialNumber:");
+        System.out.println("Enter the SerialNumber:");
         serialnumber=sc.nextInt();
-        System.out.println("Ingrese el price:");
+        System.out.println("Enter the price:");
         price=sc.nextFloat();
-        System.out.println("Ingrese la size:");
+        System.out.println("Enter the size:");
         size=sc.nextFloat();
         
                
