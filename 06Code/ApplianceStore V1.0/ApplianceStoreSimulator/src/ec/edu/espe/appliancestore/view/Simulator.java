@@ -806,17 +806,17 @@ public class Simulator {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter data to Json");
               
-        System.out.println("Ingrese el color:");
+        System.out.println("Enter the color:");
         color=sc.nextLine();
-        System.out.println("Ingrese la definition:");
+        System.out.println("Enter the definition:");
         definition=sc.nextLine();
-        System.out.println("Ingrese el model :");
+        System.out.println("Enter the model :");
         model=sc.nextLine();                    
-        System.out.println("Ingrese el SerialNumber:");
+        System.out.println("Enter the SerialNumber:");
         serialnumber=sc.nextInt();
-        System.out.println("Ingrese el precio:");
+        System.out.println("Enter the price:");
         price=sc.nextFloat();
-        System.out.println("Ingrese la size:");
+        System.out.println("Enter the size:");
         size=sc.nextFloat();
         
         
@@ -887,20 +887,19 @@ public class Simulator {
         TV tvsArray[] = new TV[3];
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter data to Json");
-              
-                            
-        System.out.println("Ingrese el SerialNumber:");
-        serialnumber=sc.nextInt();
-        System.out.println("Ingrese el precio:");
-        price=sc.nextFloat();
-        System.out.println("Ingrese la size:");
-        size=sc.nextFloat();
-        System.out.println("Ingrese el color:");
+        
+        System.out.println("Enter the color:");
         color=sc.nextLine();
-        System.out.println("Ingrese la definition:");
+        System.out.println("Enter the definition:");
         definition=sc.nextLine();
-        System.out.println("Ingrese el model :");
-        model=sc.nextLine();
+        System.out.println("Enter the model :");
+        model=sc.nextLine();                    
+        System.out.println("Enter the SerialNumber:");
+        serialnumber=sc.nextInt();
+        System.out.println("Enter the price:");
+        price=sc.nextFloat();
+        System.out.println("Enter the size:");
+        size=sc.nextFloat();
         
         
         TV tv = new TV();
