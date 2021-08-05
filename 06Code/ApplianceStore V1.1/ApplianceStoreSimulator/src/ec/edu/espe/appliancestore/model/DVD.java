@@ -8,7 +8,7 @@ package ec.edu.espe.appliancestore.model;
 import ec.edu.espe.appliancestore.controller.ApplianceStore;
 
 /**
- *
+ * @author Sebastian Solano NullPointers ESPE-DCCO
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
 public class DVD extends ApplianceStore {
