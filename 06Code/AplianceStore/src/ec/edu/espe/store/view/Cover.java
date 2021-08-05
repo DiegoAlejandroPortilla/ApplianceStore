@@ -69,9 +69,9 @@ public class Cover extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         Menu menu = new Menu();
-         menu.setVisible(true);
-        dispose();
+         FrmLogin login = new FrmLogin();
+         login.show();
+         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -5,7 +5,6 @@
  */
 package ec.edu.espe.store.model;
 
-
 /**
  *
  * @author Nicolas Suquillo NullPointers ESPE-DCCO
@@ -18,10 +17,10 @@ public abstract class Users {
     private String phoneNumber;
     private String email;
     private String address;
-    private boolean gender = false;
+    private String gender;
     private String password;
 
-    public Users(String username, String firstName, String lastName, String phoneNumber, String email, String address, boolean gender, String password) {
+    public Users(String username, String firstName, String lastName, String phoneNumber, String email, String address, String gender, String password) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -119,14 +118,14 @@ public abstract class Users {
     /**
      * @return the dateOfBirth
      */
-    public boolean getGender() {
+    public String getGender() {
         return gender;
     }
 
     /**
      * @param gender the dateOfBirth to set
      */
-    public void setGender(boolean gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

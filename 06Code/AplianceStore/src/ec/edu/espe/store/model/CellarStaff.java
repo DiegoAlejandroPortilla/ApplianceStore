@@ -5,16 +5,14 @@
  */
 package ec.edu.espe.store.model;
 
-
 /**
  *
  * @author Nicolas Suquillo NullPointers ESPE-DCCO
  */
 public class CellarStaff extends Users{
     
-    public CellarStaff(String username, String firstName, String lastName, String phoneNumber, String email, String address, boolean gender, String password) {
+    public CellarStaff(String username, String firstName, String lastName, String phoneNumber, String email, String address, String gender, String password) {
         super(username, firstName, lastName, phoneNumber, email, address, gender, password);
-    }
-
+    } 
   
 }

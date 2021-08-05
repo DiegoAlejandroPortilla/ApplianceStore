@@ -5,7 +5,6 @@
  */
 package ec.edu.espe.store.model;
 
-import java.util.Calendar;
 
 /**
  *
@@ -13,8 +12,9 @@ import java.util.Calendar;
  */
 public class Staff extends Users{
  
-    public Staff(String username, String firstName, String lastName, String phoneNumber, String email, String address, boolean gender, String password) {
+    public Staff(String username, String firstName, String lastName, String phoneNumber, String email, String address, String gender, String password) {
         super(username, firstName, lastName, phoneNumber, email, address, gender, password);
-    } 
-    
+    }
+ 
+ 
 }

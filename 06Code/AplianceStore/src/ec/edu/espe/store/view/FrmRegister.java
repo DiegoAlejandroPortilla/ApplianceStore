@@ -110,6 +110,11 @@ public class FrmRegister extends javax.swing.JFrame {
 
         btnBack.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         btnBack.setText("Regresar");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         btnClean.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         btnClean.setText("Limpiar");
@@ -256,51 +261,42 @@ public class FrmRegister extends javax.swing.JFrame {
         String password = pwPassword.getText();
         String area = cmbArea.getSelectedItem().toString();
         String gender = cmbGender.getSelectedItem().toString();
-        boolean genderType = true;
         
         if(cmbArea.getSelectedItem().equals("Bodega")){
-            if(cmbGender.getSelectedItem().equals("Hombre")){
-                userType = new CellarStaff(username, firstName, lastName, phoneNumber, email, address, genderType, password);
-                userControl.saveUser(userControl.jsonSerialization(userType));
-                JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
-            }else if(cmbGender.getSelectedItem().equals("Mujer")){
-               genderType = false;
-               userType = new CellarStaff(username, firstName, lastName, phoneNumber, email, address, genderType, password);             
+            if(cmbGender.getSelectedItem().equals("Hombre") || cmbGender.getSelectedItem().equals("Mujer")){
+                userType = new CellarStaff(username, firstName, lastName, phoneNumber, email, address, gender, password);
                 userControl.saveUser(userControl.jsonSerialization(userType));
                 JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
             }else{
                 JOptionPane.showMessageDialog(this, "Error, Eliga un genero correcto");
             }
         }else if(cmbArea.getSelectedItem().equals("Caja")){
-            if(cmbGender.getSelectedItem().equals("Hombre")){
-                userType = new Cashiers(username, firstName, lastName, phoneNumber, email, address, genderType, password);
+            if(cmbGender.getSelectedItem().equals("Hombre") || cmbGender.getSelectedItem().equals("Mujer")){
+                userType = new Cashiers(username, firstName, lastName, phoneNumber, email, address, gender, password);
                 userControl.saveUser(userControl.jsonSerialization(userType));
                 JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
-            }else if(cmbGender.getSelectedItem().equals("Mujer")){
-               genderType = false;
-               userType = new Cashiers(username, firstName, lastName, phoneNumber, email, address, genderType, password);
-               userControl.saveUser(userControl.jsonSerialization(userType));
-               JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
             }else{
                 JOptionPane.showMessageDialog(this, "Error, Eliga un genero correcto");
             }
         }else if(cmbArea.getSelectedItem().equals("General")){
-            if(cmbGender.getSelectedItem().equals("Hombre")){
-                userType = new Staff(username, firstName, lastName, phoneNumber, email, address, genderType, password);
+            if(cmbGender.getSelectedItem().equals("Hombre") || cmbGender.getSelectedItem().equals("Mujer")){
+                userType = new Staff(username, firstName, lastName, phoneNumber, email, address, gender, password);
                 userControl.saveUser(userControl.jsonSerialization(userType));
                 JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
-            }else if(cmbGender.getSelectedItem().equals("Mujer")){
-               genderType = false;
-               userType = new Staff(username, firstName, lastName, phoneNumber, email, address, genderType, password);
-               userControl.saveUser(userControl.jsonSerialization(userType));
-               JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
             }else{
                 JOptionPane.showMessageDialog(this, "Error, Eliga un genero correcto");
             }
         }else{
             JOptionPane.showMessageDialog(this, "Error, Eliga un area correcta");
-        }  
+        }      
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        
+        FrmLogin frmLogin = new FrmLogin();
+        this.setVisible(false);
+        frmLogin.show();
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
