@@ -11,56 +11,14 @@ package ec.edu.espe.store.model;
  */
 public class Fridge extends ApplianceStore {
     
-    private float size;
-    private String model;
-    private String Brand;
+    float size;
+    String model;
+    String Brand;
 
     public Fridge(float size, String model, String Brand, int serialNumber, float price) {
         super(serialNumber, price);
         this.size = size;
         this.model = model;
-        this.Brand = Brand;
-    }
-
-    /**
-     * @return the size
-     */
-    public float getSize() {
-        return size;
-    }
-
-    /**
-     * @param size the size to set
-     */
-    public void setSize(float size) {
-        this.size = size;
-    }
-
-    /**
-     * @return the model
-     */
-    public String getModel() {
-        return model;
-    }
-
-    /**
-     * @param model the model to set
-     */
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    /**
-     * @return the Brand
-     */
-    public String getBrand() {
-        return Brand;
-    }
-
-    /**
-     * @param Brand the Brand to set
-     */
-    public void setBrand(String Brand) {
         this.Brand = Brand;
     }
     

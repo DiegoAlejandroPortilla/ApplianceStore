@@ -201,10 +201,8 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnaddDVD" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
-                                  <Component id="btnaddMicrowave" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="btnaddDVD" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="btnaddMicrowave" min="-2" pref="46" max="-2" attributes="0"/>
                               <Component id="btnaddTV" alignment="0" min="-2" pref="46" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>

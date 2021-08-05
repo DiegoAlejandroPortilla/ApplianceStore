@@ -5,19 +5,12 @@
  */
 package ec.edu.espe.store.view;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.ConnectionString;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientSettings;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+
+import ec.edu.espe.store.controller.Product;
 import java.awt.Image;
-import java.awt.List;
-import static java.util.Arrays.asList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import org.bson.Document;
+
 
 /**
  *
@@ -30,19 +23,16 @@ public class Blender extends javax.swing.JFrame {
      */
     public Blender() {
         
-        ConnectionString connectionString = new ConnectionString("mongodb+srv://NullPointers:finalproyect@finalproyect.6vyqq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
-        MongoClientSettings settings = MongoClientSettings.builder().applyConnectionString(connectionString).build();
-        MongoClient mongoClient = (MongoClient) MongoClients.create(settings);
-        MongoDatabase database = mongoClient.getDatabase("test");
-        MongoCollection collection = database.getCollection("Blenders");
         initComponents();
                 
         ImageIcon imagen1= new ImageIcon(getClass().getResource("/images/BLSTPYG1209B-1.jpg"));
         Icon fondo1 = new ImageIcon(imagen1.getImage().getScaledInstance(jLabel7.getWidth(), jLabel7.getHeight(), Image.SCALE_DEFAULT));
         jLabel7.setIcon(fondo1);
         this.repaint();
+    
+    
+    
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -216,16 +206,10 @@ public class Blender extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReturn1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     BasicDBObject  document = new BasicDBObject();
-     document.put("serialNumber","'" + txtSerialNumber.getText()+ "'");
-     document.put("price","'"+txtPrice.getText()+"'");
-     document.put("velocity","'"+txtVelocity.getText()+"'");
-     document.put("ability","'"+txtAbility.getText()+"'");
-     
-     List documents = asList(new Document("serialNumber" + txtSerialNumber.getText());
-     collection.insertMany(documents);
+     Product product = new Product();
+        product.addProduct();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
