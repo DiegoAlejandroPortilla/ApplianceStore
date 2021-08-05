@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -5,11 +6,13 @@
  */
 package ec.edu.espe.appliancestore.view;
 
+import com.mongodb.DB;
 import ec.edu.espe.appliancestore.controller.WriteCSV;
 import ec.edu.espe.appliancestore.controller.ApplianceStore;
 import ec.edu.espe.appliancestore.model.Blender;
 import ec.edu.espe.appliancestore.model.CoffeeMaker;
 import ec.edu.espe.appliancestore.model.Computer;
+import ec.edu.espe.appliancestore.model.Conection;
 import ec.edu.espe.appliancestore.model.DVD;
 import ec.edu.espe.appliancestore.model.Microwave;
 import ec.edu.espe.appliancestore.model.Profit;
@@ -25,6 +28,7 @@ import java.util.Scanner;
  * @author Nicolas Suquillo NullPointers ESPE-DCCO
  * @author Diego Portilla NullPointers ESPE-DCCO
  * @author Salazar Matthew NullPointers ESPE-DCCO
+ * @author Salazar Matthew NullPointers ESPE-DCCO
  */
 public class Simulator {
     /**
@@ -32,12 +36,13 @@ public class Simulator {
      */
     public static void main(String[] args) {
         systemMenu();
+      
     }
     
     public static void systemMenu(){
         
         int selection;
-        
+       
         Scanner sc = new Scanner(System.in);
         System.out.println("welcome to the system Appliance Store \n");
         System.out.println("-------------------------------");
@@ -405,12 +410,13 @@ public class Simulator {
                 if (selection ==2){
                     
                     System.out.println("-------------------------");
-                    System.out.println("|1-> Enter data to Json |");
-                    System.out.println("|2-> read data from Json|");
+                    System.out.println("|1-> Insert in database |");
+                    System.out.println("|2-> Show data|");
                     System.out.println("-------------------------");
                     selection=sc.nextInt();
                     if (selection==1){
-                        
+                      Conection conection = new Conection();
+                      conection.insert("Correr");  
                     }else{
                         if (selection==2){
                             
@@ -424,7 +430,8 @@ public class Simulator {
             }
         break;
         }
-    
+        
+
     }
     public static void viewProducts(){
     ApplianceStore applianceStore = new Blender(0, 0.0F, 0, 0);

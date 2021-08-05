@@ -147,6 +147,11 @@ public class Menu extends javax.swing.JFrame {
         jLabel1.setText("Tienda de Electrodomesticos ");
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Person_48px.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Buy_24px_1.png"))); // NOI18N
 
@@ -214,6 +219,12 @@ public class Menu extends javax.swing.JFrame {
         dispose();
   
     }//GEN-LAST:event_btnBuyComputerActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        FrmLogin frmLogin = new FrmLogin();
+        frmLogin.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
     public void sizeImages(){
         ImageIcon imagen1= new ImageIcon(getClass().getResource("/images/BLSTPYG1209B-1.jpg"));
         ImageIcon imagen2= new ImageIcon(getClass().getResource("/images/las-cafeteras-electricas-para-hacer-espectaculares-cafes-sin-salir-de-casa.jpg"));

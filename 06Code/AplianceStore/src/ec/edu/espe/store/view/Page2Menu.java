@@ -217,7 +217,9 @@ public class Page2Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFridgeActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add yo
+        FrmLogin frmLogin = new FrmLogin();
+        frmLogin.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnReturnPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnPageActionPerformed

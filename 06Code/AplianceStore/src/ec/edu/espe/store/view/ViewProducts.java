@@ -7,11 +7,6 @@ package ec.edu.espe.store.view;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBCursor;
-import com.mongodb.DBObject;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import ec.edu.espe.store.model.Product;
 import java.util.ArrayList;
 import java.util.List;
