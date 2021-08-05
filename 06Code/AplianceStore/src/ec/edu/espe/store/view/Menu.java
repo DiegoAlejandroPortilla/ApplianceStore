@@ -57,6 +57,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         btnBuyBlender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Shopping_Bag_48px.png"))); // NOI18N
+        btnBuyBlender.setToolTipText("Productos");
         btnBuyBlender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuyBlenderActionPerformed(evt);
@@ -147,6 +148,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel1.setText("Tienda de Electrodomesticos ");
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Person_48px.png"))); // NOI18N
+        jButton2.setToolTipText("Iniciar Sesion ");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -154,6 +156,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Buy_24px_1.png"))); // NOI18N
+        jButton3.setToolTipText("Carrito de Compras");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

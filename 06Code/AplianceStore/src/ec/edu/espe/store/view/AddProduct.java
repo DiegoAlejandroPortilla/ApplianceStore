@@ -83,6 +83,7 @@ public class AddProduct extends javax.swing.JFrame {
         btnaddBlender.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnaddBlender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Up_24px.png"))); // NOI18N
         btnaddBlender.setText("Subir");
+        btnaddBlender.setToolTipText("Registrar producto");
         btnaddBlender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnaddBlenderActionPerformed(evt);
@@ -222,6 +223,7 @@ public class AddProduct extends javax.swing.JFrame {
 
     private void btnaddBlenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddBlenderActionPerformed
         addProduct();
+        JOptionPane.showMessageDialog(null, "Añadido con exito!");
         
     }//GEN-LAST:event_btnaddBlenderActionPerformed
 
