@@ -208,6 +208,7 @@
               <Image iconType="3" name="/Images/icons8_Up_24px.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Subir"/>
+            <Property name="toolTipText" type="java.lang.String" value="Registrar producto"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnaddBlenderActionPerformed"/>

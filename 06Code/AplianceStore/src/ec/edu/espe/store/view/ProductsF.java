@@ -99,6 +99,7 @@ public class ProductsF extends javax.swing.JFrame {
         });
 
         jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Shopping_Bag_48px.png"))); // NOI18N
+        jButton9.setToolTipText("Productos");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -161,6 +162,7 @@ public class ProductsF extends javax.swing.JFrame {
         );
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Buy_24px_1.png"))); // NOI18N
+        jButton6.setToolTipText("Carrito de Compras");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
