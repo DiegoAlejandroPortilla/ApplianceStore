@@ -110,6 +110,11 @@ public class ShoppingCart extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(153, 153, 153));
         jButton1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Matthew Salazar\\Downloads\\1413939 (1).png")); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         btnReturnProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Go_Back_24px.png"))); // NOI18N
         btnReturnProducts.setText("Anterior");
@@ -159,10 +164,14 @@ public class ShoppingCart extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReturnProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReturnProductsActionPerformed
-        Products products = new Products();
-        products.setVisible(true);
+        Menu menu = new Menu();
+        menu.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnReturnProductsActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -216,6 +216,7 @@ public class Blender extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReturn1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     
      BasicDBObject  document = new BasicDBObject();
      document.put("serialNumber","'" + txtSerialNumber.getText()+ "'");
      document.put("price","'"+txtPrice.getText()+"'");

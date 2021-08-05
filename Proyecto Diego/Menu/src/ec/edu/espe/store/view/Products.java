@@ -241,6 +241,11 @@ public class Products extends javax.swing.JFrame {
         );
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Buy_24px.png"))); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -310,6 +315,12 @@ public class Products extends javax.swing.JFrame {
         TV tv = new TV();
         tv.setVisible(true);
         dispose();        dispose();    }//GEN-LAST:event_btnaddTVActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        ShoppingCart  shoppingCart = new  ShoppingCart();
+         shoppingCart.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

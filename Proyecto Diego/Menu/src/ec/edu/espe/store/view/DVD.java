@@ -197,11 +197,12 @@ public class DVD extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
          
+           JOptionPane.showMessageDialog(null, "Product added to cart!");
            int qty = Integer.parseInt(this.productQtyField.getName());
               ProductList p = new ProductList(this.txtSerialNumber.getText(), this.txtPrice.getText(), qty*Integer.parseInt(this.txtModel.getText()), 
               Integer.parseInt(this.productQtyField.getName()), null, null);
               cartItem.add(p);
-              JOptionPane.showMessageDialog(null, "Product added to cart!");
+            
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
