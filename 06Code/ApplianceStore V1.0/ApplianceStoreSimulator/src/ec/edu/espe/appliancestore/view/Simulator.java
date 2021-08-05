@@ -1510,7 +1510,7 @@ public class Simulator {
         int serialnumber;
         
         ArrayList<Gain>gains=new ArrayList<Gain>();
-        Gain GainsArray[] = new Gain[3];
+        Gain GainArray[] = new Gain[3];
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter data to csv");
                                    
@@ -1536,7 +1536,7 @@ public class Simulator {
                
         System.out.println("CoffeeMaker -> " + gains + "\n");
         
-        GainsArray[0] = gain;
+        GainArray[0] = gain;
         String fileOutput = "ApplianceStore.csv"; 
         boolean exists = new File(fileOutput).exists(); 
         
@@ -1561,12 +1561,12 @@ public class Simulator {
             outputCSV.endRecord(); 
             
             
-            for(Gain GainsArray : gains ){
-                outputCSV.write(String.valueOf(GainsArray.getSerialnumber()));
-                outputCSV.write(String.valueOf(GainsArray.getModel()));
-                outputCSV.write(String.valueOf(GainsArray.getPrice()));
-                outputCSV.write(String.valueOf(GainsArray.getMaterial()));
-                outputCSV.write(String.valueOf(GainsArray.getSize()));                
+            for( Gain  GainArray : gains ){
+                outputCSV.write(String.valueOf(GainArray.getSerialnumber()));
+                outputCSV.write(String.valueOf(GainArray.getModel()));
+                outputCSV.write(String.valueOf(GainArray.getPrice()));
+                outputCSV.write(String.valueOf(GainArray.getMaterial()));
+                outputCSV.write(String.valueOf(GainArray.getSize()));                
                               
                 outputCSV.endRecord(); 
             }
@@ -1579,28 +1579,27 @@ public class Simulator {
     }
     public static void readCSVgain() throws FileNotFoundException, IOException{
         try{
-        ArrayList<CoffeeMaker>coffeemakers=new ArrayList<CoffeeMaker>();
+        ArrayList<Gain>gains=new ArrayList<Gain>();
         System.out.println("read data from CSV"); 
-        CsvReader readCoffeeMaker = new CsvReader("ApplianceStore.csv");
-        readCoffeeMaker.readHeaders();
-        while(readCoffeeMaker.readRecord()){
-            String serialnumber = readCoffeeMaker.get(0);
-            String model = readCoffeeMaker.get(1);
-            String price = readCoffeeMaker.get(2);
-            String material = readCoffeeMaker.get(3);
-            String size = readCoffeeMaker.get(4);
-            String ability = readCoffeeMaker.get(5);
+        CsvReader readGain = new CsvReader("ApplianceStore.csv");
+        readGain.readHeaders();
+        while(readGain.readRecord()){
+            String serialnumber = readGain.get(0);
+            String model = readGain.get(1);
+            String price = readGain.get(2);
+            String material = readGain.get(3);
+            String size = readGain.get(4);
+            String ability = readGain.get(5);
             
             
-            coffeemakers.add(new CoffeeMaker(Float.parseFloat(size),Integer.parseInt(serialnumber),(model),
-                    Float.parseFloat(price),(material),Integer.parseInt(ability)));   
+            gains.add(new Gain(0, 0, 0, material, model, 0, 0);   
         }
-        readCoffeeMaker.close();
+        readGain.close();
         
-        for(CoffeeMaker CoffeeMakerArray : coffeemakers){
-            System.out.println(CoffeeMakerArray.getSerialnumber()+"," +
-            CoffeeMakerArray.getModel()+ "," + CoffeeMakerArray.getPrice()+ "," +
-                    CoffeeMakerArray.getMaterial() + "," + CoffeeMakerArray.getSize() + "," + CoffeeMakerArray.getAbility());   
+        for(Gain GainArray : gains){
+            System.out.println(GainArray.getSerialnumber()+"," +
+            GainArray.getModel()+ "," + GainArray.getPrice()+ "," +
+                    GainArray.getMaterial() + "," + GainArray.getSize());   
         }
      
             
@@ -1652,8 +1651,8 @@ public class Simulator {
         GainArray[0] = gain;
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.create();
-        String jsonCoffeeMaker;
-        jsonCoffeeMaker = gson.toJson(gain);
+        String jsonGain;
+        jsonGain = gson.toJson(gain);
         
         
         gson = new GsonBuilder().setPrettyPrinting().create();
@@ -1690,5 +1689,146 @@ public class Simulator {
         }	
     }
 
+    
+    public static void Toaster() throws FileNotFoundException, IOException{
+        try{
+        ArrayList<DVD>dvds=new ArrayList<DVD>();
+        System.out.println("read data from CSV"); 
+        CsvReader readDVD = new CsvReader("ApplianceStore.csv");
+        readDVD.readHeaders();
+        while(readDVD.readRecord()){
+            String serialnumber = readDVD.get(0);
+            String price = readDVD.get(1);
+            String size = readDVD.get(2);
+            String model = readDVD.get(3);
+            
+        dvds.add(new DVD(Integer.parseInt(serialnumber), Float.parseFloat(price),Float.parseFloat(size),(model)));   
+        }
+        readDVD.close();
+        
+        for(DVD DVDArray : dvds){
+            System.out.println( DVDArray.getSerialnumber()+"," + DVDArray.getPrice() + "," + DVDArray.getSize() + "," + DVDArray.getModel());   
+        
+        }
+     
+            
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        
+        
+    }
+    public static void writeCSVToaster() throws IOException{
+        float size;
+        float price;
+        String model;
+        int serialnumber;
+        
+        ArrayList<DVD>dvds=new ArrayList<DVD>();
+        DVD dvdsArray[] = new DVD[3];
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter data to Json");
+        
+        System.out.println("Enter the model model :");
+        model=sc.nextLine();                    
+        System.out.println("Enter the SerialNumber:");
+        serialnumber=sc.nextInt();
+        System.out.println("Enter the price:");
+        price=sc.nextFloat();
+        System.out.println("Enter the size:");
+        size=sc.nextFloat();
+        
+               
+        DVD dvd = new DVD();
+        System.out.println("DVD object -> " + dvd);
+        
+        dvd = new DVD(serialnumber,price,size,model);
+        System.out.println("DVD object -> " + dvd);
+                   
+        dvds.add(dvd);
+               
+        System.out.println("DVD -> " + dvds + "\n");
+        dvdsArray[0] = dvd;
+        String fileOutput = "ApplianceStore.csv"; 
+        boolean exists = new File(fileOutput).exists(); 
+        
+        
+        if(exists) {
+            File dvdFile = new File(fileOutput);
+            dvdFile.delete();
+        }
+        
+        try {
+            
+            CsvWriter outputCSV = new CsvWriter(new FileWriter(fileOutput, true), ',');
+            
+     
+            outputCSV.write("Serialnumber");            
+            outputCSV.write("Price");
+            outputCSV.write("Size");
+            outputCSV.write("Model");
+            outputCSV.endRecord(); 
+            
+            
+            for(DVD DVDArray : dvds) {
+                outputCSV.write(String.valueOf(DVDArray.getSerialnumber()));
+                outputCSV.write(String.valueOf(DVDArray.getPrice()));
+                outputCSV.write(String.valueOf(DVDArray.getSize()));
+                outputCSV.write(String.valueOf(DVDArray.getModel()));
+                              
+                outputCSV.endRecord(); 
+            }
+            
+            outputCSV.close(); 
+            
+        } catch(IOException e) {
+            e.printStackTrace();
+        }    
+    }
+    public static void writeJSONtoaster() throws IOException, Exception{
+        
+        float size;
+        float price;
+        String model;
+        int serialnumber;
+        
+        ArrayList<DVD>dvds=new ArrayList<DVD>();
+        DVD dvdsArray[] = new DVD[3];
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter data to Json");
+              
+                            
+        System.out.println("Enter the SerialNumber:");
+        serialnumber=sc.nextInt();
+        System.out.println("Enter the precio:");
+        price=sc.nextFloat();
+        System.out.println("Enter the size:");
+        size=sc.nextFloat();
+        System.out.println("Enter the model :");
+        model=sc.nextLine();
+        
+        
+        DVD dvd = new DVD();
+        System.out.println("DVD object -> " + dvd);
+        
+        dvd = new DVD(serialnumber,price,size,model);
+        System.out.println("DVD object -> " + dvd);
+                   
+        dvds.add(dvd);
+               
+        System.out.println("TV -> " + dvds + "\n");
+        dvdsArray[0] = dvd;
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        Gson gson = gsonBuilder.create();
+        String jsonDVD;
+        jsonDVD = gson.toJson(dvd);
+        
+        gson = new GsonBuilder().setPrettyPrinting().create();
+            try (Writer writer = new FileWriter("ApplianceStore.json")) {
+                 writer.write(gson.toJson(dvds));
+             }
+    }
    
 }
