@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -26,6 +27,7 @@ import java.util.Scanner;
  *
  * @author Nicolas Suquillo NullPointers ESPE-DCCO
  * @author Diego Portilla NullPointers ESPE-DCCO
+ * @author Salazar Matthew NullPointers ESPE-DCCO
  * @author Salazar Matthew NullPointers ESPE-DCCO
  */
 public class Simulator {

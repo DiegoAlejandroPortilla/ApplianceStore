@@ -17,6 +17,27 @@ public class Toaster {
     private String model;
     private int power;
     private int serialnumber;
+
+    public Toaster(float size, float weight, String material, float price, String model, int power, int serialnumber) {
+        this.size = size;
+        this.weight = weight;
+        this.material = material;
+        this.price = price;
+        this.model = model;
+        this.power = power;
+        this.serialnumber = serialnumber;
+    }
+
+    Toaster() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String toString() {
+        return "Toaster{" + "size=" + size + ", weight=" + weight + ", material=" + material + ", price=" + price + ", model=" + model + ", power=" + power + ", serialnumber=" + serialnumber + '}';
+    }
+    
+    
         
     public void buy(){
         
