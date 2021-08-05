@@ -224,6 +224,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/images/icons8_Shopping_Bag_48px.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Productos"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
@@ -246,6 +247,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/icons8_Buy_24px_1.png"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Carrito de Compras"/>
       </Properties>
     </Component>
   </SubComponents>

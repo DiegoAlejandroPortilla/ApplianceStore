@@ -69,6 +69,7 @@ public class Page2Menu extends javax.swing.JFrame {
         });
 
         btnFridge.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Shopping_Bag_48px.png"))); // NOI18N
+        btnFridge.setToolTipText("Productos");
         btnFridge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFridgeActionPerformed(evt);
@@ -76,6 +77,7 @@ public class Page2Menu extends javax.swing.JFrame {
         });
 
         btnHeater.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8_Shopping_Bag_48px.png"))); // NOI18N
+        btnHeater.setToolTipText("Productos");
         btnHeater.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHeaterActionPerformed(evt);
