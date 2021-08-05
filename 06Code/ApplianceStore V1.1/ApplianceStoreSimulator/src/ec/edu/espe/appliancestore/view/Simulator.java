@@ -29,6 +29,7 @@ import java.util.Scanner;
  * @author Diego Portilla NullPointers ESPE-DCCO
  * @author Salazar Matthew NullPointers ESPE-DCCO
  * @author Salazar Matthew NullPointers ESPE-DCCO
+ * @author Sebastian Solano NullPointers ESPE-DCCO
  */
 public class Simulator {
     /**
