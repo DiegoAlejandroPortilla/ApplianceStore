@@ -61,7 +61,7 @@ public class FrmLogin extends javax.swing.JFrame {
         txtPassword.setText("jPasswordField1");
 
         btnSave.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        btnSave.setText("Guardar");
+        btnSave.setText("Ingresar");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
@@ -70,6 +70,11 @@ public class FrmLogin extends javax.swing.JFrame {
 
         btnExit.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnExit.setText("Salir");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
 
         btnRegister.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         btnRegister.setText("Registrarse");
@@ -86,11 +91,11 @@ public class FrmLogin extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(312, 312, 312)
+                        .addGap(320, 320, 320)
                         .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
@@ -130,9 +135,9 @@ public class FrmLogin extends javax.swing.JFrame {
                             .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnSave)
+                            .addComponent(btnRegister)
+                            .addComponent(btnExit))
                         .addContainerGap())))
         );
 
@@ -185,7 +190,7 @@ public class FrmLogin extends javax.swing.JFrame {
             this.setVisible(false);
             menu.show();
         }else{
-           JOptionPane.showMessageDialog(this, "Usuario no registrado");
+            JOptionPane.showMessageDialog(this, "Usuario no registrado");
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -195,6 +200,10 @@ public class FrmLogin extends javax.swing.JFrame {
         this.setVisible(false);
         frmRegister.show();
     }//GEN-LAST:event_btnRegisterActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments

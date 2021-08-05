@@ -11,8 +11,8 @@ package ec.edu.espe.store.model;
  */
 public class CellarStaff extends Users{
     
-    public CellarStaff(String username, String firstName, String lastName, String phoneNumber, String email, String address, String gender, String password) {
-        super(username, firstName, lastName, phoneNumber, email, address, gender, password);
-    } 
-  
+    public CellarStaff(String username, String firstName, String lastName, String phoneNumber, String email, String address, String gender, String password, String area) {
+        super(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
+    }
+    
 }

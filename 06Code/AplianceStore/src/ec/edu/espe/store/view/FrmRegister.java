@@ -118,6 +118,11 @@ public class FrmRegister extends javax.swing.JFrame {
 
         btnClean.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         btnClean.setText("Limpiar");
+        btnClean.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCleanActionPerformed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel11.setText("Genero :");
@@ -136,22 +141,20 @@ public class FrmRegister extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                    .addComponent(txtEmail)
-                                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                                .addComponent(txtEmail)
+                                .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(23, 23, 23)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -264,7 +267,7 @@ public class FrmRegister extends javax.swing.JFrame {
         
         if(cmbArea.getSelectedItem().equals("Bodega")){
             if(cmbGender.getSelectedItem().equals("Hombre") || cmbGender.getSelectedItem().equals("Mujer")){
-                userType = new CellarStaff(username, firstName, lastName, phoneNumber, email, address, gender, password);
+                userType = new CellarStaff(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
                 userControl.saveUser(userControl.jsonSerialization(userType));
                 JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
             }else{
@@ -272,7 +275,7 @@ public class FrmRegister extends javax.swing.JFrame {
             }
         }else if(cmbArea.getSelectedItem().equals("Caja")){
             if(cmbGender.getSelectedItem().equals("Hombre") || cmbGender.getSelectedItem().equals("Mujer")){
-                userType = new Cashiers(username, firstName, lastName, phoneNumber, email, address, gender, password);
+                userType = new Cashiers(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
                 userControl.saveUser(userControl.jsonSerialization(userType));
                 JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
             }else{
@@ -280,7 +283,7 @@ public class FrmRegister extends javax.swing.JFrame {
             }
         }else if(cmbArea.getSelectedItem().equals("General")){
             if(cmbGender.getSelectedItem().equals("Hombre") || cmbGender.getSelectedItem().equals("Mujer")){
-                userType = new Staff(username, firstName, lastName, phoneNumber, email, address, gender, password);
+                userType = new Staff(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
                 userControl.saveUser(userControl.jsonSerialization(userType));
                 JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
             }else{
@@ -297,6 +300,19 @@ public class FrmRegister extends javax.swing.JFrame {
         this.setVisible(false);
         frmLogin.show();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
+        
+        txtFirstName.setText("");
+        txtLastName.setText("");
+        txtPhoneNumber.setText("");
+        txtEmail.setText("");
+        txtAddress.setText("");
+        txtUsername.setText("");
+        pwPassword.setText("jPasswordField1");
+        cmbArea.setSelectedItem("Elija su area");
+        cmbGender.setSelectedItem("Elija su genero");
+    }//GEN-LAST:event_btnCleanActionPerformed
 
     /**
      * @param args the command line arguments

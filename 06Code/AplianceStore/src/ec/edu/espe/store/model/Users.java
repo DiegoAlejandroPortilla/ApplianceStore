@@ -19,8 +19,10 @@ public abstract class Users {
     private String address;
     private String gender;
     private String password;
+    private String area;
 
-    public Users(String username, String firstName, String lastName, String phoneNumber, String email, String address, String gender, String password) {
+
+    public Users(String username, String firstName, String lastName, String phoneNumber, String email, String address, String gender, String password, String area) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -29,6 +31,7 @@ public abstract class Users {
         this.address = address;
         this.gender = gender;
         this.password = password;
+        this.area = area;
     }
 
     /**
@@ -141,6 +144,20 @@ public abstract class Users {
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /**
+     * @return the area
+     */
+    public String getArea() {
+        return area;
+    }
+
+    /**
+     * @param area the area to set
+     */
+    public void setArea(String area) {
+        this.area = area;
     }
 
     

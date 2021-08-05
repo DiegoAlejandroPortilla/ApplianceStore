@@ -29,5 +29,5 @@ public class FileUsersController {
         FileManager.createFile(fileName);
         FileManager.writeFile(fileName,user + "\n");
     }
-    
+
 }

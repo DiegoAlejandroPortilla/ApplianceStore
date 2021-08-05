@@ -5,7 +5,6 @@
  */
 package ec.edu.espe.store.model;
 
-import java.util.Calendar;
 
 /**
  *
@@ -16,10 +15,10 @@ public class Manager{
     private String username = "Darwin1824";
     private String firstName = "Darwin";
     private String lastName = "Valdiviezo";
-    private long phoneNumber = 983011361;
+    private String phoneNumber = "983011361";
     private String email = "Darwin@gmail.com";
     private String address = "comite del pueblo";
-    private Calendar dateOfBirth = Calendar.getInstance();
+    private String gender = "Hombre";
     private String password = "admin1824";
 
     /**
@@ -67,14 +66,14 @@ public class Manager{
     /**
      * @return the phoneNumber
      */
-    public long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
     /**
      * @param phoneNumber the phoneNumber to set
      */
-    public void setPhoneNumber(long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -107,17 +106,17 @@ public class Manager{
     }
 
     /**
-     * @return the dateOfBirth
+     * @return the gender
      */
-    public Calendar getDateOfBirth() {
-        return dateOfBirth;
+    public String getGender() {
+        return gender;
     }
 
     /**
-     * @param dateOfBirth the dateOfBirth to set
+     * @param gender the gender to set
      */
-    public void setDateOfBirth(Calendar dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     /**
