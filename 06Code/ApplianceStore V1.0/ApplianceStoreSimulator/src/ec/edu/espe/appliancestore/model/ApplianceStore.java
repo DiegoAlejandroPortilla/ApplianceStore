@@ -20,6 +20,11 @@ public class ApplianceStore {
    ArrayList < TV> tvs =  new  ArrayList <> ();
    ArrayList < DVD> dvds =  new  ArrayList <> ();
    ArrayList < Computer> computers =  new  ArrayList <> ();
+
+    @Override
+    public String toString() {
+        return "ApplianceStore{" + "serialnumber=" + serialnumber + ", microwaves=" + microwaves + ", toasters=" + toasters + ", blenders=" + blenders + ", coffemakers=" + coffemakers + ", tvs=" + tvs + ", dvds=" + dvds + ", computers=" + computers + '}';
+    }
    
    public Microwave add(Microwave microwaves){
        return new Microwave();
