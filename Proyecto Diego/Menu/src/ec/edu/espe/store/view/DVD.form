@@ -93,7 +93,7 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jSpinner1" min="-2" pref="47" max="-2" attributes="0"/>
+                          <Component id="productQtyField" min="-2" pref="47" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           <Component id="jButton1" min="-2" pref="109" max="-2" attributes="0"/>
                       </Group>
@@ -137,7 +137,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="jSpinner1" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="productQtyField" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           <Component id="btnReturn1" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                       </Group>
@@ -171,6 +171,9 @@
               <Image iconType="3" name="/images/icons8_Buy_24px.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
@@ -180,7 +183,10 @@
             <Property name="text" type="java.lang.String" value="Cantidad: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="jSpinner1">
+        <Component class="javax.swing.JSpinner" name="productQtyField">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txtSerialNumber">
         </Component>

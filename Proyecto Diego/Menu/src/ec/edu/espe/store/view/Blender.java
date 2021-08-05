@@ -216,14 +216,15 @@ public class Blender extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReturn1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     
      BasicDBObject  document = new BasicDBObject();
      document.put("serialNumber","'" + txtSerialNumber.getText()+ "'");
      document.put("price","'"+txtPrice.getText()+"'");
      document.put("velocity","'"+txtVelocity.getText()+"'");
      document.put("ability","'"+txtAbility.getText()+"'");
      
-     List documents = asList(new Document("serialNumber" + txtSerialNumber.getText());
-     collection.insertMany(documents);
+    // List documents = asList(new Document("serialNumber" + txtSerialNumber.getText());
+    // collection.insertMany(documents);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

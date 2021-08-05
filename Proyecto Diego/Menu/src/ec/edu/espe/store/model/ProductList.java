@@ -24,6 +24,10 @@ public class ProductList {
         this.image = image;
     }
 
+    public ProductList(String text, String text0, int i, int parseInt, Object object, Object object0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * @return the brand
      */

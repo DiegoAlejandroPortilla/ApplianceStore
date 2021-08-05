@@ -6,7 +6,7 @@
 package ec.edu.espe.appliancestore.model;
 
 /**
- *
+ *@author Sebastian Solano NullPointers ESPE-DCCO
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
 public class DVD {

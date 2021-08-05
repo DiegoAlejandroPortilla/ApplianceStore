@@ -63,6 +63,11 @@ public class Microwave extends javax.swing.JFrame {
         jLabel3.setText("Precio:");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Buy_24px.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Cantidad: ");
@@ -191,6 +196,10 @@ public class Microwave extends javax.swing.JFrame {
         products.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnReturn1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

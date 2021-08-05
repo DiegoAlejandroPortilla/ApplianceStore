@@ -12,4 +12,14 @@ package ec.edu.espe.appliancestore.model;
 public class ApplianceStoreManager {
     private String name;
     ApplianceStore storestore;
+
+    @Override
+    public String toString() {
+        return "ApplianceStoreManager{" + "name=" + name + ", storestore=" + storestore + '}';
+    }
+
+    public ApplianceStoreManager(String name, ApplianceStore storestore) {
+        this.name = name;
+        this.storestore = storestore;
+    }
 }

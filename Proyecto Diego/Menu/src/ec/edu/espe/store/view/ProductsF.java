@@ -5,7 +5,9 @@
  */
 package ec.edu.espe.store.view;
 
+import ec.edu.espe.store.model.ProductList;
 import java.awt.Image;
+import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -15,6 +17,7 @@ import javax.swing.ImageIcon;
  */
 public class ProductsF extends javax.swing.JFrame {
 
+   public static ArrayList<ProductList> cartItem = new ArrayList();
     /**
      * Creates new form ProductsF
      */
@@ -32,6 +35,7 @@ public class ProductsF extends javax.swing.JFrame {
         this.repaint();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -178,7 +182,7 @@ public class ProductsF extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -205,6 +209,11 @@ public class ProductsF extends javax.swing.JFrame {
         );
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Buy_24px_1.png"))); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -276,6 +285,12 @@ public class ProductsF extends javax.swing.JFrame {
        heater.setVisible(true);
        dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        ShoppingCart  shoppingCart = new  ShoppingCart();
+         shoppingCart.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

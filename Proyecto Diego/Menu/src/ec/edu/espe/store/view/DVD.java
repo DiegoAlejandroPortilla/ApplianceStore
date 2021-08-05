@@ -5,15 +5,20 @@
  */
 package ec.edu.espe.store.view;
 
+import ec.edu.espe.store.model.ProductList;
 import java.awt.Image;
+import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
 public class DVD extends javax.swing.JFrame {
+    
+    static String categoryChooser="";
 
     /**
      * Creates new form DVD
@@ -41,7 +46,7 @@ public class DVD extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
+        productQtyField = new javax.swing.JSpinner();
         txtSerialNumber = new javax.swing.JTextField();
         txtPrice = new javax.swing.JTextField();
         txtSize = new javax.swing.JTextField();
@@ -63,6 +68,11 @@ public class DVD extends javax.swing.JFrame {
         jLabel3.setText("Precio:");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8_Buy_24px.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Cantidad: ");
@@ -115,7 +125,7 @@ public class DVD extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(productQtyField, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(26, 26, 26))
@@ -148,7 +158,7 @@ public class DVD extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(productQtyField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnReturn1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -185,9 +195,22 @@ public class DVD extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnReturn1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         
+           JOptionPane.showMessageDialog(null, "Product added to cart!");
+           int qty = Integer.parseInt(this.productQtyField.getName());
+              ProductList p = new ProductList(this.txtSerialNumber.getText(), this.txtPrice.getText(), qty*Integer.parseInt(this.txtModel.getText()), 
+              Integer.parseInt(this.productQtyField.getName()), null, null);
+              cartItem.add(p);
+            
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
+    public static ArrayList<ProductList> cartItem = new ArrayList();
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -231,7 +254,7 @@ public class DVD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JSpinner jSpinner1;
+    public javax.swing.JSpinner productQtyField;
     private javax.swing.JTextField txtModel;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtSerialNumber;

@@ -153,10 +153,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel2" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="3" min="-2" pref="130" max="-2" attributes="0"/>
+                      <Component id="jLabel4" min="-2" pref="130" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -312,6 +312,9 @@
           <Image iconType="3" name="/images/icons8_Buy_24px_1.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
