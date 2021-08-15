@@ -11,14 +11,14 @@ import ec.edu.espe.store.model.Product;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import utils.Connection;
+import utils.ConnectionDataBase;
 
 /**
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
 public class ViewProducts extends javax.swing.JFrame {
-     Connection conection;
+     ConnectionDataBase conection;
      BasicDBObject document;
      ArrayList<Product> products;
   

@@ -6,9 +6,6 @@
 package ec.edu.espe.store.view;
 
 import ec.edu.espe.store.controller.FileUsersController;
-import ec.edu.espe.store.model.Cashiers;
-import ec.edu.espe.store.model.CellarStaff;
-import ec.edu.espe.store.model.Staff;
 import ec.edu.espe.store.model.Users;
 import javax.swing.JOptionPane;
 
@@ -53,12 +50,13 @@ public class FrmRegister extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         pwPassword = new javax.swing.JPasswordField();
         txtUsername = new javax.swing.JTextField();
-        cmbArea = new javax.swing.JComboBox<>();
         btnSave = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         btnClean = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        cmbGender = new javax.swing.JComboBox<>();
+        chkMen = new javax.swing.JCheckBox();
+        chkWoman = new javax.swing.JCheckBox();
+        cmbArea = new javax.swing.JComboBox<>();
 
         jLabel7.setText("jLabel7");
 
@@ -96,10 +94,6 @@ public class FrmRegister extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel10.setText("Area :");
 
-        pwPassword.setText("jPasswordField1");
-
-        cmbArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elija su area", "Bodega", "Caja", "General" }));
-
         btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         btnSave.setText("Guardar");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +121,11 @@ public class FrmRegister extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel11.setText("Genero :");
 
-        cmbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elija su genero", "Hombre", "Mujer" }));
+        chkMen.setText("Hombre");
+
+        chkWoman.setText("Mujer");
+
+        cmbArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Caja", "Bodega", "General" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -163,11 +161,12 @@ public class FrmRegister extends javax.swing.JFrame {
                             .addComponent(jLabel11))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(chkMen)
+                            .addComponent(chkWoman)
                             .addComponent(pwPassword)
                             .addComponent(txtUsername)
-                            .addComponent(cmbArea, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmbGender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(69, Short.MAX_VALUE))
+                            .addComponent(cmbArea, 0, 105, Short.MAX_VALUE))))
+                .addContainerGap(47, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnClean)
@@ -204,11 +203,16 @@ public class FrmRegister extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
-                    .addComponent(cmbGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chkMen))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(chkWoman)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,8 +256,11 @@ public class FrmRegister extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         
-        Users userType;
-        FileUsersController userControl = new FileUsersController();
+        Users user;
+        FileUsersController userControl;
+        
+        userControl = new FileUsersController();
+        user = new Users();
         
         String firstName = txtFirstName.getText();
         String lastName = txtLastName.getText();
@@ -263,35 +270,18 @@ public class FrmRegister extends javax.swing.JFrame {
         String username = txtUsername.getText();
         String password = pwPassword.getText();
         String area = cmbArea.getSelectedItem().toString();
-        String gender = cmbGender.getSelectedItem().toString();
+        String men = chkMen.getText();
+        String woman =  chkWoman.getText();
+         
+        if(chkMen.isSelected()){
+                user = new Users(username, firstName, lastName, phoneNumber, email, address, men, password, area);
+        }else if(chkWoman.isSelected()){
+                user = new Users(username, firstName, lastName, phoneNumber, email, address, woman, password, area);
+        }
         
-        if(cmbArea.getSelectedItem().equals("Bodega")){
-            if(cmbGender.getSelectedItem().equals("Hombre") || cmbGender.getSelectedItem().equals("Mujer")){
-                userType = new CellarStaff(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
-                userControl.saveUser(userControl.jsonSerialization(userType));
-                JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
-            }else{
-                JOptionPane.showMessageDialog(this, "Error, Eliga un genero correcto");
-            }
-        }else if(cmbArea.getSelectedItem().equals("Caja")){
-            if(cmbGender.getSelectedItem().equals("Hombre") || cmbGender.getSelectedItem().equals("Mujer")){
-                userType = new Cashiers(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
-                userControl.saveUser(userControl.jsonSerialization(userType));
-                JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
-            }else{
-                JOptionPane.showMessageDialog(this, "Error, Eliga un genero correcto");
-            }
-        }else if(cmbArea.getSelectedItem().equals("General")){
-            if(cmbGender.getSelectedItem().equals("Hombre") || cmbGender.getSelectedItem().equals("Mujer")){
-                userType = new Staff(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
-                userControl.saveUser(userControl.jsonSerialization(userType));
-                JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
-            }else{
-                JOptionPane.showMessageDialog(this, "Error, Eliga un genero correcto");
-            }
-        }else{
-            JOptionPane.showMessageDialog(this, "Error, Eliga un area correcta");
-        }      
+        userControl.saveUser(userControl.jsonSerialization(user));
+        JOptionPane.showMessageDialog(this, "Se ha guardado correctamente");
+        
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -299,6 +289,7 @@ public class FrmRegister extends javax.swing.JFrame {
         FrmLogin frmLogin = new FrmLogin();
         this.setVisible(false);
         frmLogin.show();
+        
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
@@ -311,7 +302,9 @@ public class FrmRegister extends javax.swing.JFrame {
         txtUsername.setText("");
         pwPassword.setText("jPasswordField1");
         cmbArea.setSelectedItem("Elija su area");
-        cmbGender.setSelectedItem("Elija su genero");
+        chkMen.setSelected(false);
+        chkWoman.setSelected(false);
+        
     }//GEN-LAST:event_btnCleanActionPerformed
 
     /**
@@ -354,8 +347,9 @@ public class FrmRegister extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnClean;
     private javax.swing.JButton btnSave;
+    private javax.swing.JCheckBox chkMen;
+    private javax.swing.JCheckBox chkWoman;
     private javax.swing.JComboBox<String> cmbArea;
-    private javax.swing.JComboBox<String> cmbGender;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
