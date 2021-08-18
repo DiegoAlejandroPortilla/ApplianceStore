@@ -11,7 +11,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import org.bson.Document;
-import utils.Connection;
+import utils.ConnectionDataBase;
 
 /**
  *
@@ -285,7 +285,7 @@ public class AddProduct extends javax.swing.JFrame {
         
         
         Document dc = new Document();
-        Connection conection = new Connection();
+        ConnectionDataBase conection = new ConnectionDataBase();
         dc.append("type",type).append("serialNumber", serialNumber).append("price",price).append("model",model).append("size", size).append("brand", brand);
         conection.getCollection().insertOne(dc);
         JOptionPane.showMessageDialog(rootPane, "Se han agregado los datos con exito revise la base de datos");

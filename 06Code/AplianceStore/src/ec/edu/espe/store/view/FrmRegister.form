@@ -125,14 +125,15 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="chkMen" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chkWoman" min="-2" max="-2" attributes="0"/>
                                   <Component id="pwPassword" max="32767" attributes="0"/>
-                                  <Component id="txtUsername" max="32767" attributes="0"/>
-                                  <Component id="cmbArea" max="32767" attributes="0"/>
-                                  <Component id="cmbGender" max="32767" attributes="0"/>
+                                  <Component id="txtUsername" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cmbArea" alignment="0" pref="105" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="69" max="32767" attributes="0"/>
+                      <EmptySpace pref="47" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
@@ -175,12 +176,20 @@
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cmbGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chkMen" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="chkWoman" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace pref="50" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -277,26 +286,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="pwPassword">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtUsername">
-            </Component>
-            <Component class="javax.swing.JComboBox" name="cmbArea">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Elija su area"/>
-                    <StringItem index="1" value="Bodega"/>
-                    <StringItem index="2" value="Caja"/>
-                    <StringItem index="3" value="General"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="btnSave">
               <Properties>
@@ -339,13 +330,23 @@
                 <Property name="text" type="java.lang.String" value="Genero :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cmbGender">
+            <Component class="javax.swing.JCheckBox" name="chkMen">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Hombre"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chkWoman">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mujer"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbArea">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
-                    <StringItem index="0" value="Elija su genero"/>
-                    <StringItem index="1" value="Hombre"/>
-                    <StringItem index="2" value="Mujer"/>
+                    <StringItem index="0" value="Caja"/>
+                    <StringItem index="1" value="Bodega"/>
+                    <StringItem index="2" value="General"/>
                   </StringArray>
                 </Property>
               </Properties>

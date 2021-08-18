@@ -14,14 +14,14 @@ import com.mongodb.client.MongoDatabase;
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
-public class Connection {
+public class ConnectionDataBase {
     private String cluster;
     private MongoClientURI uri;
     private MongoClient mongoClient;
     private MongoDatabase database; 
     private MongoCollection collection;
 
-    public Connection() {
+    public ConnectionDataBase() {
         cluster = "mongodb+srv://NullPointers:finalproyect@finalproyect.6vyqq.mongodb.net/ApplianceStore?retryWrites=true&w=majority";
         uri = new MongoClientURI(cluster);
         mongoClient = new MongoClient(uri);
