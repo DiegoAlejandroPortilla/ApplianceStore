@@ -6,8 +6,6 @@
 package ec.edu.espe.store.controller;
 
 import com.google.gson.Gson;
-import ec.edu.espe.store.model.Users;
-import java.util.ArrayList;
 import utils.FileManager;
 
 
@@ -19,76 +17,17 @@ public class FileUsersController {
     
     String fileName = "Users.json";
  
-    public String jsonSerialization(Object data){
+    public String jsonSerialization(Object userType){
         
         Gson gson = new Gson();
-        String jsonObject = gson.toJson(data);    
+        String jsonObject = gson.toJson(userType);    
         
         return jsonObject;   
     }
-    public void saveUser(String data){
+    public void saveUser(String user){
         
         FileManager.createFile(fileName);
-        FileManager.writeFile(fileName,data + "\n");
+        FileManager.writeFile(fileName,user + "\n");
     }
 
-    public boolean usernameExist(String username,String password){
-        
-        ArrayList<Users> userss;
-        String jsonData;
-        Gson gson;
-        boolean usernameExist;
-        
-        userss = new ArrayList<>();
-        gson = new Gson();
-        usernameExist = false;
-        
-        for (int i = 0;i<FileManager.readFile(fileName).length;i++){
-            if (FileManager.readFile(fileName)[i]!=null){
-                jsonData = FileManager.readFile(fileName)[i];
-                Users user = gson.fromJson(jsonData, Users.class);
-                userss.add(user);
-            }
-        }
-           
-        if(!userss.isEmpty()){
-            for (int j=0;j<userss.size();j++){
-                if(userss.get(j).getUsername().equals(username) && userss.get(j).getPassword().equals(password)){
-                    usernameExist = true;
-                }
-            }
-        }
-        
-        return usernameExist;
-    }
-    
-    public String getUserName(String username,String password){
-        
-       ArrayList<Users> userss;
-        String jsonData;
-        Gson gson;
-        String userName;
-        
-        userss = new ArrayList<>();
-        gson = new Gson();
-        userName = "";
-        
-        for (int i = 0;i<FileManager.readFile(fileName).length;i++){
-            if (FileManager.readFile(fileName)[i]!=null){
-                jsonData = FileManager.readFile(fileName)[i];
-                Users user = gson.fromJson(jsonData, Users.class);
-                userss.add(user);
-            }
-        }
-           
-        if(!userss.isEmpty()){
-            for (int j=0;j<userss.size();j++){
-                if(userss.get(j).getUsername().equals(username) && userss.get(j).getPassword().equals(password)){
-                    userName = userss.get(j).getFirstName();
-                }
-            }
-        }
-        
-        return userName;
-    }
 }

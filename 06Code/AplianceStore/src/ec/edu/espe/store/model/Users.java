@@ -9,7 +9,7 @@ package ec.edu.espe.store.model;
  *
  * @author Nicolas Suquillo NullPointers ESPE-DCCO
  */
-public class Users {
+public abstract class Users {
     
     private String username;
     private String firstName;
@@ -34,18 +34,6 @@ public class Users {
         this.area = area;
     }
 
-    public Users(){
-        
-        this.username = "";
-        this.firstName = "";
-        this.lastName = "";
-        this.phoneNumber = "";
-        this.email = "";
-        this.address = "";
-        this.gender = "";
-        this.password = "";
-        this.area = "";
-    }
     /**
      * @return the username
      */

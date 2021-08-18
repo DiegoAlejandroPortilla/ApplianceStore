@@ -11,16 +11,12 @@ import java.util.ArrayList;
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
-public class ApplianceStore {
+public abstract class ApplianceStore {
    private String serialNumber;
    private String price;
    
-   ArrayList < Blender> blenders =  new  ArrayList <> ();
-   ArrayList < Toaster> toasters =  new  ArrayList <> ();
-   ArrayList < CoffeeMaker> coffemakers =  new  ArrayList <> ();
-   ArrayList < TV> tvs =  new  ArrayList <> ();
-   ArrayList < DVD> dvds =  new  ArrayList <> ();
-   ArrayList < Computer> computers =  new  ArrayList <> ();
+   private ArrayList <Product> products =  new  ArrayList <> ();
+   
   
 
     public ApplianceStore(String serialNumber, String price) {
@@ -61,4 +57,14 @@ public class ApplianceStore {
     public void setPrice(String price) {
         this.price = price;
     } 
+
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(ArrayList<Product> products) {
+        this.products = products;
+    }
+    
+    
 }

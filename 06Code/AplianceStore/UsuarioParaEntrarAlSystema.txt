@@ -1,2 +1,2 @@
-Usuario : Darwin1824
-Contraseña : admin1824
+Usuario : admin
+Contraseña : admin

@@ -5,36 +5,23 @@
  */
 package ec.edu.espe.store.model;
 
-import com.mongodb.BasicDBObject;
 
 /**
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
-public class Product {
+public class Product extends ApplianceStore {
     private String type;
-    private String serialNumber;
-    private String price;
     private String model;
     private String size;
     private String brand;
 
-    public Product(String type, String serialNumber, String price, String model, String size, String brand) {
+    public Product(String type, String model, String size, String brand, String serialNumber, String price) {
+        super(serialNumber, price);
         this.type = type;
-        this.serialNumber = serialNumber;
-        this.price = price;
         this.model = model;
         this.size = size;
         this.brand = brand;
-    }
-
-     public Product(BasicDBObject object){
-        type = object.getString("type");
-        serialNumber = object.getString("serialNumber");
-        price = object.getString("price");
-        model = object.getString("model");
-        size = object.getString("size");
-        brand = object.getString("brand");
     }
 
     public String getType() {
@@ -43,22 +30,6 @@ public class Product {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public String getSerialNumber() {
-        return serialNumber;
-    }
-
-    public void setSerialNumber(String serialNumber) {
-        this.serialNumber = serialNumber;
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
     }
 
     public String getModel() {
@@ -84,7 +55,11 @@ public class Product {
     public void setBrand(String brand) {
         this.brand = brand;
     }
+
+   
+    
+}
     
     
 
-}
+
