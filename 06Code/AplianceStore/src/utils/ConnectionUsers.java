@@ -5,7 +5,6 @@
  */
 package utils;
 
-import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
@@ -15,21 +14,21 @@ import com.mongodb.client.MongoDatabase;
  *
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
-public class Connection {
+public class ConnectionUsers {
     private String cluster;
     private MongoClientURI uri;
     private MongoClient mongoClient;
     private MongoDatabase database; 
     private MongoCollection collection;
 
-    public Connection() {
+    public ConnectionUsers() {
         cluster = "mongodb+srv://NullPointers:admin123@finalproyect.6vyqq.mongodb.net/ApplianceStore?retryWrites=true&w=majority";
         uri = new MongoClientURI(cluster);
         mongoClient = new MongoClient(uri);
         database= mongoClient.getDatabase("ApplianceStore");
-        collection = database.getCollection("Products");
+        collection = database.getCollection("Users");
     }
-    
+
     public String getCluster() {
         return cluster;
     }
@@ -69,8 +68,6 @@ public class Connection {
     public void setCollection(MongoCollection collection) {
         this.collection = collection;
     }
-
-    public DB getDB(String vehicule) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }
+ 
