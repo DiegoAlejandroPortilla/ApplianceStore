@@ -12,8 +12,13 @@ package ec.edu.espe.store.model;
  */
 public class Manager{
     
-    private String username = "admin";
-    private String password = "admin";
+    private String username;
+    private String password;
+
+    public Manager(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
     public String getUsername() {
         return username;

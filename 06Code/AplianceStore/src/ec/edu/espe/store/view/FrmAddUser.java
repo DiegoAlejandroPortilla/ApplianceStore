@@ -6,10 +6,7 @@
 package ec.edu.espe.store.view;
 
 import ec.edu.espe.store.controller.FileUsersController;
-import ec.edu.espe.store.model.Cashiers;
-import ec.edu.espe.store.model.CellarStaff;
-import ec.edu.espe.store.model.Staff;
-import ec.edu.espe.store.model.Users;
+import ec.edu.espe.store.model.User;
 import javax.swing.JOptionPane;
 import org.bson.Document;
 import utils.ConnectionUsers;
@@ -256,7 +253,7 @@ public class FrmAddUser extends javax.swing.JFrame {
         cmbGender.setSelectedItem("Elija su genero");
     }//GEN-LAST:event_btnCleanActionPerformed
     public void saveUserJson(){
-        Users userType;
+        User newUser;
         FileUsersController userControl = new FileUsersController();
 
         String firstName = txtFirstName.getText();
@@ -269,36 +266,19 @@ public class FrmAddUser extends javax.swing.JFrame {
         String area = cmbArea.getSelectedItem().toString();
         String gender = cmbGender.getSelectedItem().toString();
 
-        if(cmbArea.getSelectedItem().equals("Bodega")){
-            if(cmbGender.getSelectedItem().equals("Hombre") || cmbGender.getSelectedItem().equals("Mujer")){
-                userType = new CellarStaff(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
-                userControl.saveUser(userControl.jsonSerialization(userType));
-                JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
-            }else{
-                JOptionPane.showMessageDialog(this, "Error, Eliga un genero correcto");
-            }
-        }else if(cmbArea.getSelectedItem().equals("Caja")){
-            if(cmbGender.getSelectedItem().equals("Hombre") || cmbGender.getSelectedItem().equals("Mujer")){
-                userType = new Cashiers(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
-                userControl.saveUser(userControl.jsonSerialization(userType));
-                JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
-            }else{
-                JOptionPane.showMessageDialog(this, "Error, Eliga un genero correcto");
-            }
-        }else if(cmbArea.getSelectedItem().equals("General")){
-            if(cmbGender.getSelectedItem().equals("Hombre") || cmbGender.getSelectedItem().equals("Mujer")){
-                userType = new Staff(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
-                userControl.saveUser(userControl.jsonSerialization(userType));
-
-                JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
-            }else{
-                JOptionPane.showMessageDialog(this, "Error, Eliga un genero correcto");
-            }
+        if(cmbArea.getSelectedIndex()!=0 && cmbGender.getSelectedIndex()!=0){ 
+            newUser = new User(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
+            userControl.saveUser(userControl.jsonSerialization(newUser));
+            JOptionPane.showMessageDialog(this, "Se ha registrado correctamente");
+            saveUsersMongo();
+            
         }else{
-            JOptionPane.showMessageDialog(this, "Error, Eliga un area correcta");
+            JOptionPane.showMessageDialog(this, "No se pudo realizar el registro");
         }
+        
     }
     public void saveUsersMongo(){
+        
         String firstName = txtFirstName.getText();
         String lastName = txtLastName.getText();
         String phoneNumber = txtPhoneNumber.getText();

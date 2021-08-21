@@ -6,10 +6,7 @@
 package ec.edu.espe.store.view;
 
 import ec.edu.espe.store.controller.FileUsersController;
-import ec.edu.espe.store.model.Cashiers;
-import ec.edu.espe.store.model.CellarStaff;
-import ec.edu.espe.store.model.Staff;
-import ec.edu.espe.store.model.Users;
+import ec.edu.espe.store.model.User;
 import javax.swing.JOptionPane;
 import org.bson.Document;
 import utils.ConnectionUsers;
@@ -61,6 +58,7 @@ public class FrmRegister extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
         btnClean = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        chkShowPassword = new javax.swing.JCheckBox();
         cmbGender = new javax.swing.JComboBox<>();
 
         jLabel7.setText("jLabel7");
@@ -99,7 +97,7 @@ public class FrmRegister extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel10.setText("Area :");
 
-        cmbArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elija su area", "Bodega", "Caja", "General" }));
+        cmbArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elija su area", "Bodega", "Caja", "General", "Gerente" }));
 
         btnSave.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         btnSave.setText("Guardar");
@@ -128,7 +126,14 @@ public class FrmRegister extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel11.setText("Genero :");
 
-        cmbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elija su genero", "Hombre", "Mujer" }));
+        chkShowPassword.setText("Mostrar Contraseña");
+        chkShowPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chkShowPasswordActionPerformed(evt);
+            }
+        });
+
+        cmbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elija su genero", "Hombre", "Mujer", "Otros" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -149,26 +154,36 @@ public class FrmRegister extends javax.swing.JFrame {
                                 .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                                .addComponent(txtEmail)
-                                .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pwPassword)
-                            .addComponent(txtUsername)
-                            .addComponent(cmbArea, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cmbGender, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(69, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(pwPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(chkShowPassword))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                                    .addComponent(txtEmail)
+                                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(37, 37, 37)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel10))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(12, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnClean)
@@ -193,24 +208,25 @@ public class FrmRegister extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(pwPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(pwPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(chkShowPassword))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addComponent(cmbArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)
-                    .addComponent(cmbGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel10)
+                    .addComponent(cmbArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11)
+                    .addComponent(cmbGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBack)
@@ -252,9 +268,12 @@ public class FrmRegister extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        saveUsers();
-        Users userType;
-        FileUsersController userControl = new FileUsersController();
+        
+        User newUser;
+        FileUsersController userControl;
+                
+        userControl = new FileUsersController();
+        
         
         String firstName = txtFirstName.getText();
         String lastName = txtLastName.getText();
@@ -266,35 +285,15 @@ public class FrmRegister extends javax.swing.JFrame {
         String area = cmbArea.getSelectedItem().toString();
         String gender = cmbGender.getSelectedItem().toString();
         
-        if(cmbArea.getSelectedItem().equals("Bodega")){
-            if(cmbGender.getSelectedItem().equals("Hombre") || cmbGender.getSelectedItem().equals("Mujer")){
-                userType = new CellarStaff(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
-                userControl.saveUser(userControl.jsonSerialization(userType));
-                JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
-            }else{
-                JOptionPane.showMessageDialog(this, "Error, Eliga un genero correcto");
-            }
-        }else if(cmbArea.getSelectedItem().equals("Caja")){
-            if(cmbGender.getSelectedItem().equals("Hombre") || cmbGender.getSelectedItem().equals("Mujer")){
-                userType = new Cashiers(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
-                userControl.saveUser(userControl.jsonSerialization(userType));
-                JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
-            }else{
-                JOptionPane.showMessageDialog(this, "Error, Eliga un genero correcto");
-            }
-        }else if(cmbArea.getSelectedItem().equals("General")){
-            if(cmbGender.getSelectedItem().equals("Hombre") || cmbGender.getSelectedItem().equals("Mujer")){
-                userType = new Staff(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
-                userControl.saveUser(userControl.jsonSerialization(userType));
-                
-                JOptionPane.showMessageDialog(this, "El usuario se ha guardado correctamente");
-            }else{
-                JOptionPane.showMessageDialog(this, "Error, Eliga un genero correcto");
-            }
+        if(cmbArea.getSelectedIndex()!=0 && cmbGender.getSelectedIndex()!=0){ 
+            newUser = new User(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
+            userControl.saveUser(userControl.jsonSerialization(newUser));
+            JOptionPane.showMessageDialog(this, "Se ha registrado correctamente");
+            saveUsers();
         }else{
-            JOptionPane.showMessageDialog(this, "Error, Eliga un area correcta");
-        }  
-        
+            JOptionPane.showMessageDialog(this, "No se pudo realizar el registro");
+        }
+                      
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -312,10 +311,19 @@ public class FrmRegister extends javax.swing.JFrame {
         txtEmail.setText("");
         txtAddress.setText("");
         txtUsername.setText("");
-        pwPassword.setText("jPasswordField1");
-        cmbArea.setSelectedItem("Elija su area");
-        cmbGender.setSelectedItem("Elija su genero");
+        pwPassword.setText("");
+        cmbArea.setSelectedIndex(0);
+        cmbGender.setSelectedIndex(0);
     }//GEN-LAST:event_btnCleanActionPerformed
+
+    private void chkShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkShowPasswordActionPerformed
+        
+        if(chkShowPassword.isSelected()){
+            pwPassword.setEchoChar((char)0);
+        }else{
+            pwPassword.setEchoChar('*');
+        }
+    }//GEN-LAST:event_chkShowPasswordActionPerformed
     
     public void saveUsers(){
         String firstName = txtFirstName.getText();
@@ -374,6 +382,7 @@ public class FrmRegister extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnClean;
     private javax.swing.JButton btnSave;
+    private javax.swing.JCheckBox chkShowPassword;
     private javax.swing.JComboBox<String> cmbArea;
     private javax.swing.JComboBox<String> cmbGender;
     private javax.swing.JLabel jLabel1;

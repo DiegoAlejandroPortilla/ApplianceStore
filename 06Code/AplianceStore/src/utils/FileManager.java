@@ -5,6 +5,8 @@
  */
 package utils;
 
+import com.google.gson.Gson;
+import ec.edu.espe.store.model.User;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -88,6 +90,15 @@ public class FileManager{
                 System.out.println("the file could not be deleted");
             }
         }
+    }
+    
+    public static User deserializationJsonUser(String jsonUser){
+    
+                
+        Gson gson = new Gson();
+        User user = gson.fromJson(jsonUser, User.class);
+       
+        return user;
     }
     
 }
