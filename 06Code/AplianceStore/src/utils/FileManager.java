@@ -101,4 +101,11 @@ public class FileManager{
         return user;
     }
     
+    public static String serializationGson(Object object){
+        
+        Gson gson = new Gson();
+        String jsonObject = gson.toJson(object);    
+        
+        return jsonObject;
+    }
 }

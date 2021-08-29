@@ -10,14 +10,26 @@ package utils;
  * @author Diego Portilla NullPointers ESPE-DCCO
  */
 public class InputValidation {
-    public static boolean validateCharacters(String data){
-        boolean isCharacter=true;
-        for(int i=0;i<data.length();i++){
-            char ch =data.charAt(i);
-            if (!(ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <='Z')){
+
+    public static boolean validateCharacters(String data) {
+        boolean isCharacter = true;
+        for (int i = 0; i < data.length(); i++) {
+            char ch = data.charAt(i);
+            if (!(ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z')) {
                 isCharacter = false;
             }
         }
         return isCharacter;
     }
+
+    public static boolean isNumber(String data) {
+
+        try {
+            Integer.parseInt(data);
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
+    
 }

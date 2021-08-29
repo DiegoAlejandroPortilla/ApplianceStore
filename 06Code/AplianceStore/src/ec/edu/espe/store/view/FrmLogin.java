@@ -200,7 +200,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         
-        FrmRegister frmRegister = new FrmRegister();
+        FrmRegisterUser frmRegister = new FrmRegisterUser();
         this.setVisible(false);
         frmRegister.show();
     }//GEN-LAST:event_btnRegisterActionPerformed

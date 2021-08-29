@@ -10,17 +10,18 @@ import ec.edu.espe.store.model.User;
 import javax.swing.JOptionPane;
 import org.bson.Document;
 import utils.ConnectionUsers;
+import utils.FileManager;
 
 /**
  *
  * @author Nicolas Suquillo NullPointers ESPE-DCCO
  */
-public class FrmRegister extends javax.swing.JFrame {
+public class FrmRegisterUser extends javax.swing.JFrame {
 
     /**
      * Creates new form FrmRegister
      */
-    public FrmRegister() {
+    public FrmRegisterUser() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -182,16 +183,14 @@ public class FrmRegister extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cmbArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(cmbGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnBack)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnClean)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(12, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnClean)
-                .addGap(18, 18, 18)
-                .addComponent(btnBack)
-                .addGap(18, 18, 18)
-                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,13 +267,12 @@ public class FrmRegister extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        
+
         User newUser;
         FileUsersController userControl;
-                
+
         userControl = new FileUsersController();
-        
-        
+
         String firstName = txtFirstName.getText();
         String lastName = txtLastName.getText();
         String phoneNumber = txtPhoneNumber.getText();
@@ -284,27 +282,33 @@ public class FrmRegister extends javax.swing.JFrame {
         String password = pwPassword.getText();
         String area = cmbArea.getSelectedItem().toString();
         String gender = cmbGender.getSelectedItem().toString();
-        
-        if(cmbArea.getSelectedIndex()!=0 && cmbGender.getSelectedIndex()!=0){ 
+
+        if (cmbArea.getSelectedIndex() != 0 && cmbGender.getSelectedIndex() != 0) {
             newUser = new User(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
             userControl.saveUser(userControl.jsonSerialization(newUser));
             JOptionPane.showMessageDialog(this, "Se ha registrado correctamente");
-            saveUsers();
-        }else{
+            saveUsersDatabase();
+        } else {
             JOptionPane.showMessageDialog(this, "No se pudo realizar el registro");
         }
-                      
+
+        emptyFields();
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        
+
         FrmLogin frmLogin = new FrmLogin();
         this.setVisible(false);
         frmLogin.show();
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
-        
+
+        emptyFields();
+
+    }//GEN-LAST:event_btnCleanActionPerformed
+
+    private void emptyFields() {
         txtFirstName.setText("");
         txtLastName.setText("");
         txtPhoneNumber.setText("");
@@ -314,18 +318,24 @@ public class FrmRegister extends javax.swing.JFrame {
         pwPassword.setText("");
         cmbArea.setSelectedIndex(0);
         cmbGender.setSelectedIndex(0);
-    }//GEN-LAST:event_btnCleanActionPerformed
+        chkShowPassword.setSelected(false);
+    }
 
     private void chkShowPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkShowPasswordActionPerformed
-        
-        if(chkShowPassword.isSelected()){
-            pwPassword.setEchoChar((char)0);
-        }else{
+
+        if (chkShowPassword.isSelected()) {
+            pwPassword.setEchoChar((char) 0);
+        } else {
             pwPassword.setEchoChar('*');
         }
     }//GEN-LAST:event_chkShowPasswordActionPerformed
-    
-    public void saveUsers(){
+
+    public void saveUsersDatabase() {
+
+        Document dc;
+
+        ConnectionUsers connectionUser = new ConnectionUsers();
+
         String firstName = txtFirstName.getText();
         String lastName = txtLastName.getText();
         String phoneNumber = txtPhoneNumber.getText();
@@ -335,13 +345,13 @@ public class FrmRegister extends javax.swing.JFrame {
         String password = pwPassword.getText();
         String area = cmbArea.getSelectedItem().toString();
         String gender = cmbGender.getSelectedItem().toString();
-        
-        Document dc = new Document();
-        ConnectionUsers connectionUser = new ConnectionUsers();
-        dc.append("firstName",firstName).append("lastName", lastName).append("phoneNumber",phoneNumber).append("email",email).append("address", address).append("username", username).append("password", password).append("area", area).append("gender", gender);
+
+        User user = new User(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
+        dc = Document.parse(FileManager.serializationGson(user));
         connectionUser.getCollection().insertOne(dc);
-        
+
     }
+
     /**
      * @param args the command line arguments
      */
@@ -359,21 +369,23 @@ public class FrmRegister extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRegisterUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRegisterUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRegisterUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmRegisterUser.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmRegister().setVisible(true);
+                new FrmRegisterUser().setVisible(true);
             }
         });
     }
