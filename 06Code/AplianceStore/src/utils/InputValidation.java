@@ -12,14 +12,15 @@ package utils;
 public class InputValidation {
 
     public static boolean validateCharacters(String data) {
+
         boolean isCharacter = true;
-        for (int i = 0; i < data.length(); i++) {
-            char ch = data.charAt(i);
-            if (!(ch >= 'a' && ch <= 'z' || ch >= 'A' && ch <= 'Z')) {
-                isCharacter = false;
-            }
+
+        if (!data.matches("^[\\p{L} .'-]+$")) {
+            isCharacter = false;
         }
+
         return isCharacter;
+
     }
 
     public static boolean isNumber(String data) {
@@ -31,5 +32,5 @@ public class InputValidation {
             return false;
         }
     }
-    
+
 }

@@ -33,11 +33,7 @@
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane1" min="-2" pref="781" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="BtnReturn" min="-2" pref="131" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="336" max="-2" attributes="0"/>
-                              <Component id="BtnShow" min="-2" pref="171" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="BtnReturn" min="-2" pref="131" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -52,11 +48,8 @@
               <Component id="jLabel1" min="-2" pref="57" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="129" max="-2" attributes="0"/>
-              <EmptySpace pref="112" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="BtnShow" alignment="1" min="-2" pref="104" max="-2" attributes="0"/>
-                  <Component id="BtnReturn" alignment="1" min="-2" pref="77" max="-2" attributes="0"/>
-              </Group>
+              <EmptySpace pref="139" max="32767" attributes="0"/>
+              <Component id="BtnReturn" min="-2" pref="77" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -106,17 +99,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnReturnActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="BtnShow">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Mostrar"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnShowActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

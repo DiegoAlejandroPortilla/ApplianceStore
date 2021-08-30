@@ -38,12 +38,17 @@ public class FrmMenu extends javax.swing.JFrame {
         BtnContact = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        ItmAddProduct = new javax.swing.JMenu();
+        MnuProducts = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        MnuClients = new javax.swing.JMenu();
+        ItmAddClient = new javax.swing.JMenuItem();
+        ItmShowClients = new javax.swing.JMenuItem();
+        ItmEditClient = new javax.swing.JMenuItem();
+        ItmDeleteClient = new javax.swing.JMenuItem();
+        MnuUsers = new javax.swing.JMenu();
         ItmAddUser = new javax.swing.JMenuItem();
         ItmShowUsers = new javax.swing.JMenuItem();
         ItmDeleteUser = new javax.swing.JMenuItem();
@@ -111,70 +116,91 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
-        ItmAddProduct.setText("Productos");
+        MnuProducts.setText("Productos");
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem1.setText("Agregar Producto");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        ItmAddProduct.add(jMenuItem1);
+        MnuProducts.add(jMenuItem1);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem2.setText("Lista de Productos ");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        ItmAddProduct.add(jMenuItem2);
+        MnuProducts.add(jMenuItem2);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem3.setText("Editar Producto");
-        ItmAddProduct.add(jMenuItem3);
+        MnuProducts.add(jMenuItem3);
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem4.setText("Eliminar Producto ");
-        ItmAddProduct.add(jMenuItem4);
+        MnuProducts.add(jMenuItem4);
 
-        jMenuBar1.add(ItmAddProduct);
+        jMenuBar1.add(MnuProducts);
 
-        jMenu3.setText("Usuarios");
+        MnuClients.setText("Clientes");
 
-        ItmAddUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_MASK));
+        ItmAddClient.setText("Agregar Cliente");
+        ItmAddClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItmAddClientActionPerformed(evt);
+            }
+        });
+        MnuClients.add(ItmAddClient);
+
+        ItmShowClients.setText("Lista de Clientes");
+        MnuClients.add(ItmShowClients);
+
+        ItmEditClient.setText("Editar Cliente");
+        MnuClients.add(ItmEditClient);
+
+        ItmDeleteClient.setText("Eliminar Cliente");
+        MnuClients.add(ItmDeleteClient);
+
+        jMenuBar1.add(MnuClients);
+
+        MnuUsers.setText("Usuarios");
+
+        ItmAddUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_DOWN_MASK));
         ItmAddUser.setText("Agregar Usuario");
         ItmAddUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ItmAddUserActionPerformed(evt);
             }
         });
-        jMenu3.add(ItmAddUser);
+        MnuUsers.add(ItmAddUser);
 
-        ItmShowUsers.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_MASK));
+        ItmShowUsers.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_DOWN_MASK));
         ItmShowUsers.setText("Ver Usuarios ");
         ItmShowUsers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ItmShowUsersActionPerformed(evt);
             }
         });
-        jMenu3.add(ItmShowUsers);
+        MnuUsers.add(ItmShowUsers);
 
-        ItmDeleteUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.ALT_MASK));
+        ItmDeleteUser.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.ALT_DOWN_MASK));
         ItmDeleteUser.setText("Modificar Usuario");
         ItmDeleteUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ItmDeleteUserActionPerformed(evt);
             }
         });
-        jMenu3.add(ItmDeleteUser);
+        MnuUsers.add(ItmDeleteUser);
 
-        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_MASK));
+        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_DOWN_MASK));
         jMenuItem7.setText("Eliminar Usuario");
-        jMenu3.add(jMenuItem7);
+        MnuUsers.add(jMenuItem7);
 
-        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(MnuUsers);
 
         jMenu2.setText("Creditos");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -233,8 +259,8 @@ public class FrmMenu extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         FrmViewProducts frmView = new FrmViewProducts();
+        this.setVisible(false);
         frmView.setVisible(true);
-        dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
@@ -248,19 +274,29 @@ public class FrmMenu extends javax.swing.JFrame {
 
     private void ItmShowUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItmShowUsersActionPerformed
         FrmShowUsers frmShowUsers = new FrmShowUsers();
+        this.setVisible(false);
         frmShowUsers.setVisible(true);
-        dispose();
     }//GEN-LAST:event_ItmShowUsersActionPerformed
 
     private void ItmAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItmAddUserActionPerformed
          FrmAddUser frmAddUser = new FrmAddUser();
+         this.setVisible(false);
          frmAddUser.setVisible(true);
     }//GEN-LAST:event_ItmAddUserActionPerformed
 
     private void BtnCatalogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCatalogueActionPerformed
         FrmCatalogue frmCatalogue = new FrmCatalogue();
+        this.setVisible(false);
         frmCatalogue.setVisible(true);
     }//GEN-LAST:event_BtnCatalogueActionPerformed
+
+    private void ItmAddClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItmAddClientActionPerformed
+        
+        FrmRegisterClient client = new FrmRegisterClient();
+        this.setVisible(false);
+        client.setVisible(true);
+        
+    }//GEN-LAST:event_ItmAddClientActionPerformed
      
     
     /**
@@ -302,15 +338,20 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JButton BtnCatalogue;
     private javax.swing.JButton BtnContact;
     private javax.swing.JMenu BtnExit;
-    private javax.swing.JMenu ItmAddProduct;
+    private javax.swing.JMenuItem ItmAddClient;
     private javax.swing.JMenuItem ItmAddUser;
+    private javax.swing.JMenuItem ItmDeleteClient;
     private javax.swing.JMenuItem ItmDeleteUser;
+    private javax.swing.JMenuItem ItmEditClient;
+    private javax.swing.JMenuItem ItmShowClients;
     private javax.swing.JMenuItem ItmShowUsers;
+    private javax.swing.JMenu MnuClients;
+    private javax.swing.JMenu MnuProducts;
+    private javax.swing.JMenu MnuUsers;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;

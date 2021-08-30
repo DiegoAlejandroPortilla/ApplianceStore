@@ -67,6 +67,9 @@ public class FrmRegisterClient extends javax.swing.JFrame {
         lblWarningPhoneNumber = new javax.swing.JLabel();
         lblWarningAddress = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
+        lblWarningEmail = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 153));
@@ -124,6 +127,11 @@ public class FrmRegisterClient extends javax.swing.JFrame {
 
         btnBack.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
         btnBack.setText("Regresar");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         chkMen.setText("Hombre");
 
@@ -161,6 +169,13 @@ public class FrmRegisterClient extends javax.swing.JFrame {
 
         txtAddress.setToolTipText("Omitir numeros - Ej: \"Quito, Eloy Alfaro\" ");
 
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel9.setText("Email :");
+
+        lblWarningEmail.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblWarningEmail.setForeground(java.awt.Color.red);
+        lblWarningEmail.setText("*");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -172,13 +187,14 @@ public class FrmRegisterClient extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
                         .addComponent(btnBack)
                         .addGap(18, 18, 18)
                         .addComponent(btnClean)
                         .addGap(18, 18, 18)
                         .addComponent(btnSave))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -212,20 +228,22 @@ public class FrmRegisterClient extends javax.swing.JFrame {
                                         .addComponent(chkWoman)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(chkOthers)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(8, 8, 8)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20))
-                            .addComponent(txtAddress))))
+                            .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAddress)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblWarningPhoneNumber, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblWarningAddress, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblWarningPhoneNumber, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addComponent(lblWarningEmail, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,32 +259,33 @@ public class FrmRegisterClient extends javax.swing.JFrame {
                     .addComponent(lblWarningName)
                     .addComponent(lblWarningPhoneNumber))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel8)
-                            .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblWarningLastName)
-                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblWarningId))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(chkMen)
-                            .addComponent(chkWoman)
-                            .addComponent(chkOthers)
-                            .addComponent(lblWarningGender))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblWarningAge)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel8)
+                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblWarningLastName)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblWarningAddress))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblWarningId)
+                    .addComponent(jLabel9)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblWarningEmail))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(chkMen)
+                    .addComponent(chkWoman)
+                    .addComponent(chkOthers)
+                    .addComponent(lblWarningGender))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblWarningAge))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
@@ -307,6 +326,13 @@ public class FrmRegisterClient extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnSaveActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+
+        FrmMenu menu = new FrmMenu();
+        menu.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
+
     private void saveClient() throws HeadlessException, NumberFormatException {
         String name;
         String lastName;
@@ -316,19 +342,21 @@ public class FrmRegisterClient extends javax.swing.JFrame {
         String address;
         String gender;
         Client client;
+        String email;
 
         name = txtName.getText();
         lastName = txtLastName.getText();
         phoneNumber = txtPhoneNumber.getText();
         address = txtAddress.getText();
         gender = getGender();
+        email = txtEmail.getText();
 
         if (emptyValidation(gender)) {
             if (fieldsValidation(gender)) {
                 id = Integer.parseInt(txtId.getText());
                 age = Integer.parseInt(txtAge.getText());
-                client = new Client(name, lastName, id, gender, age, phoneNumber, address);
-                //saveClientsDatabase(FileManager.serializationGson(client));
+                client = new Client(name, lastName, id, gender, age, phoneNumber, address, email);
+                saveClientsDatabase(FileManager.serializationGson(client));
                 JOptionPane.showMessageDialog(this, "El registro de ha realizado correctamente");
                 setEmptyFields();
             }
@@ -349,8 +377,7 @@ public class FrmRegisterClient extends javax.swing.JFrame {
         txtsCharacters.add(txtLastName);
         txtsNumbers.add(txtId);
         txtsNumbers.add(txtAge);
-        txtsCharacters.add(txtPhoneNumber);
-        txtsCharacters.add(txtAddress);
+        txtsNumbers.add(txtPhoneNumber);
         txtsCharacters.add(txtGender);
 
         for (int i = 0; i < txtsCharacters.size(); i++) {
@@ -368,7 +395,7 @@ public class FrmRegisterClient extends javax.swing.JFrame {
         }
 
         if (validation == false) {
-            JOptionPane.showMessageDialog(this, "Por favor, Llene los campos correctamente ", "Error Fields", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Por favor, Llenar correctamente los campos ", "Error Fields", JOptionPane.WARNING_MESSAGE);
         }
         return validation;
     }
@@ -383,6 +410,7 @@ public class FrmRegisterClient extends javax.swing.JFrame {
         chkMen.setSelected(false);
         chkWoman.setSelected(false);
         chkOthers.setSelected(false);
+        txtEmail.setText("");
 
     }
 
@@ -395,6 +423,7 @@ public class FrmRegisterClient extends javax.swing.JFrame {
         lblWarningAge.setVisible(false);
         lblWarningPhoneNumber.setVisible(false);
         lblWarningAddress.setVisible(false);
+        lblWarningEmail.setVisible(false);
 
     }
 
@@ -437,6 +466,7 @@ public class FrmRegisterClient extends javax.swing.JFrame {
         txts.add(txtPhoneNumber);
         txts.add(txtAddress);
         txts.add(txtGender);
+        txts.add(txtEmail);
 
         for (int i = 0; i < txts.size(); i++) {
             if (txts.get(i).getText().trim().isEmpty()) {
@@ -453,22 +483,24 @@ public class FrmRegisterClient extends javax.swing.JFrame {
         return validation;
     }
 
-    private void getWarnings(JTextField textField, JTextField txtGender) {
+    private void getWarnings(JTextField txtField, JTextField txtGender) {
 
-        if (textField.equals(txtName)) {
+        if (txtField.equals(txtName)) {
             lblWarningName.setVisible(true);
-        } else if (textField.equals(txtLastName)) {
+        } else if (txtField.equals(txtLastName)) {
             lblWarningLastName.setVisible(true);
-        } else if (textField.equals(txtId)) {
+        } else if (txtField.equals(txtId)) {
             lblWarningId.setVisible(true);
-        } else if (textField.equals(txtAge)) {
+        } else if (txtField.equals(txtAge)) {
             lblWarningAge.setVisible(true);
-        } else if (textField.equals(txtPhoneNumber)) {
+        } else if (txtField.equals(txtPhoneNumber)) {
             lblWarningPhoneNumber.setVisible(true);
-        } else if (textField.equals(txtAddress)) {
+        } else if (txtField.equals(txtAddress)) {
             lblWarningAddress.setVisible(true);
-        } else if (txtGender.getText().trim().isEmpty()) {
+        } else if (txtField.equals(txtEmail)) {
             lblWarningGender.setVisible(true);
+        } else if (txtGender.getText().trim().isEmpty()) {
+            lblWarningEmail.setVisible(true);
         }
 
     }
@@ -523,9 +555,11 @@ public class FrmRegisterClient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblWarningAddress;
     private javax.swing.JLabel lblWarningAge;
+    private javax.swing.JLabel lblWarningEmail;
     private javax.swing.JLabel lblWarningGender;
     private javax.swing.JLabel lblWarningId;
     private javax.swing.JLabel lblWarningLastName;
@@ -533,6 +567,7 @@ public class FrmRegisterClient extends javax.swing.JFrame {
     private javax.swing.JLabel lblWarningPhoneNumber;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAge;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtName;

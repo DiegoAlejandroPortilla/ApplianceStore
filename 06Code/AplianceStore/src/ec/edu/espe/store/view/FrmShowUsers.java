@@ -13,7 +13,6 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-import static ec.edu.espe.store.view.FrmViewProducts.connection;
 import javax.swing.table.DefaultTableModel;
 import org.bson.types.ObjectId;
 
@@ -30,6 +29,7 @@ public class FrmShowUsers extends javax.swing.JFrame {
          
         connection();
         initComponents();
+        showMongo();
         this.setLocationRelativeTo(null);
     }
     public static MongoClient connection(){
@@ -59,7 +59,6 @@ public class FrmShowUsers extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TblViewUsers = new javax.swing.JTable();
         BtnReturn = new javax.swing.JButton();
-        BtnShow = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,14 +83,6 @@ public class FrmShowUsers extends javax.swing.JFrame {
             }
         });
 
-        BtnShow.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        BtnShow.setText("Mostrar");
-        BtnShow.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnShowActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,10 +96,7 @@ public class FrmShowUsers extends javax.swing.JFrame {
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 781, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(BtnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(336, 336, 336)
-                                .addComponent(BtnShow, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(BtnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -118,10 +106,8 @@ public class FrmShowUsers extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnShow, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtnReturn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                .addComponent(BtnReturn, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
         );
 
@@ -133,11 +119,7 @@ public class FrmShowUsers extends javax.swing.JFrame {
         frmMenu.setVisible(true);
         dispose();
     }//GEN-LAST:event_BtnReturnActionPerformed
-
-    private void BtnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnShowActionPerformed
-        showMongo();
-    }//GEN-LAST:event_BtnShowActionPerformed
-    public void showMongo(){
+    private void showMongo(){
         try {
             DBCursor cursor = null;
             MongoClient conection = connection();
@@ -200,7 +182,6 @@ public class FrmShowUsers extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnReturn;
-    private javax.swing.JButton BtnShow;
     private javax.swing.JTable TblViewUsers;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

@@ -18,8 +18,9 @@ public class Client {
     private int age;
     private String phoneNumber;
     private String address;
+    private String email;
 
-    public Client(String names, String lastNames, int id, String gender, int age, String phoneNumber, String address) {
+    public Client(String names, String lastNames, int id, String gender, int age, String phoneNumber, String address, String email) {
         this.names = names;
         this.lastNames = lastNames;
         this.id = id;
@@ -27,6 +28,7 @@ public class Client {
         this.age = age;
         this.phoneNumber = phoneNumber;
         this.address = address;
+        this.email = email;
     }
 
     public Client() {
@@ -37,7 +39,8 @@ public class Client {
         age = 0;
         phoneNumber = "";
         address = "";
-
+        email = "";
+        
     }
 
     /**
@@ -136,6 +139,20 @@ public class Client {
      */
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 }
