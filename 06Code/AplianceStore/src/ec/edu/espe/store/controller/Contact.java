@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package utils;
+package ec.edu.espe.store.controller;
 
 import ec.edu.espe.store.view.FrmMenu;
 import java.awt.Desktop;
@@ -23,7 +23,7 @@ public class Contact {
     try{   
         try {
                 
-                Desktop.getDesktop().browse(new URI("https://wa.me/593995047657?text=Hola,%20quisiera%20saber%20mas%20informaci%C3%B3n%20acerca%20de%20un%20producto"));
+                Desktop.getDesktop().browse(new URI("https://wa.me/593995047657?text=Hola,%20deseo%20contactarme%20con%20soporte."));
             } catch (IOException ex) {
                 Logger.getLogger(FrmMenu.class.getName()).log(Level.SEVERE, null, ex);
             }

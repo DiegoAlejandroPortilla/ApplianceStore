@@ -9,7 +9,8 @@ import ec.edu.espe.store.controller.FileUsersController;
 import ec.edu.espe.store.model.User;
 import javax.swing.JOptionPane;
 import org.bson.Document;
-import utils.ConnectionUsers;
+import utils.MongoDBManager;
+
 
 /**
  *
@@ -231,13 +232,15 @@ public class FrmAddUser extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-            saveUsersMongo();
+            addMongoUser();
             saveUserJson();
 
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-       dispose();
+        FrmMenu menu = new FrmMenu();
+        menu.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
@@ -270,14 +273,14 @@ public class FrmAddUser extends javax.swing.JFrame {
             newUser = new User(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
             userControl.saveUser(userControl.jsonSerialization(newUser));
             JOptionPane.showMessageDialog(this, "Se ha registrado correctamente");
-            saveUsersMongo();
+           addMongoUser();
             
         }else{
             JOptionPane.showMessageDialog(this, "No se pudo realizar el registro");
         }
         
     }
-    public void saveUsersMongo(){
+    public void addMongoUser(){
         
         String firstName = txtFirstName.getText();
         String lastName = txtLastName.getText();
@@ -290,11 +293,12 @@ public class FrmAddUser extends javax.swing.JFrame {
         String gender = cmbGender.getSelectedItem().toString();
         
         Document dc = new Document();
-        ConnectionUsers connectionUser = new ConnectionUsers();
+        MongoDBManager manager = new MongoDBManager();
+        manager.connect();
         dc.append("firstName",firstName).append("lastName", lastName).append("phoneNumber",phoneNumber).append("email",email).append("address", address).append("username", username).append("password", password).append("area", area).append("gender", gender);
-        connectionUser.getCollection().insertOne(dc);
-        
+        manager.getUserCollection().insertOne(dc);
     }
+   
     /**
      * @param args the command line arguments
      */
@@ -334,8 +338,8 @@ public class FrmAddUser extends javax.swing.JFrame {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnClean;
     private javax.swing.JButton btnSave;
-    private javax.swing.JComboBox<String> cmbArea;
-    private javax.swing.JComboBox<String> cmbGender;
+    public javax.swing.JComboBox<String> cmbArea;
+    public javax.swing.JComboBox<String> cmbGender;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -347,12 +351,12 @@ public class FrmAddUser extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField pwPassword;
-    private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtFirstName;
-    private javax.swing.JTextField txtLastName;
-    private javax.swing.JTextField txtPhoneNumber;
-    private javax.swing.JTextField txtUsername;
+    public javax.swing.JPasswordField pwPassword;
+    public javax.swing.JTextField txtAddress;
+    public javax.swing.JTextField txtEmail;
+    public javax.swing.JTextField txtFirstName;
+    public javax.swing.JTextField txtLastName;
+    public javax.swing.JTextField txtPhoneNumber;
+    public static javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }

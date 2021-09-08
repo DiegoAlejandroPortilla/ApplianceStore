@@ -362,6 +362,8 @@ public class FrmCatalogue extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReturnActionPerformed
+        FrmMenu menu = new FrmMenu();
+        menu.setVisible(true);
         dispose();
 
     }//GEN-LAST:event_BtnReturnActionPerformed

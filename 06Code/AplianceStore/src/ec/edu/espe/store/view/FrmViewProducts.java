@@ -37,20 +37,7 @@ public class FrmViewProducts extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         
     }
-    private static MongoClient connection(){
-    String cluster;
-    MongoClientURI uri;
-    MongoClient mongoClient;
-    MongoDatabase database; 
-    MongoCollection collection;
-    DBCursor cursor = null;
-    cluster = "mongodb+srv://NullPointers:admin123@finalproyect.6vyqq.mongodb.net/ApplianceStore?retryWrites=true&w=majority";
-        uri = new MongoClientURI(cluster);
-        mongoClient = new MongoClient(uri);
-        database= mongoClient.getDatabase("ApplianceStore");
-        collection = database.getCollection("Products");
-        return mongoClient;
-    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -173,6 +160,20 @@ public class FrmViewProducts extends javax.swing.JFrame {
             System.out.println(e.getMessage());
         }
     }
+        private static MongoClient connection(){
+         String cluster;
+         MongoClientURI uri;
+         MongoClient mongoClient;
+         MongoDatabase database; 
+         MongoCollection collection;
+         DBCursor cursor = null;
+         cluster = "mongodb+srv://NullPointers:admin123@finalproyect.6vyqq.mongodb.net/ApplianceStore?retryWrites=true&w=majority";
+             uri = new MongoClientURI(cluster);
+             mongoClient = new MongoClient(uri);
+             database= mongoClient.getDatabase("ApplianceStore");
+             collection = database.getCollection("Products");
+             return mongoClient;
+         }
     /**
      * @param args the command line arguments
      */
@@ -214,6 +215,6 @@ public class FrmViewProducts extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tbDataView;
+    public javax.swing.JTable tbDataView;
     // End of variables declaration//GEN-END:variables
 }

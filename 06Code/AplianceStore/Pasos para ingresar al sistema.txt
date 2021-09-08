@@ -1,0 +1,10 @@
+1._ Conecta a mongo db Atlas desde mongo compass 
+	1.1 Para la conexion ingresa el siguiente link en mongo compass:
+		mongodb+srv://NullPointers:admin123@finalproyect.6vyqq.mongodb.net/test
+	1.2 Seleccionar la base de datos de: "ApplainceStore"
+
+2._Para el ingreso al sistema
+	2.1 Crea un nuevo usuario 
+	2.1 Crea una nueva contraseña 
+
+3.Accede al sistema 

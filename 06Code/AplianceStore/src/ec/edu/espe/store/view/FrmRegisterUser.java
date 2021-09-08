@@ -9,8 +9,8 @@ import ec.edu.espe.store.controller.FileUsersController;
 import ec.edu.espe.store.model.User;
 import javax.swing.JOptionPane;
 import org.bson.Document;
-import utils.ConnectionUsers;
 import utils.FileManager;
+import utils.MongoDBManager;
 
 /**
  *
@@ -334,7 +334,7 @@ public class FrmRegisterUser extends javax.swing.JFrame {
 
         Document dc;
 
-        ConnectionUsers connectionUser = new ConnectionUsers();
+        MongoDBManager manager = new MongoDBManager();
 
         String firstName = txtFirstName.getText();
         String lastName = txtLastName.getText();
@@ -348,7 +348,7 @@ public class FrmRegisterUser extends javax.swing.JFrame {
 
         User user = new User(username, firstName, lastName, phoneNumber, email, address, gender, password, area);
         dc = Document.parse(FileManager.serializationGson(user));
-        connectionUser.getCollection().insertOne(dc);
+        manager.getUserCollection().insertOne(dc);
 
     }
 

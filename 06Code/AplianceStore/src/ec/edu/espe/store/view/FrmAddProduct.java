@@ -11,7 +11,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import org.bson.Document;
-import utils.Connection;
+import utils.MongoDBManager;
 
 /**
  *
@@ -229,7 +229,12 @@ public class FrmAddProduct extends javax.swing.JFrame {
 
     private void btnaddBlenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddBlenderActionPerformed
         addProduct();
-        JOptionPane.showMessageDialog(null, "Añadido con exito!");
+        JOptionPane.showMessageDialog(rootPane, "Se han agregado los datos con exito revise la base de datos");
+        txtSerialNumber.setText("");
+        txtPrice.setText("");
+        txtModel.setText("");
+        txtSize.setText("");
+        txtBrand.setText("");
         
     }//GEN-LAST:event_btnaddBlenderActionPerformed
 
@@ -285,6 +290,7 @@ public class FrmAddProduct extends javax.swing.JFrame {
         String brand;
         String type;
         
+        
         serialNumber=txtSerialNumber.getText();
         price = txtPrice.getText();
         model = txtModel.getText();
@@ -295,10 +301,10 @@ public class FrmAddProduct extends javax.swing.JFrame {
         
         
         Document dc = new Document();
-        Connection conection = new Connection();
+        MongoDBManager manager = new MongoDBManager();
+        manager.connect();
         dc.append("type",type).append("serialNumber", serialNumber).append("price",price).append("model",model).append("size", size).append("brand", brand);
-        conection.getCollection().insertOne(dc);
-        JOptionPane.showMessageDialog(rootPane, "Se han agregado los datos con exito revise la base de datos");
+        manager.getCollection().insertOne(dc);
         }
     
     /**
@@ -342,7 +348,7 @@ public class FrmAddProduct extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBlenderReturn;
     private javax.swing.JButton btnaddBlender;
-    private javax.swing.JComboBox<String> cmbType;
+    public javax.swing.JComboBox<String> cmbType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -353,10 +359,10 @@ public class FrmAddProduct extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lbProducts;
-    private javax.swing.JTextField txtBrand;
-    private javax.swing.JTextField txtModel;
-    private javax.swing.JTextField txtPrice;
-    private javax.swing.JTextField txtSerialNumber;
-    private javax.swing.JTextField txtSize;
+    public javax.swing.JTextField txtBrand;
+    public javax.swing.JTextField txtModel;
+    public javax.swing.JTextField txtPrice;
+    public javax.swing.JTextField txtSerialNumber;
+    public javax.swing.JTextField txtSize;
     // End of variables declaration//GEN-END:variables
 }
